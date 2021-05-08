@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="搭建博客, Hexo">
+    <meta name="keywords" content="搭建博客, DYL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>搭建博客 | Hexo</title>
+    <title>搭建博客 | DYL</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -43,7 +43,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Hexo</span>
+                    <span class="logo-span">DYL</span>
                 </a>
             </div>
             
@@ -142,7 +142,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Hexo</div>
+        <div class="logo-name">DYL</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -459,6 +459,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -470,19 +473,20 @@
 <p>默认情况下安装模块的时候会装在C盘，占用C盘的空间，还有可能导致hexo无法使用，需要设置npm</p>
 <p>在nodejs的安装位置创建两个文件夹<strong>node_cache</strong> 和 <strong>node_global</strong></p>
 <p><img src="/2021/05/07/Blog_building/image-20210507215534810.png" alt="image-20210507215534810"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;G:\Program Files\nodejs\node_global&quot;</span><br><span class="line">npm config set cache &quot;G:\Program Files\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm config set prefix &quot;G:\Program Files\nodejs\node_global&quot;
+npm config set cache &quot;G:\Program Files\nodejs\node_cache&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>在<strong>系统变量</strong>中新建一个变量为“NODE_PATH”，值为G:\Program Files\nodejs\modules</p>
 <p>然后编辑<strong>用户变量</strong>里的Path，将相应npm的路径<strong>修改</strong>为：G:\Program Files\nodejs\node_global</p>
 <p>在 <strong>cmd</strong> 命令下执行 npm install webpack -g </p>
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装Hexo，首先在任意盘建立一个工作文件夹，点开工作文件夹，鼠标右键打开 Git Bush Here，输入npm命令安装Hexo：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g hexo-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在该工作目录下初始化博客：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在该工作目录下静态部署：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo g <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这时网页已经部署完成，输入 hexo s 命令可以查看</p>
 <p><img src="/2021/05/07/Blog_building/image-20210507220552801.png" alt="image-20210507220552801"></p>
@@ -494,10 +498,12 @@
 <p>repo 来自于：</p>
 <p><img src="/2021/05/07/Blog_building/image-20210507221632256.png" alt="image-20210507221632256"></p>
 <p>然后回到 Blog 文件夹中，打开 Git Bash，安装<strong>Git部署插件</strong>，输入命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public</span><br><span class="line">hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)</span><br><span class="line">hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public
+hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)
+hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>完成以后，打开浏览器，输入 <a href="https://link.zhihu.com/?target=https://fengye97.github.io/">https://xxx.github.io</a> 就可以打开你的网页了，例如我的就是：<a href="https://d-light-d.github.io/">https://d-light-d.github.io</a></p>
 
@@ -733,30 +739,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/07/Blog_building/">
+                <a href="/2021/05/08/system-V-IPC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux进程间通信-System V IPC">
                         
-                        <span class="card-title">搭建博客</span>
+                        <span class="card-title">Linux进程间通信-System V IPC</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            软件安装到环境配置与使用
+                            System V引入了三种高级进程间的通信进制：消息队列、共享内存、信号量，IPC对象(消息队列、共享内存和信号量)存在于内核中而不是文件系统中，由用户控制释放，不像管道的释放由内核控制，IPC对象通过其标识符来引用和访问，所有IPC对象在内核空间有唯一性标志ID，在用户空间的唯一性标识符称为key
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -765,7 +770,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -798,7 +802,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            DYL
                             
                         </span>
                     </div>
@@ -944,7 +948,7 @@
                 <span id="year">2019-2021</span>
             
             <span id="year">2019</span>
-            <a href="/about" target="_blank">John Doe</a>
+            <a href="/about" target="_blank">DYL</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
