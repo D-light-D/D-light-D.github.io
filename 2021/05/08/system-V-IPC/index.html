@@ -891,7 +891,7 @@ $ <span class="token function">cat</span> /proc/sys/kernel/shmmni<span aria-hidd
 <h2 id="System-V-消息队列"><a href="#System-V-消息队列" class="headerlink" title="System V 消息队列"></a>System V 消息队列</h2><blockquote>
 <p><strong>概述</strong>：消息队列可以认为是一个消息链表，System V 消息队列使用消息队列标识符标识。具有足够特权的任何进程都可以往一个队列放置一个消息，具有足够特权的任何进程都可以从一个给定队列读出一个消息。在某个进程往一个队列写入消息之前，并不需要另外某个进程在该队列上等待消息的到达。System V 消息队列是随内核持续的，只有在内核重起或者显示删除一个消息队列时，该消息队列才会真正被删除。可以将内核中的某个特定的消息队列画为一个消息链表</p>
 </blockquote>
-<img src="/2021/05/08/system-V-IPC/image-20210418175625310.png" alt="image-20210418175625310" style="zoom:80%;">
+<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418175625310.png" alt="image-20210418175625310" style="zoom:80%;">
 
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 对于系统中每个消息队列，内核维护一个msqid_ds的信息结构</span>
 <span class="token keyword">struct</span> <span class="token class-name">msqid_ds</span>
@@ -1081,11 +1081,11 @@ $ <span class="token function">cat</span> /proc/sys/kernel/shmmni<span aria-hidd
 <blockquote>
 <p>server运行后</p>
 </blockquote>
-<p><img src="/2021/05/08/system-V-IPC/image-20210418203323877.png" alt="image-20210418203323877"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418203323877.png" alt="image-20210418203323877"></p>
 <blockquote>
 <p>cilent运行后</p>
 </blockquote>
-<p><img src="/2021/05/08/system-V-IPC/image-20210418203459841.png" alt="image-20210418203459841"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418203459841.png" alt="image-20210418203459841"></p>
 <hr>
 <h2 id="System-V-信号量"><a href="#System-V-信号量" class="headerlink" title="System V 信号量"></a>System V 信号量</h2><blockquote>
 <p><strong>semget</strong>函数</p>
@@ -1119,7 +1119,7 @@ $ <span class="token function">cat</span> /proc/sys/kernel/shmmni<span aria-hidd
     <span class="token class-name">pid_t</span>           sempid<span class="token punctuation">;</span>   <span class="token comment">/* ID of process that did last op */</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<img src="/2021/05/08/system-V-IPC/image-20210420160351727.png" alt="image-20210420160351727" style="zoom: 80%;">
+<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210420160351727.png" alt="image-20210420160351727" style="zoom: 80%;">
 
 <blockquote>
 <p><strong>semop函数</strong></p>
@@ -1337,7 +1337,7 @@ $ <span class="token function">cat</span> /proc/sys/kernel/shmmni<span aria-hidd
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>  
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="/2021/05/08/system-V-IPC/image-20210420172509023.png" alt="image-20210420172509023"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210420172509023.png" alt="image-20210420172509023"></p>
 
                 
             </div>
