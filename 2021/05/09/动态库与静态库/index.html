@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HTTP协议, DYL">
+    <meta name="keywords" content="Linux静态库和动态库, DYL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTTP协议 | DYL</title>
+    <title>Linux静态库和动态库 | DYL</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -247,7 +247,7 @@
 <script src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HTTP协议</h1>
+                    <h1 class="description center-align post-title">Linux静态库和动态库</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/http/">
-                                <span class="chip bg-color">http</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -397,7 +397,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-08
+                    2021-05-09
                 </div>
                 
 
@@ -411,7 +411,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    560
+                    670
                 </div>
                 
 
@@ -441,90 +441,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><ul>
-<li>请求行<ul>
-<li>请求方法：GET、POST、HEAD、OPTIONS、TRACE 等等<ul>
-<li>HEAD：比如我们只是确认一个内容是否正常存在，不需要返回照片内容，这时候用HEAD比较合适</li>
-<li>TRACE：是你用了代理上网，比如用代理访问new.163.com，你想看看代理有没有修改你的HTTP请求。可以用TRACE来测试一些，163.com的服务器就会把最后收到的请求返回给你</li>
-<li>这些请求方法虽然HTTP协议里规定的，但WEB SERVER未必允许或支持这些方法，OPTIONS是返回服务器可用的请求方法</li>
-</ul>
-</li>
-<li>请求路径（即请求的相对路径）</li>
-<li>请求协议：HTTP/1.1、HTTP/1.0 等等</li>
-</ul>
-</li>
-<li>请求头信息<ul>
-<li>HOST（必须）</li>
-<li>Cookie（模拟登录）</li>
-<li>Content-Type（POST必须）</li>
-<li>Content-Length（POST必须）</li>
-<li>Referer（代表网页的来源，即上一页的地址，如果直接在浏览器上输入网址进来，则没有Referer信息，这也是为什么服务器我们的图片是从哪里引用的，也知道我们的客户从哪个网站链接点击过来的）</li>
-<li>Others</li>
-</ul>
-</li>
-<li>请求主体信息（POST必须）<ul>
-<li>JSON</li>
-<li>XML</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>注意：请求头与请求主体之间必须要有一个空行隔开</p>
-<p>GET和POST请求最常用</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>请求行与请求头信息：GET实例</p>
-</blockquote>
-<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">GET &#x2F; HTTP&#x2F;1.1
-HOST:localhost
-csrftoken:......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="Linux静态库与动态库"><a href="#Linux静态库与动态库" class="headerlink" title="Linux静态库与动态库"></a>Linux静态库与动态库</h2><h3 id="生成静态库"><a href="#生成静态库" class="headerlink" title="生成静态库"></a>生成静态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 默认生成对应的.o文件，注意c文件中不要把main函数包含进来</span>
+gcc <span class="token punctuation">.</span>c文件 <span class="token operator">-</span>c <span class="token comment">//例如：gcc test.c -c</span>
+    
+<span class="token comment">// 将生成的.o文件打包，静态库的名称命名规则：lib + 库的名字 + .a</span>
+<span class="token comment">// 例如：静态库的名称可以为libtest.a、libmytest.a、libhaha.a</span>
+ar rcs <span class="token operator">+</span> 静态库的名称 <span class="token operator">+</span> 生成的<span class="token punctuation">.</span>o文件 <span class="token comment">// 例如：ar rcs libtest.a test.o</span>
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="使用静态库"><a href="#使用静态库" class="headerlink" title="使用静态库"></a>使用静态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// -L 指定静态库的目录</span>
+<span class="token comment">// -l 指定静态库目录中的哪个静态库，指定库时不能写前缀lib，也不能写后缀名.a</span>
+<span class="token comment">// -I 指定头文件</span>
+<span class="token comment">// -o 自定义生成可执行文件的名字</span>
+gcc main<span class="token punctuation">.</span>c <span class="token operator">-</span>I include <span class="token operator">-</span>L lib <span class="token operator">-</span>l mylib <span class="token operator">-</span>o build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
-<blockquote>
-<p>请求行与请求头信息：POST实例</p>
-</blockquote>
-<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">POST &#x2F; HTTP&#x2F;1.1
-HOST:localhost
-csrftoken:......
-Content-Length:20
-Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="静态库的优点"><a href="#静态库的优点" class="headerlink" title="静态库的优点"></a>静态库的优点</h3><ul>
+<li>运行程序的时候不再需要对应的库</li>
+<li>运行程序快，因为对应的函数都被打包进了程序</li>
+</ul>
+<h3 id="静态库的缺点"><a href="#静态库的缺点" class="headerlink" title="静态库的缺点"></a>静态库的缺点</h3><ul>
+<li>库被打包进程序中，导致可执行文件的大小变大</li>
+<li>当库更新之后，要使用该库必须重新编译程序</li>
+</ul>
+<hr>
+<h3 id="生成动态库"><a href="#生成动态库" class="headerlink" title="生成动态库"></a>生成动态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 生成与位置无关的.o</span>
+<span class="token comment">// -I 指定头文件</span>
+gcc <span class="token operator">-</span>fPIC <span class="token operator">-</span>c <span class="token punctuation">.</span>c文件 <span class="token operator">-</span>I 头文件目录 <span class="token comment">// 例如：gcc -fPIC -c *.c -I include</span>
+<span class="token comment">// 将.o打包成动态库，动态库命名规则：lib + 库文件 +.so </span>
+gcc <span class="token operator">-</span>shared <span class="token operator">-</span>o libmytest<span class="token punctuation">.</span>so <span class="token punctuation">.</span>o文件 <span class="token operator">-</span>I 头文件目录 <span class="token comment">// 例如：gcc -shared -o libtest.so *.o -I include</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="共享库使用"><a href="#共享库使用" class="headerlink" title="共享库使用"></a>共享库使用</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// -L 指定静态库的目录</span>
+<span class="token comment">// -l 指定静态库目录中的哪个静态库，指定库时不能写前缀lib，也不能写后缀名.a</span>
+<span class="token comment">// -I 指定头文件</span>
+<span class="token comment">// -o 自定义生成可执行文件的名字</span>
+gcc main<span class="token punctuation">.</span>c <span class="token operator">-</span>I include <span class="token operator">-</span>L lib <span class="token operator">-</span>l mylib <span class="token operator">-</span>o build
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 使用了动态库的可执行文件运行时都要链接库，必须告知库的位置</span>
+<span class="token comment"># 方法一：该方法是临时设置，设置LD_LIBRARY_PATH环境变量，程序运行时会查找LD_LIBRARY_PATH环境变量的值，能根据这个值来查找动态库</span>
+<span class="token builtin class-name">echo</span> <span class="token variable">$LD_LIBRARY_PATH</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span>:库的路径 <span class="token comment">#例如：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/whn/mylib</span>
+
+<span class="token comment"># 方法二：设置用户目录下的bashrc配置文件，在最后一行加入</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span>:库的路径 <span class="token comment">#例如：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/whn/mylib</span>
+
+<span class="token comment"># 方法三：修改动态链接器的配置文件,将动态库的路径写到配置文件中</span>
+<span class="token function">sudo</span> <span class="token function">vi</span> /etc/ld.so.conf
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
-<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><ul>
-<li>响应行<ul>
-<li>协议版本</li>
-<li>状态码<ul>
-<li>1XX：接受到请求，继续处理</li>
-<li>2XX：请求成功</li>
-<li>3XX：请求重定向<ul>
-<li>302：请求被临时重定向到另一个地址</li>
-<li>304：Not Modifiled（资源未修改，从本地取缓存）</li>
-<li>301：请求被永久重定向到另一个地址</li>
-<li>307：重定向中保持原有的post数据，防止数据丢失</li>
+<h3 id="动态库优点"><a href="#动态库优点" class="headerlink" title="动态库优点"></a>动态库优点</h3><ul>
+<li>执行程序的大小很小</li>
+<li>动态库更新之后，如果函数接口没有改变，不需要重新编译文件</li>
 </ul>
-</li>
-<li>4XX：客户端请求错误<ul>
-<li>404：没有找到请求文件</li>
-<li>403：客户端访问错误</li>
-</ul>
-</li>
-<li>5XX：服务端出现问题<ul>
-<li>503：服务器暂时不可用</li>
-<li>500：服务器内部错误</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>状态文字：对于状态码的文字解释</li>
-</ul>
-</li>
-<li>响应头信息</li>
-<li>响应主体信息<ul>
-<li>文本</li>
-<li>二进制文件</li>
-</ul>
-</li>
+<h3 id="动态库缺点"><a href="#动态库缺点" class="headerlink" title="动态库缺点"></a>动态库缺点</h3><ul>
+<li>执行程序时必须链接对应的库</li>
+<li>加载速度没有静态库快</li>
 </ul>
 
                 
@@ -552,7 +527,7 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/08/http%E5%8D%8F%E8%AE%AE/">https://d-light-d.github.io/2021/05/08/http%E5%8D%8F%E8%AE%AE/</a>
+                    <a href="https://d-light-d.github.io/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/">https://d-light-d.github.io/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,8 +565,8 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/http/">
-                                    <span class="chip bg-color">http</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -763,9 +738,56 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg" class="responsive-img" alt="Linux静态库和动态库">
+                        
+                        <span class="card-title">Linux静态库和动态库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            该文总结了在Linux系统下如何进行静态库与动态库的生成与使用，简言总结了静态库与动态库的优缺点
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            dyl
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/05/08/%E7%AE%97%E6%B3%95%E6%8E%92%E5%BA%8F/">
                     <div class="card-image">
@@ -783,51 +805,6 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            dyl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/05/08/system-V-IPC/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/9.jpg" class="responsive-img" alt="Linux进程间通信-System V IPC">
-                        
-                        <span class="card-title">Linux进程间通信-System V IPC</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            System V引入了三种高级进程间的通信进制：消息队列、共享内存、信号量，IPC对象(消息队列、共享内存和信号量)存在于内核中而不是文件系统中，由用户控制释放，不像管道的释放由内核控制，IPC对象通过其标识符来引用和访问，所有IPC对象在内核空间有唯一性标志ID，在用户空间的唯一性标识符称为key
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
                             </span>
@@ -842,8 +819,8 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/">
-                        <span class="chip bg-color">Linux进程通信</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
