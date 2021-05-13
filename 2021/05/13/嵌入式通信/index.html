@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="HTTP协议, DYL">
+    <meta name="keywords" content="串口通信, DYL">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>HTTP协议 | DYL</title>
+    <title>串口通信 | DYL</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">HTTP协议</h1>
+                    <h1 class="description center-align post-title">串口通信</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/http/">
-                                <span class="chip bg-color">http</span>
+                            <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                                <span class="chip bg-color">通信</span>
                             </a>
                         
                     </div>
@@ -397,28 +397,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-08
+                    2021-05-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-11
+                    2021-05-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    560
+                    948
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -441,90 +441,128 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><ul>
-<li>请求行<ul>
-<li>请求方法：GET、POST、HEAD、OPTIONS、TRACE 等等<ul>
-<li>HEAD：比如我们只是确认一个内容是否正常存在，不需要返回照片内容，这时候用HEAD比较合适</li>
-<li>TRACE：是你用了代理上网，比如用代理访问new.163.com，你想看看代理有没有修改你的HTTP请求。可以用TRACE来测试一些，163.com的服务器就会把最后收到的请求返回给你</li>
-<li>这些请求方法虽然HTTP协议里规定的，但WEB SERVER未必允许或支持这些方法，OPTIONS是返回服务器可用的请求方法</li>
+                <h2 id="通信简介"><a href="#通信简介" class="headerlink" title="通信简介"></a>通信简介</h2><blockquote>
+<p> 在计算机的设备与设备之间或集成电路之间常常需要进行数据传输</p>
+</blockquote>
+<ul>
+<li>并行通讯：多位同时传输，例如：SDIO、FSMC</li>
+<li>串行通讯：一位一位传输，例如：USART、I<sup>2</sup>C、SPI</li>
 </ul>
-</li>
-<li>请求路径（即请求的相对路径）</li>
-<li>请求协议：HTTP/1.1、HTTP/1.0 等等</li>
-</ul>
-</li>
-<li>请求头信息<ul>
-<li>HOST（必须）</li>
-<li>Cookie（模拟登录）</li>
-<li>Content-Type（POST必须）</li>
-<li>Content-Length（POST必须）</li>
-<li>Referer（代表网页的来源，即上一页的地址，如果直接在浏览器上输入网址进来，则没有Referer信息，这也是为什么服务器我们的图片是从哪里引用的，也知道我们的客户从哪个网站链接点击过来的）</li>
-<li>Others</li>
-</ul>
-</li>
-<li>请求主体信息（POST必须）<ul>
-<li>JSON</li>
-<li>XML</li>
-</ul>
-</li>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>串行通讯</th>
+<th>并行通讯</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>通讯距离</td>
+<td>较远</td>
+<td>较近</td>
+</tr>
+<tr>
+<td>抗干扰能力</td>
+<td>较强</td>
+<td>较弱</td>
+</tr>
+<tr>
+<td>传输速率</td>
+<td>较慢</td>
+<td>较快</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>较低</td>
+<td>较高</td>
+</tr>
+</tbody></table>
+<ul>
+<li>全双工：可同时收发数据</li>
+<li>半双工：不可同时收发数据，可分时收发数据</li>
+<li>单工：任何时刻都只能往某一个固定方向传输数据</li>
 </ul>
 <blockquote>
-<p>注意：请求头与请求主体之间必须要有一个空行隔开</p>
-<p>GET和POST请求最常用</p>
+<p>保证数据传输的准确性：同步与异步</p>
+<p>有时钟信号的就是同步，没有时钟信号的就是异步</p>
 </blockquote>
+<p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯不需要时钟</p>
+<blockquote>
+<p>通讯的速率</p>
+</blockquote>
+<ul>
+<li>比特率：每秒钟传输的二进制的位数，单位为比特每秒</li>
+<li>波特率：表示每秒中上传输的码元个数</li>
+</ul>
+<blockquote>
+<p>码元有些时候用一个二进制位表示，在这个时候与比特率相同，但是有些时候码元用多个二进制位表示</p>
+</blockquote>
+<h2 id="串口通信协议"><a href="#串口通信协议" class="headerlink" title="串口通信协议"></a>串口通信协议</h2><ul>
+<li>物理层：规定通讯系统中具有机械、电子功能部分的特性，确保原始数据在物理媒体的传输，其实就是硬件部分</li>
+<li>协议层：协议层主要规定通讯逻辑，统一收发双方的数据打包、解压标准。其实就是软件部分</li>
+</ul>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><blockquote>
+<p>RS232标准</p>
+</blockquote>
+<p>RS232与TTL的区别主要体现在电平上，TTL电平直接从芯片或单片机或外设出来的，TTL电平高电平主要是5V或者3.3V；RS233表示1是以-15V表示，而0是用15V表示，高电平与低电平的差距非常大 </p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513105240821.png" alt="image-20210513105240821"></p>
+<blockquote>
+<p>RS232标准串口通讯结构图</p>
+</blockquote>
+<p>RS232标准串口高电平与低电平差距很大，容错能力非常强</p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110014935.png" alt="image-20210513110014935"></p>
+<ul>
+<li>RS232标准串口主要用于工业设备直接通信</li>
+<li>电平转换芯片一般有MAX3232，SP3232</li>
+</ul>
+<blockquote>
+<p>DB9标准的公头及母头接法</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110245938.png" alt="image-20210513110245938"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110601358.png" alt="image-20210513110601358"></p>
 <hr>
 <blockquote>
-<p>请求行与请求头信息：GET实例</p>
+<p>USB转串口通讯</p>
 </blockquote>
-<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">GET &#x2F; HTTP&#x2F;1.1
-HOST:localhost
-csrftoken:......<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<ul>
+<li>USB转串口主要用于设备跟电脑通信</li>
+<li>电平转换芯片一般有CH340、PL2303、CP2102、FT232</li>
+<li>使用的时候电脑端需要安装电平转换芯片的驱动</li>
+</ul>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110750731.png" alt="image-20210513110750731"></p>
+<p>将TTL电平通过电平转换芯片转换为USB电平</p>
+<blockquote>
+<p> USB转串口线</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513114925657.png" alt="image-20210513114925657"></p>
 <hr>
 <blockquote>
-<p>请求行与请求头信息：POST实例</p>
+<p>原生的串口到串口通讯</p>
 </blockquote>
-<pre class="line-numbers language-php+HTML" data-language="php+HTML"><code class="language-php+HTML">POST &#x2F; HTTP&#x2F;1.1
-HOST:localhost
-csrftoken:......
-Content-Length:20
-Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h2 id="HTTP响应"><a href="#HTTP响应" class="headerlink" title="HTTP响应"></a>HTTP响应</h2><ul>
-<li>响应行<ul>
-<li>协议版本</li>
-<li>状态码<ul>
-<li>1XX：接受到请求，继续处理</li>
-<li>2XX：请求成功</li>
-<li>3XX：请求重定向<ul>
-<li>302：请求被临时重定向到另一个地址</li>
-<li>304：Not Modifiled（资源未修改，从本地取缓存）</li>
-<li>301：请求被永久重定向到另一个地址</li>
-<li>307：重定向中保持原有的post数据，防止数据丢失</li>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513115408445.png" alt="image-20210513115408445"></p>
+<ul>
+<li>原生的串口通信主要是控制器跟串口的设备或者传感器通信，不需要经过电平转换芯片来转换电平，直接用TTL电平通信</li>
+<li>GPS模块、GSM模块、串口转WIFI模块、HC04蓝牙模块都是直接就是TTL电平</li>
 </ul>
-</li>
-<li>4XX：客户端请求错误<ul>
-<li>404：没有找到请求文件</li>
-<li>403：客户端访问错误</li>
+<h3 id="协议层"><a href="#协议层" class="headerlink" title="协议层"></a>协议层</h3><blockquote>
+<p>串口数据包的基本组成</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513120014820.png" alt="image-20210513120014820"></p>
+<ul>
+<li>起始位：由1个逻辑0的数据位表示</li>
+<li>结束位：由0.5、1、1.5或2个逻辑1的数据位表示</li>
+<li>有效数据：在起始位后紧接着的就是有效数据，有效数据的长度常被约定为5、6、7或8位长度</li>
+<li>校验位：提高数据的抗干扰能力</li>
 </ul>
-</li>
-<li>5XX：服务端出现问题<ul>
-<li>503：服务器暂时不可用</li>
-<li>500：服务器内部错误</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>状态文字：对于状态码的文字解释</li>
-</ul>
-</li>
-<li>响应头信息</li>
-<li>响应主体信息<ul>
-<li>文本</li>
-<li>二进制文件</li>
-</ul>
-</li>
+<blockquote>
+<p><strong>校验位</strong></p>
+</blockquote>
+<ul>
+<li>奇校验：有效数据和校验位中“1”的个数为奇数</li>
+<li>偶校验：有效数据和校验位中“1”的个数为偶数</li>
+<li>0校验：不管有效数据中的内容是什么，校验位总为“0”</li>
+<li>校验：不管有效数据中的内容是什么，校验位总为“1”</li>
+<li>无校验：就是数据包中不含校验位</li>
 </ul>
 
                 
@@ -552,7 +590,7 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/08/http%E5%8D%8F%E8%AE%AE/">https://d-light-d.github.io/2021/05/08/http%E5%8D%8F%E8%AE%AE/</a>
+                    <a href="https://d-light-d.github.io/2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/">https://d-light-d.github.io/2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -590,8 +628,8 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/http/">
-                                    <span class="chip bg-color">http</span>
+                                <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                                    <span class="chip bg-color">通信</span>
                                 </a>
                             
                         </div>
@@ -763,29 +801,30 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/">
+                <a href="/2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg" class="responsive-img" alt="Linux扩容根分区（非lvm）">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/0.jpg" class="responsive-img" alt="串口通信">
                         
-                        <span class="card-title">Linux扩容根分区（非lvm）</span>
+                        <span class="card-title">串口通信</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文章描述当Linux根分区空间不够的情况下，如何进行扩容，在Ubuntu的操作与centos下的操作，大同小异，本文未进行标注的表示操作都一样；不同之处本文都进行了标注，该方法来源于网络
+                            在计算机的设备与设备之间或集成电路之间常常需要进行数据传输，该文章包含各种通讯的基本概念以及USART的通讯协议，本文来自于b站视频总结
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -794,11 +833,12 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux%E6%A0%B9%E6%89%A9%E5%AE%B9/">
-                        <span class="chip bg-color">Linux根扩容</span>
+                    <a href="/tags/%E9%80%9A%E4%BF%A1/">
+                        <span class="chip bg-color">通信</span>
                     </a>
                     
                 </div>
@@ -812,24 +852,24 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/08/system-V-IPC/">
+                <a href="/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/9.jpg" class="responsive-img" alt="Linux进程间通信-System V IPC">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg" class="responsive-img" alt="Linux静态库和动态库">
                         
-                        <span class="card-title">Linux进程间通信-System V IPC</span>
+                        <span class="card-title">Linux静态库和动态库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            System V引入了三种高级进程间的通信进制：消息队列、共享内存、信号量，IPC对象(消息队列、共享内存和信号量)存在于内核中而不是文件系统中，由用户控制释放，不像管道的释放由内核控制，IPC对象通过其标识符来引用和访问，所有IPC对象在内核空间有唯一性标志ID，在用户空间的唯一性标识符称为key
+                            该文总结了在Linux系统下如何进行静态库与动态库的生成与使用，简言总结了静态库与动态库的优缺点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
                             </span>
                         <span class="publish-author">
                             
@@ -842,8 +882,8 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/">
-                        <span class="chip bg-color">Linux进程通信</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>

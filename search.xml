@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>串口通信</title>
+      <link href="2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/"/>
+      <url>2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="通信简介"><a href="#通信简介" class="headerlink" title="通信简介"></a>通信简介</h2><blockquote><p> 在计算机的设备与设备之间或集成电路之间常常需要进行数据传输</p></blockquote><ul><li>并行通讯：多位同时传输，例如：SDIO、FSMC</li><li>串行通讯：一位一位传输，例如：USART、I<sup>2</sup>C、SPI</li></ul><table><thead><tr><th>特性</th><th>串行通讯</th><th>并行通讯</th></tr></thead><tbody><tr><td>通讯距离</td><td>较远</td><td>较近</td></tr><tr><td>抗干扰能力</td><td>较强</td><td>较弱</td></tr><tr><td>传输速率</td><td>较慢</td><td>较快</td></tr><tr><td>成本</td><td>较低</td><td>较高</td></tr></tbody></table><ul><li>全双工：可同时收发数据</li><li>半双工：不可同时收发数据，可分时收发数据</li><li>单工：任何时刻都只能往某一个固定方向传输数据</li></ul><blockquote><p>保证数据传输的准确性：同步与异步</p><p>有时钟信号的就是同步，没有时钟信号的就是异步</p></blockquote><p>在同步通讯中，数据信号所传输的内容绝大部分就是有效数据，而异步通讯中会包含有帧的各种标识符，所以同步通讯的效率更高，但是同步通讯双方的时钟允许误差较小，而异步通讯不需要时钟</p><blockquote><p>通讯的速率</p></blockquote><ul><li>比特率：每秒钟传输的二进制的位数，单位为比特每秒</li><li>波特率：表示每秒中上传输的码元个数</li></ul><blockquote><p>码元有些时候用一个二进制位表示，在这个时候与比特率相同，但是有些时候码元用多个二进制位表示</p></blockquote><h2 id="串口通信协议"><a href="#串口通信协议" class="headerlink" title="串口通信协议"></a>串口通信协议</h2><ul><li>物理层：规定通讯系统中具有机械、电子功能部分的特性，确保原始数据在物理媒体的传输，其实就是硬件部分</li><li>协议层：协议层主要规定通讯逻辑，统一收发双方的数据打包、解压标准。其实就是软件部分</li></ul><h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><blockquote><p>RS232标准</p></blockquote><p>RS232与TTL的区别主要体现在电平上，TTL电平直接从芯片或单片机或外设出来的，TTL电平高电平主要是5V或者3.3V；RS233表示1是以-15V表示，而0是用15V表示，高电平与低电平的差距非常大 </p><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513105240821.png" alt="image-20210513105240821"></p><blockquote><p>RS232标准串口通讯结构图</p></blockquote><p>RS232标准串口高电平与低电平差距很大，容错能力非常强</p><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110014935.png" alt="image-20210513110014935"></p><ul><li>RS232标准串口主要用于工业设备直接通信</li><li>电平转换芯片一般有MAX3232，SP3232</li></ul><blockquote><p>DB9标准的公头及母头接法</p></blockquote><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110245938.png" alt="image-20210513110245938"></p><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110601358.png" alt="image-20210513110601358"></p><hr><blockquote><p>USB转串口通讯</p></blockquote><ul><li>USB转串口主要用于设备跟电脑通信</li><li>电平转换芯片一般有CH340、PL2303、CP2102、FT232</li><li>使用的时候电脑端需要安装电平转换芯片的驱动</li></ul><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513110750731.png" alt="image-20210513110750731"></p><p>将TTL电平通过电平转换芯片转换为USB电平</p><blockquote><p> USB转串口线</p></blockquote><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513114925657.png" alt="image-20210513114925657"></p><hr><blockquote><p>原生的串口到串口通讯</p></blockquote><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513115408445.png" alt="image-20210513115408445"></p><ul><li>原生的串口通信主要是控制器跟串口的设备或者传感器通信，不需要经过电平转换芯片来转换电平，直接用TTL电平通信</li><li>GPS模块、GSM模块、串口转WIFI模块、HC04蓝牙模块都是直接就是TTL电平</li></ul><h3 id="协议层"><a href="#协议层" class="headerlink" title="协议层"></a>协议层</h3><blockquote><p>串口数据包的基本组成</p></blockquote><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210513120014820.png" alt="image-20210513120014820"></p><ul><li>起始位：由1个逻辑0的数据位表示</li><li>结束位：由0.5、1、1.5或2个逻辑1的数据位表示</li><li>有效数据：在起始位后紧接着的就是有效数据，有效数据的长度常被约定为5、6、7或8位长度</li><li>校验位：提高数据的抗干扰能力</li></ul><blockquote><p><strong>校验位</strong></p></blockquote><ul><li>奇校验：有效数据和校验位中“1”的个数为奇数</li><li>偶校验：有效数据和校验位中“1”的个数为偶数</li><li>0校验：不管有效数据中的内容是什么，校验位总为“0”</li><li>校验：不管有效数据中的内容是什么，校验位总为“1”</li><li>无校验：就是数据包中不含校验位</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 通信 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux静态库和动态库</title>
       <link href="2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/"/>
       <url>2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/</url>
@@ -34,6 +53,25 @@
         <tags>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux扩容根分区（非lvm）</title>
+      <link href="2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/"/>
+      <url>2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Linux扩容根分区（非lvm）"><a href="#Linux扩容根分区（非lvm）" class="headerlink" title="Linux扩容根分区（非lvm）"></a>Linux扩容根分区（非lvm）</h1><blockquote><p>查看自己的磁盘空间分配lsblk，当前sda磁盘有8G空间，但是sda2分区只有5G，可以将剩下的空间分配给sda2</p></blockquote><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418110343907.png" alt="image-20210418110343907" style="zoom: 80%;"><ol><li><p>编辑分区：fdisk /dev/sda</p><ol><li>查看帮助：m</li><li>删除分区sda2分区：d 回车 2 回车（千万不能保存否则就真的会被删除）</li><li>新建sda2分区：<ol><li>输入：n 回车</li><li>新建分区类型输入：p 回车（p表示主分区）</li><li>选择分区：2 回车</li><li>起止扇区不输入任何内容，直接回车默认，将硬盘上剩余所有容量分给sda2</li></ol></li><li>保存退出：w 回车</li></ol></li><li><p>扩容文件系统</p><ol><li>xfs_growfs /dev/sda2    （适用于centos系统且是xfs文件系统）</li><li>resize2fs /dev/sda2    （适用于Ubuntu系统且是ext4文件系统）</li></ol><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111551793.png" alt="image-20210418111551793"></p></li></ol><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111626338.png" alt="image-20210418111626338"></p><p>来源于：<a href="https://www.jianshu.com/p/9db2df60fd0a">虚拟机 Centos7（非LVM）扩容根目录</a></p><p><a href="https://www.it610.com/article/1291694723261603840.htm">Ubuntu根目录扩容，亲测有效，简单易用</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Linux根扩容 </tag>
             
         </tags>
       
