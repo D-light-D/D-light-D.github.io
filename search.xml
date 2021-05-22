@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>C++多态</title>
+      <link href="2021/05/22/C++%E5%A4%9A%E6%80%81/"/>
+      <url>2021/05/22/C++%E5%A4%9A%E6%80%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="C-多态"><a href="#C-多态" class="headerlink" title="C++多态"></a>C++多态</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;class Wood&#123;protected:    int height;    int cost;public:    Wood(int height,int cost)    &#123;        this-&gt;height&#x3D;height;        this-&gt;cost&#x3D;cost;    &#125;    virtual void show()    &#123;        cout&lt;&lt;height&lt;&lt;endl;    &#125;&#125;;class Table:public Wood&#123;public:    Table(int height,int cost): Wood(height,cost)&#123;&#125;    void show()    &#123;        cout&lt;&lt;&quot;Table:&quot;&lt;&lt;height&lt;&lt;endl;    &#125;&#125;;int main()&#123;    Table t1(55,61);Wood *ptr&#x3D;&amp;t1;    ptr-&gt;show(); &#x2F;&#x2F; Table:55    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/2021-5-22-15-53.png" alt="2021-5-22-15-53"></p><ul><li>当类中出现了虚函数，该类中就会生成一个虚函数指针，该虚函数指针指向虚函数表，虚函数表实质上来说是一个数组</li><li>当基类中有虚函数时，派生类中也会生成一个虚函数指针，指向虚函数表，这个表继承了基类虚函数表的元素</li><li>如果重写虚函数就会修改虚函数表的内容，让其指向自己的函数</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;class Wood&#123;public:    Wood(int height,int cost)    &#123;        this-&gt;height&#x3D;height;        this-&gt;cost&#x3D;cost;    &#125;    virtual void show()    &#123;&#x2F;&#x2F;        cout&lt;&lt;height&lt;&lt;endl;        cout&lt;&lt;&quot;hell&quot;&lt;&lt;endl;    &#125;protected:    int height;    int cost;&#125;;class Table:public Wood&#123;public:    Table(int height,int cost): Wood(height,cost)&#123;&#125;    void show()    &#123;        cout&lt;&lt;&quot;Table:&quot;&lt;&lt;height&lt;&lt;endl;    &#125;&#125;;typedef void (*Myfunc)();int main()&#123;    Wood w1(12,36);    Table t1(55,61);    long long *wptr&#x3D;(long long *)(((long long *)(*((long long *)&amp;w1)))[0]);    long long *tptr&#x3D;(long long *)(((long long *)(*((long long *)&amp;t1)))[0]);    Myfunc ptr&#x3D;(Myfunc)wptr;    ptr(); &#x2F;&#x2F; hell    cout&lt;&lt;wptr&lt;&lt;endl; &#x2F;&#x2F;0x402d80    cout&lt;&lt;tptr&lt;&lt;endl; &#x2F;&#x2F;0x402e40    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C++ lamdba表达式</title>
       <link href="2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
       <url>2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
