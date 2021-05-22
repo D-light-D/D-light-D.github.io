@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="散列表, studylove">
+    <meta name="keywords" content="C++ lamdba表达式, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>散列表 | studylove</title>
+    <title>C++ lamdba表达式 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">散列表</h1>
+                    <h1 class="description center-align post-title">C++ lamdba表达式</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -397,21 +397,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-18
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-18
+                    2021-05-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    891
+                    685
                 </div>
                 
 
@@ -441,68 +441,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h2><p><strong>散列（Hash Table）表</strong>又称哈希表，这种数据结构的特点是：数据元素的关键字和它在表中的存储地址直接相关。关键字与存储地址对应的关系的函数称为<strong>哈希函数</strong></p>
-<p><strong>哈希函数</strong>：Address=Hash(key)</p>
-<ol>
-<li>哈希是一种以常数平均时间执行插入、删除和查找的技术，但是，不支持元素排序和查找最小(大)值的操作</li>
-<li>哈希函数是一种映射关系，很灵活，任何关键字通过它的计算，返回的值都落在表长允许的范围之内即可</li>
-<li>对于不同的关键字，可能得到相同的哈希地址，这种现象称为<strong>冲突</strong>；哈希地址相同的关键字称为<strong>同义词</strong></li>
-<li>处理冲突的方法有四种：链地址法、开放定址法、再散列表和建立公共溢出区</li>
-<li>哈希表的<strong>装填因子</strong>（表中记录数/表长）越大，关键字<strong>冲突</strong>的可能性越大，<strong>同义词</strong>越多，查找效率可能更低<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210518155948084.png" alt="image-20210518155948084" style="zoom: 50%;"><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210518160152256.png" alt="image-20210518160152256" style="zoom: 50%;"></li>
-</ol>
-<h2 id="散列函数设计"><a href="#散列函数设计" class="headerlink" title="散列函数设计"></a>散列函数设计</h2><blockquote>
-<p><strong>除留余数法</strong>：Hash(key)=key%p</p>
+                <h2 id="C-lamdba表达式"><a href="#C-lamdba表达式" class="headerlink" title="C++ lamdba表达式"></a>C++ lamdba表达式</h2><blockquote>
+<p><strong>lamdba表达式</strong></p>
 </blockquote>
-<ol>
-<li>如果散列表的表长为m，p为小于等于m的最大质数，再一般情况下，对质数取余会让冲突更少，数据元素在散列表的分布更均匀</li>
-<li>质数又称素数，除了1和自身，不能被其它自然数整除的数(1,3,7,13,17,19…….)<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210518161149100.png" alt="image-20210518161149100" style="zoom: 67%;"></li>
-</ol>
-<blockquote>
-<p><strong>直接定址法</strong>：Hash(key)=a*key+b，a和b为常数</p>
-</blockquote>
-<ul>
-<li>这种方法的计算简单，不会产生冲突，适合关键字的分布比较连续的情况，如果关键字分布不连续，空位较多，则会造成存储空间的浪费</li>
-</ul>
-<blockquote>
-<p><strong>数字分析法</strong></p>
-</blockquote>
-<ul>
-<li>根据关键字的特点，从数值中截取分布比较均匀的若干位作为散列地址，在应用开发中，还要结合除留余数法一起使用</li>
-</ul>
-<blockquote>
-<p><strong>平方取中法</strong></p>
-</blockquote>
-<ul>
-<li>根据关键字的特点，取关键字的平方值的中间若干位作为散列地址。这种方法得到的散列表地址和关键字的每个位都有关系，适用于关键字的取值不够均匀或小于散列地址所需的位数</li>
-</ul>
-<blockquote>
-<p><strong>随机数法</strong></p>
-</blockquote>
-<ul>
-<li>选择一个随机函数，用关键字作为随机函数的种子，返回值位散列地址，即Hash(key)=radmom(key)，可结合除留余数法一起使用</li>
-</ul>
-<blockquote>
-<p>散列函数的设计原则</p>
-</blockquote>
-<ol>
-<li>清除关键字分布情况</li>
-<li>散列表的大小要合理，太大浪费空间，太小则会产生太多的同义词</li>
-<li>散列表中的数据分布要均匀，不要形成堆积（聚集）</li>
-<li>散列函数代码要精简</li>
-</ol>
-<h2 id="开放定址法"><a href="#开放定址法" class="headerlink" title="开放定址法"></a>开放定址法</h2><blockquote>
-<p><strong>开放定址法</strong></p>
-</blockquote>
-<ul>
-<li>如果有冲突发生，那么就尝试其他的存储单元，直到找出空的单元为止</li>
-<li>H<sub>i</sub>=(Hash(key)+d<sub>i</sub>)%m i=0,1,2,3,4,…,m-1，Hash(key)为散列函数，m为散列表长，d<sub>i</sub>为增量序列(i为第i次发生冲突，0表示没冲突)，有三种取法：<ol>
-<li>线性探测法，d<sub>i</sub>=0,1,2,3,4,……,m-1</li>
-<li>平方探测法，d<sub>i</sub>=0<sup>2</sup>,1<sup>2</sup>,-1<sup>2</sup>,2<sup>2</sup>,-2<sup>2</sup>,3<sup>2</sup>,-3<sup>2</sup>,……,k<sup>2</sup>,-k<sup>2</sup>(k&lt;=m/2)</li>
-<li>伪随机序列法，d<sub>i</sub>是一个伪随机的序列，如0,3,-2,5,7,-5,-7,9……</li>
-</ol>
-</li>
-</ul>
-<h2 id="再散列"><a href="#再散列" class="headerlink" title="再散列"></a>再散列</h2><p>准备多几个散列函数，如果发生了冲突，就用下一个散列函数计算一个新的地址，直到不冲突为止</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; lamdab表达式语法
+[捕获列表](参数列表) mutable(可选) 异常属性 -&gt; 返回类型&#123;
+    &#x2F;&#x2F; 函数体
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="lamdab表达式基本语法"><a href="#lamdab表达式基本语法" class="headerlink" title="lamdab表达式基本语法"></a>lamdab表达式基本语法</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; lamdba表达式可以看作是匿名函数
+&#x2F;&#x2F; 捕获列表 参数列表 -&gt; 返回值类型
+[](int i,int j) -&gt; int&#123;
+    &#x2F;&#x2F; 函数体
+    return i*j;
+&#125;
+
+&#x2F;&#x2F; lamdba表达式调用
+int k&#x3D;[](int i,int j) -&gt; int&#123;
+    return i*j;
+&#125;(1,2);
+
+&#x2F;&#x2F; lamdba表达式存储
+auto f1&#x3D;[](int i,int j) -&gt; int&#123;
+    return i*j;
+&#125;;
+f1(1,2);
+
+&#x2F;&#x2F; lamdba表达式嵌套
+&#x2F;&#x2F; 如果不写lamdba表达式返回类型，编译器会自动推导
+[](int i)&#123;
+    return [i](int j)&#123;
+        return i*j;
+    &#125;(10);
+&#125;(20);
+
+&#x2F;&#x2F; lambda表达式嵌套存储
+auto f&#x3D;[](int i)&#123;
+    return [i](int j)&#123;
+        return i*j;
+    &#125;;
+&#125;;
+f(1)(2);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="lamdba表达式参数捕获"><a href="#lamdba表达式参数捕获" class="headerlink" title="lamdba表达式参数捕获"></a>lamdba表达式参数捕获</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i&#x3D;2;
+&#x2F;&#x2F; 按值捕获 不会修改外部的变量
+&#x2F;&#x2F; 想要修改按值捕获的值要加上mutable关键字
+&#x2F;&#x2F;加上 mutable 修饰符后，可以修改传递进来的拷贝（注意是能修改拷贝，而不是值本身）。exception 声明用于指定函数抛出的异常，如抛出整数类型的异常，可以使用 throw(int)
+auto f&#x3D;[i]() mutable&#123;
+    return ++i;
+&#125;;
+cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 3
+cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 4
+cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 5
+cout&lt;&lt;i&lt;&lt;endl; &#x2F;&#x2F;2
+&#x2F;&#x2F; 当使用mutable按值捕获时，每次都使用声明的时候的拷贝
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i&#x3D;1;
+&#x2F;&#x2F; 按值捕获时捕获的是声明匿名函数时，捕获列表参数的值 
+auto f&#x3D;[i]()&#123;
+    std::cout&lt;&lt;i&lt;&lt;std::endl;
+&#125;;
+i&#x3D;2;
+f(); &#x2F;&#x2F; 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 引用捕获 会修改外部的值 外部修改也会影响内部
+int i&#x3D;1;
+auto f&#x3D;[&amp;i]()&#123;
+    std::cout&lt;&lt;i&lt;&lt;std::endl;
+    i&#x3D;2;
+&#125;;
+i&#x3D;3;
+f(); &#x2F;&#x2F; 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F; 捕获列表
+int i&#x3D;1;
+int j&#x3D;2;
+int k&#x3D;3;
+int m&#x3D;4;
+
+&#x2F;&#x2F; 按值捕获所有变量
+[&#x3D;]()&#123;
+    &#x2F;&#x2F; 函数体
+&#125;;
+
+&#x2F;&#x2F; 按引用捕获所有变量
+[&amp;]()&#123;
+    &#x2F;&#x2F; 函数体
+&#125;;
+
+&#x2F;&#x2F; 引用和值捕获
+[i,j,&amp;k,&amp;m]()&#123;
+    &#x2F;&#x2F; 函数体
+&#125;; 
+&#x2F;&#x2F; &#x3D;，&amp;a，&amp;b:除 a 和 b 按引用进行传递外，其他参数都按值进行传递
+&#x2F;&#x2F; &amp;，a，b:除 a 和 b 按值进行传递外，其他参数都按引用进行传递<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="lamdba表达式应用"><a href="#lamdba表达式应用" class="headerlink" title="lamdba表达式应用"></a>lamdba表达式应用</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; v&#x3D;&#123;1,2,3,4,5,6,7,8,9&#125;;
+for_each(v.begin(),v.end(),[](int n)&#123;
+    cout &lt;&lt; n &lt;&lt;endl;
+&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 
                 
             </div>
@@ -529,7 +578,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/18/%E6%95%A3%E5%88%97%E8%A1%A8/">https://d-light-d.github.io/2021/05/18/%E6%95%A3%E5%88%97%E8%A1%A8/</a>
+                    <a href="https://d-light-d.github.io/2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/">https://d-light-d.github.io/2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -567,8 +616,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -740,9 +789,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                     <div class="card-image">
@@ -760,9 +810,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -771,6 +821,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -789,24 +840,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/17/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                <a href="/2021/05/18/%E6%95%A3%E5%88%97%E8%A1%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/15.jpg" class="responsive-img" alt="动态规划">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/20.jpg" class="responsive-img" alt="散列表">
                         
-                        <span class="card-title">动态规划</span>
+                        <span class="card-title">散列表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            动态规划在面试中经常出现，该文章来自于博主看B站视频总结，该文章总结了动态规划问题常见的特点与面对动态规划问题思考方式，对于新手来说简单易懂
+                            散列表在算法中极其重要，该文讲解散列表(Hash表)的基本概念，如何构造哈希函数，哈希表的特点，该文来自博主B站视频总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
                             </span>
                         <span class="publish-author">
                             
