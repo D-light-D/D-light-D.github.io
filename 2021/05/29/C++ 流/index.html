@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++ lamdba表达式, studylove">
+    <meta name="keywords" content="C++流, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++ lamdba表达式 | studylove</title>
+    <title>C++流 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++ lamdba表达式</h1>
+                    <h1 class="description center-align post-title">C++流</h1>
                 </div>
             </div>
         </div>
@@ -397,28 +397,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-05-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-22
+                    2021-05-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    685
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -441,117 +441,164 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="C-lamdba表达式"><a href="#C-lamdba表达式" class="headerlink" title="C++ lamdba表达式"></a>C++ lamdba表达式</h2><blockquote>
-<p><strong>lamdba表达式</strong></p>
+                <h2 id="C-输入输出流概述"><a href="#C-输入输出流概述" class="headerlink" title="C++输入输出流概述"></a>C++输入输出流概述</h2><blockquote>
+<p><strong>流</strong>是有方向的字节序列</p>
 </blockquote>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; lamdab表达式语法
-[捕获列表](参数列表) mutable(可选) 异常属性 -&gt; 返回类型&#123;
-    &#x2F;&#x2F; 函数体
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>流向内存的数据称为输入流</p>
+</li>
+<li><p>流出内存的数据称为输出流</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>流</strong>类</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529162855302.png" alt="image-20210529162855302"></p>
+<p>ios类及其派生类：输入和输出</p>
+<table>
+<thead>
+<tr>
+<th>流实体</th>
+<th>cin</th>
+<th>cout</th>
+<th>cerr</th>
+<th>clog</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属类</td>
+<td>istream</td>
+<td>ostream</td>
+<td>ostream</td>
+<td>ostream</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>标准输入流实体</td>
+<td>标准输出流实体</td>
+<td>标准错误输出流实体</td>
+<td>标准错误输出流实体</td>
+</tr>
+<tr>
+<td>源/目标</td>
+<td>键盘</td>
+<td>显示器，可以重定向到文件</td>
+<td>显示器</td>
+<td>显示器</td>
+</tr>
+<tr>
+<td>能否缓冲</td>
+<td>不能</td>
+<td>默认不使用，可以使用stdout缓冲区</td>
+<td>不能</td>
+<td>默认不使用，可以使用stderr缓冲区</td>
+</tr>
+</tbody></table>
+<h2 id="ostream类"><a href="#ostream类" class="headerlink" title="ostream类"></a>ostream类</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 运算符&lt;&lt;重载
+ostream &amp; operator&lt;&lt;(int n);
+ostream &amp; operator&lt;&lt;(double d);
+ostream &amp; operator&lt;&lt;(char ch);
+...
+&#x2F;&#x2F; &lt;&lt;输出运算支持拼接输出
+cout&lt;&lt; &quot;hello&quot; &lt;&lt; &quot;world&quot; &lt;&lt;endl; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; put方法
+&#x2F;&#x2F; 把一个字符写道输出流中
+ostream &amp; put(char ch); &#x2F;&#x2F; cout.put(&#39;x&#39;);
+				&#x2F;&#x2F; cout.put(&#39;a&#39;).put(&#39;b&#39;).put(&#39;c&#39;);
+&#x2F;&#x2F; write方法
+&#x2F;&#x2F; 从buffer指向的内存空间取出n个字节，输出到输出流中
+ostream &amp; write(char *buffer,int n); &#x2F;&#x2F; char *buf&#x3D;&quot;acd&quot;;
+									 &#x2F;&#x2F; cout.write(buf,2).write(buf,1);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="lamdab表达式基本语法"><a href="#lamdab表达式基本语法" class="headerlink" title="lamdab表达式基本语法"></a>lamdab表达式基本语法</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; lamdba表达式可以看作是匿名函数
-&#x2F;&#x2F; 捕获列表 参数列表 -&gt; 返回值类型
-[](int i,int j) -&gt; int&#123;
-    &#x2F;&#x2F; 函数体
-    return i*j;
-&#125;
+<h2 id="istream类"><a href="#istream类" class="headerlink" title="istream类"></a>istream类</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 运算符&gt;&gt;重载
+istream &amp; operator&gt;&gt;(int &amp;val); &#x2F;&#x2F; cin&gt;&gt;10; 错误
+istream &amp; operator&gt;&gt;(double &amp;val); 
+istream &amp; operator&gt;&gt;(char &amp;val);
+&#x2F;&#x2F; 输入运算支持拼接输入 cin&gt;&gt;a&gt;&gt;b;
+&#x2F;&#x2F; cin&gt;&gt;接受数字和字符串，遇到空格、tab、回车结束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&#x2F;&#x2F; lamdba表达式调用
-int k&#x3D;[](int i,int j) -&gt; int&#123;
-    return i*j;
-&#125;(1,2);
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char a[10];
+char b[10];
+cin&gt;&gt;a;
+cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
+cin&gt;&gt;b;
+cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&#x2F;&#x2F; lamdba表达式存储
-auto f1&#x3D;[](int i,int j) -&gt; int&#123;
-    return i*j;
-&#125;;
-f1(1,2);
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529165608991.png" alt="image-20210529165608991"></p>
+<hr>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; get方法
+&#x2F;&#x2F; get可以接受空格和制表符，只把回车符作为终止符，而&gt;&gt;将空格、制表符和回车符都作为终止符
+char get(); &#x2F;&#x2F;从输入流实体中提取一个字符，作为返回值，该返回值可以是空格也可以是制表符也可以是回车符
+istream &amp; get(char &amp;ch); &#x2F;&#x2F;从输入流实体中提取一个字符，作为返回值，该返回值可以是空格也可以是制表符也可以是回车符
+istream &amp; get(char *buffer,int n,char ch&#x3D;&#39;\n&#39;); &#x2F;&#x2F;从输入流实体中读取n-1个字符，或者遇到第三个参数指定的终止符，并补上&#39;\0&#39;字符，存放在buffer指针指向的内存空间中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&#x2F;&#x2F; lamdba表达式嵌套
-&#x2F;&#x2F; 如果不写lamdba表达式返回类型，编译器会自动推导
-[](int i)&#123;
-    return [i](int j)&#123;
-        return i*j;
-    &#125;(10);
-&#125;(20);
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char a[10];
+char b[10];
+cin.get(a,10);
+cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
+cin.get(b,10);
+cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&#x2F;&#x2F; lambda表达式嵌套存储
-auto f&#x3D;[](int i)&#123;
-    return [i](int j)&#123;
-        return i*j;
-    &#125;;
-&#125;;
-f(1)(2);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529171254158.png" alt="image-20210529171254158"></p>
+<blockquote>
+<p><strong>注意</strong>：get遇到回车符终止，在输入的时候输入回车符终止，该回车符依然在输入缓冲区，当第二个输入get遇到了回车符直接终止了并没有等待输入，所以b里面就只有一个’\0’</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char a[10];
+char b[10];
+cin.get(a,10).get();
+cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
+cin.get(b,10).get();
+cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529171706787.png" alt="image-20210529171706787"></p>
+<blockquote>
+<p><strong>注意</strong>：get()接收了回车符，以至于第二个get(b,10)没有遇到回车符，可以正常的等待用户输入，运行正常</p>
+</blockquote>
+<hr>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; getline方法
+istream &amp; getline(char *buffer,int n,char ch&#x3D;&#39;\n&#39;);
+&#x2F;&#x2F; 功能与get类似，从输入流实体中读取n-1个字符和1个&#39;\0&#39;字符，可以接受空格和制表符，只把回车符作为终止符，但在完成读取数据后，从读取的数据中删除该终止符
+char a[10];
+char b[10];
+cin.getline(a,10);
+cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
+cin.getline(b,10);
+cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529185235148.png" alt="image-20210529185235148"></p>
+<blockquote>
+<p><strong>注意</strong>：cin.get(buffer,size)读取数据到buffer中，遇到’\n’结束，下一次的cin.get(buffer,size)遇到’\n’直接结束了读取，读到了空字符串；可以使用cin.get(buffer,size).get()，抛弃’\n’</p>
+<p>cin.getline()每次读取一整行并抛弃’\n’</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; read方法
+istream &amp; read(char *buffer,int n);
+&#x2F;&#x2F; 从输入流中读取n个字符，保存到buffer指向的内存空间中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="lamdba表达式参数捕获"><a href="#lamdba表达式参数捕获" class="headerlink" title="lamdba表达式参数捕获"></a>lamdba表达式参数捕获</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i&#x3D;2;
-&#x2F;&#x2F; 按值捕获 不会修改外部的变量
-&#x2F;&#x2F; 想要修改按值捕获的值要加上mutable关键字
-&#x2F;&#x2F;加上 mutable 修饰符后，可以修改传递进来的拷贝（注意是能修改拷贝，而不是值本身）。exception 声明用于指定函数抛出的异常，如抛出整数类型的异常，可以使用 throw(int)
-auto f&#x3D;[i]() mutable&#123;
-    return ++i;
-&#125;;
-cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 3
-cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 4
-cout&lt;&lt;f()&lt;&lt;endl; &#x2F;&#x2F; 5
-cout&lt;&lt;i&lt;&lt;endl; &#x2F;&#x2F;2
-&#x2F;&#x2F; 当使用mutable按值捕获时，每次都使用声明的时候的拷贝
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>注意</strong>：read和get、getline区别</p>
+</blockquote>
+<ul>
+<li>n个而非n-1个输入流中的字符，没有额外补’\0’;</li>
+<li>‘\n’、空格、’\t’都会被当作有效字符读入；</li>
+<li>必须读进n个字符，如果输入字符不够，则会等待输入；</li>
+<li>不构成字符串，不能使用cout&lt;&lt;buffer输出，只能使用cout.write(buffer,n)输出</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char a[10];
+char b[10];
+cin.read(a,10);
+cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i&#x3D;1;
-&#x2F;&#x2F; 按值捕获时捕获的是声明匿名函数时，捕获列表参数的值 
-auto f&#x3D;[i]()&#123;
-    std::cout&lt;&lt;i&lt;&lt;std::endl;
-&#125;;
-i&#x3D;2;
-f(); &#x2F;&#x2F; 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 引用捕获 会修改外部的值 外部修改也会影响内部
-int i&#x3D;1;
-auto f&#x3D;[&amp;i]()&#123;
-    std::cout&lt;&lt;i&lt;&lt;std::endl;
-    i&#x3D;2;
-&#125;;
-i&#x3D;3;
-f(); &#x2F;&#x2F; 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">&#x2F;&#x2F; 捕获列表
-int i&#x3D;1;
-int j&#x3D;2;
-int k&#x3D;3;
-int m&#x3D;4;
-
-&#x2F;&#x2F; 按值捕获所有变量
-[&#x3D;]()&#123;
-    &#x2F;&#x2F; 函数体
-&#125;;
-
-&#x2F;&#x2F; 按引用捕获所有变量
-[&amp;]()&#123;
-    &#x2F;&#x2F; 函数体
-&#125;;
-
-&#x2F;&#x2F; 引用和值捕获
-[i,j,&amp;k,&amp;m]()&#123;
-    &#x2F;&#x2F; 函数体
-&#125;; 
-&#x2F;&#x2F; &#x3D;，&amp;a，&amp;b:除 a 和 b 按引用进行传递外，其他参数都按值进行传递
-&#x2F;&#x2F; &amp;，a，b:除 a 和 b 按值进行传递外，其他参数都按引用进行传递<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="lamdba表达式应用"><a href="#lamdba表达式应用" class="headerlink" title="lamdba表达式应用"></a>lamdba表达式应用</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; v&#x3D;&#123;1,2,3,4,5,6,7,8,9&#125;;
-for_each(v.begin(),v.end(),[](int n)&#123;
-    cout &lt;&lt; n &lt;&lt;endl;
-&#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529190607019.png" alt="image-20210529190607019"></p>
+<h2 id="C-输入输出总结"><a href="#C-输入输出总结" class="headerlink" title="C++输入输出总结"></a>C++输入输出总结</h2><ol>
+<li>不涉及空格、tab、回车字符串的输入以及所有的数字输入用&gt;&gt;</li>
+<li>输入一个字符的时候可以用&gt;&gt;或者用get方法</li>
+<li>输入一行字符的时候用get、getline或者read方法</li>
+<li>输出用&lt;&lt;或者write</li>
+</ol>
 
                 
             </div>
@@ -578,7 +625,7 @@ for_each(v.begin(),v.end(),[](int n)&#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/">https://d-light-d.github.io/2021/05/22/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/</a>
+                    <a href="https://d-light-d.github.io/2021/05/29/C++%20%E6%B5%81/">https://d-light-d.github.io/2021/05/29/C++%20%E6%B5%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -789,29 +836,30 @@ for_each(v.begin(),v.end(),[](int n)&#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/22/C++%E5%A4%9A%E6%80%81/">
+                <a href="/2021/05/29/C++%20%E6%B5%81/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/2.jpg" class="responsive-img" alt="C++多态">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/6.jpg" class="responsive-img" alt="C++流">
                         
-                        <span class="card-title">C++多态</span>
+                        <span class="card-title">C++流</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            C++三大特性封装、继承、多态，该文讲解C++多态实现以及基本原理讲解，代码比较抽象，可以配合图来理解，重点是要搞懂虚函数列表的问题
+                            C++输入输出基本概述以及方法调用，流向内存的数据称为输入流，流出内存的数据称为输出流，该视频来自博主b站总结
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -820,6 +868,7 @@ for_each(v.begin(),v.end(),[](int n)&#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -838,24 +887,24 @@ for_each(v.begin(),v.end(),[](int n)&#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/18/%E6%95%A3%E5%88%97%E8%A1%A8/">
+                <a href="/2021/05/22/C++%E5%A4%9A%E6%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/20.jpg" class="responsive-img" alt="散列表">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/2.jpg" class="responsive-img" alt="C++多态">
                         
-                        <span class="card-title">散列表</span>
+                        <span class="card-title">C++多态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            散列表在算法中极其重要，该文讲解散列表(Hash表)的基本概念，如何构造哈希函数，哈希表的特点，该文来自博主B站视频总结
+                            C++三大特性封装、继承、多态，该文讲解C++多态实现以及基本原理讲解，代码比较抽象，可以配合图来理解，重点是要搞懂虚函数列表的问题
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
                             </span>
                         <span class="publish-author">
                             
@@ -868,8 +917,8 @@ for_each(v.begin(),v.end(),[](int n)&#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
