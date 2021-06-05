@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>C++异常处理</title>
+      <link href="2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+      <url>2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="C-异常处理"><a href="#C-异常处理" class="headerlink" title="C++异常处理"></a>C++异常处理</h3><blockquote><p>异常处理是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况</p></blockquote><blockquote><p>异常处理的目的：通过异常处理，我们可以对用户在程序中的非法操作进行控制和提示，以防程序崩溃；但是异常处理没有普通方法调用速度快，过度的错误处理会影响应用程序运行的效率</p></blockquote><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;void func(float a,float b,float &amp;c)&#123;    c&#x3D;a&#x2F;b;&#125;int main() &#123;    float a&#x3D;10,b&#x3D;0,c&#x3D;0;    func(a,b,c);    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210605152723693.png" alt="image-20210605152723693"></p><blockquote><p><strong>注意</strong>：b是float类型，不是一个精确值，是一个接近0的近似值，所以程序并没有中断</p></blockquote><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;void func(float a,float b,float &amp;c)&#123;    if(b&gt;-0.00001&amp;&amp;b&lt;0.00001)&#123;        return ;    &#125;    c&#x3D;a&#x2F;b;&#125;int main() &#123;    float a&#x3D;10,b&#x3D;0,c&#x3D;0;    func(a,b,c);    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="C-异常处理方式"><a href="#C-异常处理方式" class="headerlink" title="C++异常处理方式"></a>C++异常处理方式</h3><blockquote><p>C++异常处理主要使用三个关键字：try、throw和catch</p></blockquote><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">try&#123;    包含可能抛出异常的语句;&#125;catch(类型名[形参名])&#123;    处理异常的语句;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>满足某个条件时显式抛出一个异常</li><li>使用catch块来匹配抛出的异常类型</li></ul><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;using namespace std;void func(float a,float b,float &amp;c)&#123;    &#x2F;&#x2F; 显式抛出异常    if(b&gt;-0.00001&amp;&amp;b&lt;0.00001)        throw &quot;error b&#x3D;0&quot;;    c&#x3D;a&#x2F;b;&#125;int main() &#123;    float a&#x3D;10,b&#x3D;0,c&#x3D;0;    try&#123;        func(a,b,c);    &#125;catch(const char *error)&#123;        cout&lt;&lt;error&lt;&lt;endl;    &#125;catch(int error)&#123;        cout&lt;&lt;error&lt;&lt;endl;    &#125;catch(...)&#123;        cout&lt;&lt;&quot;可以捕获任何一个异常&quot;&lt;&lt;endl;    &#125;    &#x2F;&#x2F; 按照顺序捕获异常，匹配了之后就不会再向下匹配    &#x2F;&#x2F; 一般匹配程度高的catch块放在前面，而...的catch块是“保底”的，防止有些异常没有匹配到catch块，通用性最强但是针对性最差，所以应该放在所有catch块的后面    printf(&quot;hello world&quot;);    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210605155015241.png" alt="image-20210605155015241"></p><blockquote><p>异常处理执行顺序：抛出异常、捕获异常、处理异常</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>递归问题</title>
       <link href="2021/05/31/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/"/>
       <url>2021/05/31/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/</url>

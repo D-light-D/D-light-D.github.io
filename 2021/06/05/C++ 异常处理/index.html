@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux静态库和动态库, studylove">
+    <meta name="keywords" content="C++异常处理, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux静态库和动态库 | studylove</title>
+    <title>C++异常处理 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux静态库和动态库</h1>
+                    <h1 class="description center-align post-title">C++异常处理</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -397,21 +397,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-09
+                    2021-06-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-19
+                    2021-06-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    670
+                    586
                 </div>
                 
 
@@ -441,66 +441,88 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Linux静态库与动态库"><a href="#Linux静态库与动态库" class="headerlink" title="Linux静态库与动态库"></a>Linux静态库与动态库</h2><h3 id="生成静态库"><a href="#生成静态库" class="headerlink" title="生成静态库"></a>生成静态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 默认生成对应的.o文件，注意c文件中不要把main函数包含进来</span>
-gcc <span class="token punctuation">.</span>c文件 <span class="token operator">-</span>c <span class="token comment">//例如：gcc test.c -c</span>
-    
-<span class="token comment">// 将生成的.o文件打包，静态库的名称命名规则：lib + 库的名字 + .a</span>
-<span class="token comment">// 例如：静态库的名称可以为libtest.a、libmytest.a、libhaha.a</span>
-ar rcs <span class="token operator">+</span> 静态库的名称 <span class="token operator">+</span> 生成的<span class="token punctuation">.</span>o文件 <span class="token comment">// 例如：ar rcs libtest.a test.o</span>
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h3 id="C-异常处理"><a href="#C-异常处理" class="headerlink" title="C++异常处理"></a>C++异常处理</h3><blockquote>
+<p>异常处理是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况</p>
+</blockquote>
+<blockquote>
+<p>异常处理的目的：通过异常处理，我们可以对用户在程序中的非法操作进行控制和提示，以防程序崩溃；但是异常处理没有普通方法调用速度快，过度的错误处理会影响应用程序运行的效率</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+void func(float a,float b,float &amp;c)
+&#123;
+    c&#x3D;a&#x2F;b;
+&#125;
+int main() &#123;
+    float a&#x3D;10,b&#x3D;0,c&#x3D;0;
+    func(a,b,c);
+    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="使用静态库"><a href="#使用静态库" class="headerlink" title="使用静态库"></a>使用静态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// -L 指定静态库的目录</span>
-<span class="token comment">// -l 指定静态库目录中的哪个静态库，指定库时不能写前缀lib，也不能写后缀名.a</span>
-<span class="token comment">// -I 指定头文件</span>
-<span class="token comment">// -o 自定义生成可执行文件的名字</span>
-gcc main<span class="token punctuation">.</span>c <span class="token operator">-</span>I include <span class="token operator">-</span>L lib <span class="token operator">-</span>l mylib <span class="token operator">-</span>o build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210605152723693.png" alt="image-20210605152723693"></p>
+<blockquote>
+<p><strong>注意</strong>：b是float类型，不是一个精确值，是一个接近0的近似值，所以程序并没有中断</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+void func(float a,float b,float &amp;c)
+&#123;
+    if(b&gt;-0.00001&amp;&amp;b&lt;0.00001)&#123;
+        return ;
+    &#125;
+    c&#x3D;a&#x2F;b;
+&#125;
+int main() &#123;
+    float a&#x3D;10,b&#x3D;0,c&#x3D;0;
+    func(a,b,c);
+    cout&lt;&lt;&quot;hello world&quot;&lt;&lt;endl;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<hr>
-<h3 id="静态库的优点"><a href="#静态库的优点" class="headerlink" title="静态库的优点"></a>静态库的优点</h3><ul>
-<li>运行程序的时候不再需要对应的库</li>
-<li>运行程序快，因为对应的函数都被打包进了程序</li>
+<h3 id="C-异常处理方式"><a href="#C-异常处理方式" class="headerlink" title="C++异常处理方式"></a>C++异常处理方式</h3><blockquote>
+<p>C++异常处理主要使用三个关键字：try、throw和catch</p>
+</blockquote>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">try&#123;
+    包含可能抛出异常的语句;
+&#125;catch(类型名[形参名])&#123;
+    处理异常的语句;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>满足某个条件时显式抛出一个异常</li>
+<li>使用catch块来匹配抛出的异常类型</li>
 </ul>
-<h3 id="静态库的缺点"><a href="#静态库的缺点" class="headerlink" title="静态库的缺点"></a>静态库的缺点</h3><ul>
-<li>库被打包进程序中，导致可执行文件的大小变大</li>
-<li>当库更新之后，要使用该库必须重新编译程序</li>
-</ul>
-<hr>
-<h3 id="生成动态库"><a href="#生成动态库" class="headerlink" title="生成动态库"></a>生成动态库</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 生成与位置无关的.o</span>
-<span class="token comment">// -I 指定头文件</span>
-gcc <span class="token operator">-</span>fPIC <span class="token operator">-</span>c <span class="token punctuation">.</span>c文件 <span class="token operator">-</span>I 头文件目录 <span class="token comment">// 例如：gcc -fPIC -c *.c -I include</span>
-<span class="token comment">// 将.o打包成动态库，动态库命名规则：lib + 库文件 +.so </span>
-gcc <span class="token operator">-</span>shared <span class="token operator">-</span>o libmytest<span class="token punctuation">.</span>so <span class="token punctuation">.</span>o文件 <span class="token operator">-</span>I 头文件目录 <span class="token comment">// 例如：gcc -shared -o libtest.so *.o -I include</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+void func(float a,float b,float &amp;c)
+&#123;
+    &#x2F;&#x2F; 显式抛出异常
+    if(b&gt;-0.00001&amp;&amp;b&lt;0.00001)
+        throw &quot;error b&#x3D;0&quot;;
+    c&#x3D;a&#x2F;b;
+&#125;
+int main() &#123;
+    float a&#x3D;10,b&#x3D;0,c&#x3D;0;
+    try&#123;
+        func(a,b,c);
+    &#125;catch(const char *error)&#123;
+        cout&lt;&lt;error&lt;&lt;endl;
+    &#125;catch(int error)&#123;
+        cout&lt;&lt;error&lt;&lt;endl;
+    &#125;catch(...)&#123;
+        cout&lt;&lt;&quot;可以捕获任何一个异常&quot;&lt;&lt;endl;
+    &#125;
+    &#x2F;&#x2F; 按照顺序捕获异常，匹配了之后就不会再向下匹配
+    &#x2F;&#x2F; 一般匹配程度高的catch块放在前面，而...的catch块是“保底”的，防止有些异常没有匹配到catch块，通用性最强但是针对性最差，所以应该放在所有catch块的后面
+    printf(&quot;hello world&quot;);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-<h3 id="共享库使用"><a href="#共享库使用" class="headerlink" title="共享库使用"></a>共享库使用</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// -L 指定静态库的目录</span>
-<span class="token comment">// -l 指定静态库目录中的哪个静态库，指定库时不能写前缀lib，也不能写后缀名.a</span>
-<span class="token comment">// -I 指定头文件</span>
-<span class="token comment">// -o 自定义生成可执行文件的名字</span>
-gcc main<span class="token punctuation">.</span>c <span class="token operator">-</span>I include <span class="token operator">-</span>L lib <span class="token operator">-</span>l mylib <span class="token operator">-</span>o build
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 使用了动态库的可执行文件运行时都要链接库，必须告知库的位置</span>
-<span class="token comment"># 方法一：该方法是临时设置，设置LD_LIBRARY_PATH环境变量，程序运行时会查找LD_LIBRARY_PATH环境变量的值，能根据这个值来查找动态库</span>
-<span class="token builtin class-name">echo</span> <span class="token variable">$LD_LIBRARY_PATH</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span>:库的路径 <span class="token comment">#例如：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/whn/mylib</span>
-
-<span class="token comment"># 方法二：设置用户目录下的bashrc配置文件，在最后一行加入</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span>:库的路径 <span class="token comment">#例如：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/whn/mylib</span>
-
-<span class="token comment"># 方法三：修改动态链接器的配置文件,将动态库的路径写到配置文件中</span>
-<span class="token function">sudo</span> <span class="token function">vi</span> /etc/ld.so.conf
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
-<h3 id="动态库优点"><a href="#动态库优点" class="headerlink" title="动态库优点"></a>动态库优点</h3><ul>
-<li>执行程序的大小很小</li>
-<li>动态库更新之后，如果函数接口没有改变，不需要重新编译文件</li>
-</ul>
-<h3 id="动态库缺点"><a href="#动态库缺点" class="headerlink" title="动态库缺点"></a>动态库缺点</h3><ul>
-<li>执行程序时必须链接对应的库</li>
-<li>加载速度没有静态库快</li>
-</ul>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210605155015241.png" alt="image-20210605155015241"></p>
+<blockquote>
+<p>异常处理执行顺序：抛出异常、捕获异常、处理异常</p>
+</blockquote>
 
                 
             </div>
@@ -527,7 +549,7 @@ gcc main<span class="token punctuation">.</span>c <span class="token operator">-
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/">https://d-light-d.github.io/2021/05/09/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/</a>
+                    <a href="https://d-light-d.github.io/2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">https://d-light-d.github.io/2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,8 +587,8 @@ gcc main<span class="token punctuation">.</span>c <span class="token operator">-
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -738,29 +760,30 @@ gcc main<span class="token punctuation">.</span>c <span class="token operator">-
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/">
+                <a href="/2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/0.jpg" class="responsive-img" alt="串口通信">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/19.jpg" class="responsive-img" alt="C++异常处理">
                         
-                        <span class="card-title">串口通信</span>
+                        <span class="card-title">C++异常处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在计算机的设备与设备之间或集成电路之间常常需要进行数据传输，该文章包含各种通讯的基本概念以及USART的通讯协议，本文来自于b站视频总结
+                            异常处理是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况，通过异常处理，对用户非法操作进行控制和提示
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -769,11 +792,12 @@ gcc main<span class="token punctuation">.</span>c <span class="token operator">-
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%80%9A%E4%BF%A1/">
-                        <span class="chip bg-color">通信</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
@@ -787,24 +811,24 @@ gcc main<span class="token punctuation">.</span>c <span class="token operator">-
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/08/%E7%AE%97%E6%B3%95%E6%8E%92%E5%BA%8F/">
+                <a href="/2021/05/31/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/11.jpg" class="responsive-img" alt="排序算法总结">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/10.jpg" class="responsive-img" alt="递归问题">
                         
-                        <span class="card-title">排序算法总结</span>
+                        <span class="card-title">递归问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详细描述了各个排序算法的实现与优缺点，主要分为三大块：插入排序，交换排序、选择排序等等，本文来自博主看B站教学视频总结，截图来自于B站视频
+                            总结一些基础的递归问题，加深新手对递归的理解，递归思想在编程中至关重要，递归代码一般简便但也是最不容易理解的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-31
                             </span>
                         <span class="publish-author">
                             
