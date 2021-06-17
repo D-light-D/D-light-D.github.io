@@ -35,6 +35,8 @@
             
             <tag> 算法 </tag>
             
+            <tag> C语言 </tag>
+            
         </tags>
       
     </entry>
@@ -111,6 +113,8 @@
             
             <tag> 算法 </tag>
             
+            <tag> C语言 </tag>
+            
         </tags>
       
     </entry>
@@ -130,6 +134,8 @@
             
             <tag> 算法 </tag>
             
+            <tag> C语言 </tag>
+            
         </tags>
       
     </entry>
@@ -147,7 +153,7 @@
       
         <tags>
             
-            <tag> 通信 </tag>
+            <tag> 嵌入式通信原理 </tag>
             
         </tags>
       
@@ -168,6 +174,10 @@
             
             <tag> linux </tag>
             
+            <tag> 动态库 </tag>
+            
+            <tag> 静态库 </tag>
+            
         </tags>
       
     </entry>
@@ -187,6 +197,8 @@
             
             <tag> 算法 </tag>
             
+            <tag> C语言 </tag>
+            
         </tags>
       
     </entry>
@@ -204,7 +216,7 @@
       
         <tags>
             
-            <tag> Linux根扩容 </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -241,6 +253,8 @@
       
       
         <tags>
+            
+            <tag> C语言 </tag>
             
             <tag> Linux进程通信 </tag>
             
