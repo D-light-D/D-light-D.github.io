@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux扩容根分区（非lvm）, studylove">
+    <meta name="keywords" content="sqlite3数据库, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux扩容根分区（非lvm） | studylove</title>
+    <title>sqlite3数据库 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -247,7 +247,7 @@
 <script src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux扩容根分区（非lvm）</h1>
+                    <h1 class="description center-align post-title">sqlite3数据库</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">C语言</span>
                             </a>
                         
                     </div>
@@ -397,28 +401,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-08
+                    2021-06-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-17
+                    2021-06-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    222
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -441,37 +445,201 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux扩容根分区（非lvm）"><a href="#Linux扩容根分区（非lvm）" class="headerlink" title="Linux扩容根分区（非lvm）"></a>Linux扩容根分区（非lvm）</h1><blockquote>
-<p>查看自己的磁盘空间分配lsblk，当前sda磁盘有8G空间，但是sda2分区只有5G，可以将剩下的空间分配给sda2</p>
+                <h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><blockquote>
+<p>SQLite是一种用ANSI-C编写的嵌入书关系数据库管理系统</p>
+<p>SQLite是基于文件的，它与其他SQL数据库不同，因为与大多数其他SQL数据库不同，SQLite没有单独的服务器进程</p>
+<p>SQLite支持SQL的很多特性，性能高，不支持存储过程，而SQL是一种查询语言，被不同的SQL数据库使用，它本身不是数据库</p>
 </blockquote>
-<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418110343907.png" alt="image-20210418110343907" style="zoom: 80%;">
+<p>SQLite最初设计于2000年8月。最初命名为SQLite，是因为它于SQL Server或Oracle等其他数据库管理系统不同，非常小（小于500Kb大小）</p>
+<ul>
+<li><strong>SQLite是完全免费的：</strong>SQLite是开源的，不需要许可证</li>
+<li><strong>SQLite是无服务器的：</strong>SQLite不需要不同的服务器或系统来运行</li>
+<li><strong>SQLite非常灵活</strong>：可以在一个会话中同时处理多个数据库，SQLite不需要配置，无需设置或管理</li>
+<li><strong>SQLite是一个跨平台的DBMS：</strong>不需要Windows、Mac OS、Linux和Unix这样的大量不同平台。它可以用于许多嵌入书操作系统</li>
+<li><strong>存储数据：</strong>SQLite提供了一种高效的数据存储方式</li>
+<li><strong>列的可变长度：</strong>列的长度是可变的</li>
+<li><strong>提供大量API：</strong>SQLite为大量编程语言提供API</li>
+</ul>
+<blockquote>
+<p><strong>SQLite优势</strong></p>
+</blockquote>
+<ul>
+<li><strong>轻量级：</strong>轻量级数据库</li>
+<li><strong>更好的性能：</strong>读写操作非常快</li>
+<li><strong>无需安装：</strong>不需要安装和配置</li>
+<li><strong>可靠：</strong>不断更新内容，在断电或崩溃的情况下几乎不会丢失任何工作</li>
+<li><strong>便携式：</strong>可以在32位和64位操作系统以及大端和小端架构中移植</li>
+<li><strong>无障碍：</strong>SQLite数据库可通过各种第三方工具访问</li>
+<li><strong>降低成本和复杂性：</strong>降低了应用程序成本</li>
+</ul>
+<p>SQLite的缺点：用于处理中低流量的HTTP请求，大多数情况下，数据库大小限制在2GB</p>
+<blockquote>
+<p>SQLite命令三种类型</p>
+</blockquote>
+<ul>
+<li><strong>DDL：</strong>数据定义语言create、alter、drop</li>
+<li><strong>DML：</strong>数据操作语言insert、updata、delete</li>
+<li><strong>DQL：</strong>数据查询语言select</li>
+<li><strong>SQLite点命令</strong></li>
+</ul>
+<blockquote>
+<p>SQLite语法</p>
+</blockquote>
+<ul>
+<li><strong>区分大小写：</strong>不区分大小写，但是有些命令区分大小写；例如GLOB和glob在SQLite中具有不一样的含义</li>
+<li><strong>注释：</strong>不能嵌套，以两个连续的“-”字符开头</li>
+</ul>
+<blockquote>
+<p>SQLite3安装</p>
+</blockquote>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 只下载包但是不安装，其中不包含API接口
+apt-get download sqlite3 
+# 下载并安装
+apt-get install sqlite3
+# 进入sqlite3,这样进入写的数据是在内存中，退出后数据就会消失
+sqlite3
+# 进入sqlite3，并保存在哪个位置
+sqlite3 student
+# 退出sqlite3
+.exit
+# 创建表
+create table student (id integer,name text,age integer);
+# 如果不存在就创建表否则不创建
+create table if not exists student (id integer,name text,age integer);
+# 查看表结构
+.schema
+# 插入数据
+insert into student (id,name,age) values(1,&quot;aa&quot;,11);
+insert into student values(2,&quot;bb&quot;,22),(3,&quot;cc&quot;,33);
+# 查询数据
+select * from student;
+# 修改数据
+update student set age&#x3D;25 where id&#x3D;3;
+# 删除数据
+delete from student where id&#x3D;1;
+# 删除表
+drop table student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ol>
-<li><p>编辑分区：fdisk /dev/sda</p>
-<ol>
-<li>查看帮助：m</li>
-<li>删除分区sda2分区：d 回车 2 回车（千万不能保存否则就真的会被删除）</li>
-<li>新建sda2分区：<ol>
-<li>输入：n 回车</li>
-<li>新建分区类型输入：p 回车（p表示主分区）</li>
-<li>选择分区：2 回车</li>
-<li>起止扇区不输入任何内容，直接回车默认，将硬盘上剩余所有容量分给sda2</li>
-</ol>
-</li>
-<li>保存退出：w 回车</li>
-</ol>
-</li>
-<li><p>扩容文件系统</p>
-<ol>
-<li>xfs_growfs /dev/sda2    （适用于centos系统且是xfs文件系统）</li>
-<li>resize2fs /dev/sda2    （适用于Ubuntu系统且是ext4文件系统）</li>
-</ol>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111551793.png" alt="image-20210418111551793"></p>
-</li>
-</ol>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111626338.png" alt="image-20210418111626338"></p>
-<p>来源于：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9db2df60fd0a">虚拟机 Centos7（非LVM）扩容根目录</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.it610.com/article/1291694723261603840.htm">Ubuntu根目录扩容，亲测有效，简单易用</a></p>
+<hr>
+<blockquote>
+<p>SQLite的API</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://sqlite.org/cintro.html">C语言API接口函数</a></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装头文件
+apt-get install libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; filename: 数据库的名字，如果不存在则创建
+&#x2F;&#x2F; ppDb：返回数据库句柄
+&#x2F;&#x2F; 返回值：返回SQLITE_OK表示成功
+int sqlite3_open(const char *filename,sqlite3 **ppDb);
+
+&#x2F;&#x2F; ppDb：表示数据库的句柄
+&#x2F;&#x2F; 返回值：返回错误描述字符串
+const char *sqlite3_errmsg(sqlite3* ppDb);    
+
+&#x2F;&#x2F; 万能函数处理指令
+int sqlite3_exec(
+    sqlite3*,		&#x2F;*数据库句柄*&#x2F;					
+    const char *sql, &#x2F;*将要执行的指令的字符串*&#x2F;
+    int (*callback)(void *,int,char **,char **), &#x2F;*回调函数，如果执行的指令的结果需要处理，就需要用回调函数处理，创建表就不需要回调函数*&#x2F;
+	void *, &#x2F;*回调函数的第一个参数*&#x2F;
+	char **errmsg &#x2F;*保存错误信息*&#x2F;
+);
+
+int sqlite3_get_table(
+    sqlite3 *db,	&#x2F;*数据库句柄*&#x2F;
+    const char *zSql,  &#x2F;*查询语句*&#x2F;
+    char ***pazResult,  &#x2F;*保存结果的指针*&#x2F;
+    int *pnRow,        &#x2F;*行数*&#x2F;
+    int *pnColumn,      &#x2F;*列数*&#x2F;
+    char **pzErrmsg     &#x2F;*保存错误信息*&#x2F;
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>pazResult存放结构 </p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210618104412006.png" alt="image-20210618104412006"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sqlite3.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>arg<span class="token punctuation">,</span><span class="token keyword">int</span> column<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>value<span class="token punctuation">,</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>name<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>column<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s=%s "</span><span class="token punctuation">,</span>name<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>value<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+
+	<span class="token keyword">int</span> ret<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">char</span> commod<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	sqlite3 <span class="token operator">*</span>ppdb<span class="token punctuation">;</span>
+    <span class="token comment">//打开数据库，如果不存在则创建</span>
+    ret<span class="token operator">=</span><span class="token function">sqlite3_open</span><span class="token punctuation">(</span><span class="token string">"student.db"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">!=</span>SQLITE_OK<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span><span class="token string">"sqlite3_open error:%s"</span><span class="token punctuation">,</span><span class="token function">sqlite3_errmsg</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">//创建表，如果存在则不执行</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>commod<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">sprintf</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token string">"create table if not exists student (id integer,name text,age integer);"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ret<span class="token operator">=</span><span class="token function">sqlite3_exec</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">,</span>commod<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">!=</span>SQLITE_OK<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span><span class="token string">"sqlite3_exec error:%s"</span><span class="token punctuation">,</span><span class="token function">sqlite3_errmsg</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//插入数据</span>
+	<span class="token keyword">int</span> age<span class="token punctuation">,</span>id<span class="token punctuation">;</span>
+	<span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">64</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"请输入学号 姓名 年龄：\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%s%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span><span class="token operator">&amp;</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">memset</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>commod<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">sprintf</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token string">"insert into student values(%d,'%s',%d);"</span><span class="token punctuation">,</span>id<span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		ret<span class="token operator">=</span><span class="token function">sqlite3_exec</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">,</span>commod<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">!=</span>SQLITE_OK<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span><span class="token string">"sqlite3_exec error:%s"</span><span class="token punctuation">,</span><span class="token function">sqlite3_errmsg</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//查询数据</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>commod<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">sprintf</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token string">"select * from student"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ret<span class="token operator">=</span><span class="token function">sqlite3_exec</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">,</span>commod<span class="token punctuation">,</span>print<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">!=</span>SQLITE_OK<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span><span class="token string">"sqlite3_exec error:%s"</span><span class="token punctuation">,</span><span class="token function">sqlite3_errmsg</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//查询数据</span>
+	<span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>pazresult<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> row<span class="token punctuation">;</span>
+	<span class="token keyword">int</span> column<span class="token punctuation">;</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>commod<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">sprintf</span><span class="token punctuation">(</span>commod<span class="token punctuation">,</span><span class="token string">"select * from student"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	ret<span class="token operator">=</span><span class="token function">sqlite3_get_table</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">,</span>commod<span class="token punctuation">,</span><span class="token operator">&amp;</span>pazresult<span class="token punctuation">,</span><span class="token operator">&amp;</span>row<span class="token punctuation">,</span><span class="token operator">&amp;</span>column<span class="token punctuation">,</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">!=</span>SQLITE_OK<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token constant">stderr</span><span class="token punctuation">,</span><span class="token string">"sqlite3_get_table error:%s"</span><span class="token punctuation">,</span><span class="token function">sqlite3_errmsg</span><span class="token punctuation">(</span>ppdb<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">int</span> index<span class="token operator">=</span>column<span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>row<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>column<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+			<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s=%s "</span><span class="token punctuation">,</span>pazresult<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>pazresult<span class="token punctuation">[</span>index<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意编译时要加上动态库，例如gcc -o build main.c -lsqlite3</p>
+</blockquote>
 
                 
             </div>
@@ -498,7 +666,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/">https://d-light-d.github.io/2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/</a>
+                    <a href="https://d-light-d.github.io/2021/06/18/SQLite/">https://d-light-d.github.io/2021/06/18/SQLite/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,8 +704,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">C语言</span>
                                 </a>
                             
                         </div>
@@ -709,29 +881,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/08/%E7%AE%97%E6%B3%95%E6%8E%92%E5%BA%8F/">
+                <a href="/2021/06/18/SQLite/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/11.jpg" class="responsive-img" alt="排序算法总结">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/18.jpg" class="responsive-img" alt="sqlite3数据库">
                         
-                        <span class="card-title">排序算法总结</span>
+                        <span class="card-title">sqlite3数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详细描述了各个排序算法的实现与优缺点，主要分为三大块：插入排序，交换排序、选择排序等等，本文来自博主看B站教学视频总结，截图来自于B站视频
+                            该文章讲解sqlite3数据库基本的增删改查等操作，以及C/C++的API接口讲解以及如何应用，该文章来自于博主看b站视频总结
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -740,15 +913,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
-                        <span class="chip bg-color">C语言</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -762,24 +936,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/08/http%E5%8D%8F%E8%AE%AE/">
+                <a href="/2021/06/05/C++%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/15.jpg" class="responsive-img" alt="HTTP协议">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/19.jpg" class="responsive-img" alt="C++异常处理">
                         
-                        <span class="card-title">HTTP协议</span>
+                        <span class="card-title">C++异常处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HTTP协议主要是HTTP请求和HTTP响应，HTTP请求分为：请求行、请求头信息、请求主体信息，HTTP响应分为：响应行、响应头信息、响应主体信息。该文章详细的列出了每个部分包含哪些部分
+                            异常处理是编程语言或计算机硬件里的一种机制，用于处理软件或信息系统中出现的异常状况，通过异常处理，对用户非法操作进行控制和提示
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
                             </span>
                         <span class="publish-author">
                             
@@ -792,8 +966,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/http/">
-                        <span class="chip bg-color">http</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
