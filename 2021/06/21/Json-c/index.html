@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux扩容根分区（非lvm）, studylove">
+    <meta name="keywords" content="Json-c API使用, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux扩容根分区（非lvm） | studylove</title>
+    <title>Json-c API使用 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux扩容根分区（非lvm）</h1>
+                    <h1 class="description center-align post-title">Json-c API使用</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/JSON/">
+                                <span class="chip bg-color">JSON</span>
+                            </a>
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -397,28 +405,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-08
+                    2021-06-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-17
+                    2021-06-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    222
+                    522
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -441,37 +449,71 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux扩容根分区（非lvm）"><a href="#Linux扩容根分区（非lvm）" class="headerlink" title="Linux扩容根分区（非lvm）"></a>Linux扩容根分区（非lvm）</h1><blockquote>
-<p>查看自己的磁盘空间分配lsblk，当前sda磁盘有8G空间，但是sda2分区只有5G，可以将剩下的空间分配给sda2</p>
-</blockquote>
-<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418110343907.png" alt="image-20210418110343907" style="zoom: 80%;">
+                <h2 id="JSON-C库安装"><a href="#JSON-C库安装" class="headerlink" title="JSON-C库安装"></a>JSON-C库安装</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装工具
+sudo apt install git
+sudo apt install autoconf automake libtool
+sudo apt install valgrind # optional
+# 下载源码
+wget https:&#x2F;&#x2F;github.com&#x2F;json-c&#x2F;json-c&#x2F;archive&#x2F;json-c-0.14-20200419.tar.gz -O json-c.tar.gz
+tar zxvf json-c.tar.gz
+mv json-c-json-c-0.14-20200419 json-c
 
-<ol>
-<li><p>编辑分区：fdisk /dev/sda</p>
-<ol>
-<li>查看帮助：m</li>
-<li>删除分区sda2分区：d 回车 2 回车（千万不能保存否则就真的会被删除）</li>
-<li>新建sda2分区：<ol>
-<li>输入：n 回车</li>
-<li>新建分区类型输入：p 回车（p表示主分区）</li>
-<li>选择分区：2 回车</li>
-<li>起止扇区不输入任何内容，直接回车默认，将硬盘上剩余所有容量分给sda2</li>
-</ol>
-</li>
-<li>保存退出：w 回车</li>
-</ol>
-</li>
-<li><p>扩容文件系统</p>
-<ol>
-<li>xfs_growfs /dev/sda2    （适用于centos系统且是xfs文件系统）</li>
-<li>resize2fs /dev/sda2    （适用于Ubuntu系统且是ext4文件系统）</li>
-</ol>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111551793.png" alt="image-20210418111551793"></p>
-</li>
-</ol>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210418111626338.png" alt="image-20210418111626338"></p>
-<p>来源于：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9db2df60fd0a">虚拟机 Centos7（非LVM）扩容根目录</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.it610.com/article/1291694723261603840.htm">Ubuntu根目录扩容，亲测有效，简单易用</a></p>
+# 编译安装
+mkdir json-c-build &amp;&amp; cd json-c-build
+cmake ..&#x2F;json-c
+make
+make test
+make USE_VALGRIND&#x3D;0 test
+make install
+# 至此安装成功
+
+# 头文件目录
+&#x2F;usr&#x2F;local&#x2F;include
+# 动态库目录
+&#x2F;lib&#x2F;x86_64-linux-gnu 或者 &#x2F;usr&#x2F;local&#x2F;lib
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="JSON-C库的使用"><a href="#JSON-C库的使用" class="headerlink" title="JSON-C库的使用"></a>JSON-C库的使用</h2><pre><code class="c++">// 将符合json格式的字符串构造为一个json对象
+struct json_object *json_tokener_parse(const char *);
+// 将json对象内容，转成json格式的字符串
+const char *json_object_to_json_string(struct json_object *obj);
+// 创建json对象
+struct json_object *json_object_new_object();
+// 往json独享中添加键值对
+void json_object_object_add(struct json_object *obj,const char *key,struct json_object *value);
+// 将C字符串转换为JSON字符串格式的对象
+struct json_object *json_object_new_string(const char *s);
+// 将整数转换为JSON格式的对象
+struct json_object *json_object_new_int(int32_t i);
+// 获取json对象的整形数值
+int32_t json_object_get_int(struct json_object *obj);
+// 获取json对象的字符串值
+const char *json_object_get_string(struct json_object *obj);
+
+// 解析json分为两步：
+// 第一步：根据键名，从json对象中获取对应数据的json对象
+// 第二步：根据数据类型，将数据对应的json对象转化为对应类型的数据
+
+// 根据键名获取对应的json对象
+json_bool json_object_object_get_ex(struct json_object *obj,const char *key,struct json_object **value);
+// 参数：obj源json对象，key键名，value用于存放获取的对应数据的json对象，注意这里一定传入的是二级指针，不用传入实体
+
+// 获取json对象的类型 类型有：json_type_null json_type_boolean json_type_double json_type_int json_type_object json_type_array json_type_string
+json_type json_object_get_type(struct json_object *obj);
+
+// 数组类型相关操作(json_type_array类型)
+
+// 创建一个JSON数组类型JSON对象
+struct json_object *json_object_new_array(void);
+// 往json_type_array类型的json对象中添加一个元素
+int json_object_array_add(struct json_object *obj,struct json_object *val);
+// 获取json_type_array类型的json对象中指定下标的元素
+struct json_object *json_object_array_get_idx(struct json_object *obj,int idx);
+
+&gt; **注意：**编译时要加上动态库，例如：gcc -o build main.c -ljson-c
+
+
+</code></pre>
 
                 
             </div>
@@ -498,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/">https://d-light-d.github.io/2021/05/08/Linux%E6%89%A9%E5%AE%B9%E6%A0%B9%E5%88%86%E5%8C%BA%E9%9D%9Elvm/</a>
+                    <a href="https://d-light-d.github.io/2021/06/21/Json-c/">https://d-light-d.github.io/2021/06/21/Json-c/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,8 +578,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/JSON/">
+                                    <span class="chip bg-color">JSON</span>
+                                </a>
+                            
+                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">C语言</span>
+                                </a>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -713,25 +763,70 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/08/%E7%AE%97%E6%B3%95%E6%8E%92%E5%BA%8F/">
+                <a href="/2021/06/21/QT/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/11.jpg" class="responsive-img" alt="排序算法总结">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/8.jpg" class="responsive-img" alt="QT实例">
                         
-                        <span class="card-title">排序算法总结</span>
+                        <span class="card-title">QT实例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详细描述了各个排序算法的实现与优缺点，主要分为三大块：插入排序，交换排序、选择排序等等，本文来自博主看B站教学视频总结，截图来自于B站视频
+                            该文主要是提供给博主复习，可读性较差，不介意阅读，主要讲解QT的几个典型实例，QT的基础使用，该文章来自于博主视频总结
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-21
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            dyl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/QT/">
+                        <span class="chip bg-color">QT</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/18/SQLite/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/18.jpg" class="responsive-img" alt="sqlite3数据库">
+                        
+                        <span class="card-title">sqlite3数据库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            该文章讲解sqlite3数据库基本的增删改查等操作，以及C/C++的API接口讲解以及如何应用，该文章来自于博主看b站视频总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -747,53 +842,8 @@
                         <span class="chip bg-color">C语言</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/05/08/http%E5%8D%8F%E8%AE%AE/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/15.jpg" class="responsive-img" alt="HTTP协议">
-                        
-                        <span class="card-title">HTTP协议</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            HTTP协议主要是HTTP请求和HTTP响应，HTTP请求分为：请求行、请求头信息、请求主体信息，HTTP响应分为：响应行、响应头信息、响应主体信息。该文章详细的列出了每个部分包含哪些部分
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            dyl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/http/">
-                        <span class="chip bg-color">http</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
                 </div>
