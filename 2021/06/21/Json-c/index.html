@@ -412,14 +412,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-21
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    522
+                    619
                 </div>
                 
 
@@ -471,49 +471,54 @@ make install
 &#x2F;usr&#x2F;local&#x2F;include
 # 动态库目录
 &#x2F;lib&#x2F;x86_64-linux-gnu 或者 &#x2F;usr&#x2F;local&#x2F;lib
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="JSON-C库的使用"><a href="#JSON-C库的使用" class="headerlink" title="JSON-C库的使用"></a>JSON-C库的使用</h2><pre><code class="c++">// 将符合json格式的字符串构造为一个json对象
+# 合法的json实例
+&#123;&quot;name&quot;:&quot;jack&quot;,&quot;sex&quot;:&quot;male&quot;&#125;
+&#123;&quot;name&quot;:&quot;jack&quot;,&quot;age&quot;:18,&quot;address&quot;:&#123;&quot;country&quot;:&quot;china&quot;,&quot;zip-code&quot;:&quot;100000&quot;&#125;&#125;
+&#123;&quot;a&quot;:1,&quot;b&quot;:[1,2,3]&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="JSON-C库的使用"><a href="#JSON-C库的使用" class="headerlink" title="JSON-C库的使用"></a>JSON-C库的使用</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 将符合json格式的字符串构造为一个json对象
 struct json_object *json_tokener_parse(const char *);
-// 将json对象内容，转成json格式的字符串
+&#x2F;&#x2F; 将json对象内容，转成json格式的字符串
 const char *json_object_to_json_string(struct json_object *obj);
-// 创建json对象
+&#x2F;&#x2F; 创建json对象
 struct json_object *json_object_new_object();
-// 往json独享中添加键值对
+&#x2F;&#x2F; 往json独享中添加键值对
 void json_object_object_add(struct json_object *obj,const char *key,struct json_object *value);
-// 将C字符串转换为JSON字符串格式的对象
+&#x2F;&#x2F; 将C字符串转换为JSON字符串格式的对象
 struct json_object *json_object_new_string(const char *s);
-// 将整数转换为JSON格式的对象
+&#x2F;&#x2F; 将整数转换为JSON格式的对象
 struct json_object *json_object_new_int(int32_t i);
-// 获取json对象的整形数值
+&#x2F;&#x2F; 获取json对象的整形数值
 int32_t json_object_get_int(struct json_object *obj);
-// 获取json对象的字符串值
+&#x2F;&#x2F; 获取json对象的字符串值
 const char *json_object_get_string(struct json_object *obj);
 
-// 解析json分为两步：
-// 第一步：根据键名，从json对象中获取对应数据的json对象
-// 第二步：根据数据类型，将数据对应的json对象转化为对应类型的数据
+&#x2F;&#x2F; 解析json分为两步：
+&#x2F;&#x2F; 第一步：根据键名，从json对象中获取对应数据的json对象
+&#x2F;&#x2F; 第二步：根据数据类型，将数据对应的json对象转化为对应类型的数据
 
-// 根据键名获取对应的json对象
+&#x2F;&#x2F; 根据键名获取对应的json对象
 json_bool json_object_object_get_ex(struct json_object *obj,const char *key,struct json_object **value);
-// 参数：obj源json对象，key键名，value用于存放获取的对应数据的json对象，注意这里一定传入的是二级指针，不用传入实体
+&#x2F;&#x2F; 参数：obj源json对象，key键名，value用于存放获取的对应数据的json对象，注意这里一定传入的是二级指针，不用传入实体
 
-// 获取json对象的类型 类型有：json_type_null json_type_boolean json_type_double json_type_int json_type_object json_type_array json_type_string
+&#x2F;&#x2F; 获取json对象的类型 类型有：json_type_null json_type_boolean json_type_double json_type_int json_type_object json_type_array json_type_string
 json_type json_object_get_type(struct json_object *obj);
 
-// 数组类型相关操作(json_type_array类型)
+&#x2F;&#x2F; 数组类型相关操作(json_type_array类型)
 
-// 创建一个JSON数组类型JSON对象
+&#x2F;&#x2F; 创建一个JSON数组类型JSON对象
 struct json_object *json_object_new_array(void);
-// 往json_type_array类型的json对象中添加一个元素
+&#x2F;&#x2F; 往json_type_array类型的json对象中添加一个元素
 int json_object_array_add(struct json_object *obj,struct json_object *val);
-// 获取json_type_array类型的json对象中指定下标的元素
+&#x2F;&#x2F; 获取json_type_array类型的json对象中指定下标的元素
 struct json_object *json_object_array_get_idx(struct json_object *obj,int idx);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-&gt; **注意：**编译时要加上动态库，例如：gcc -o build main.c -ljson-c
-
-
-</code></pre>
+<blockquote>
+<p><strong>注意：</strong>编译时要加上动态库，例如：gcc -o build main.c -ljson-c</p>
+</blockquote>
 
                 
             </div>
@@ -994,7 +999,7 @@ struct json_object *json_object_array_get_idx(struct json_object *obj,int idx);
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23.8k</span>
+                        class="white-color">23.9k</span>
             
             
             
