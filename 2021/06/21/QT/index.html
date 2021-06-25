@@ -404,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-24
+                    2021-06-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    29 分
+                    33 分
                 </div>
                 
 
@@ -1843,6 +1843,205 @@ int main(int argc, char *argv[])
 <blockquote>
 <p>ui只能在自己类才可以进行修改</p>
 </blockquote>
+<h3 id="连接MYSQL数据库"><a href="#连接MYSQL数据库" class="headerlink" title="连接MYSQL数据库"></a>连接MYSQL数据库</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QSqlDatabase&gt;
+#include &lt;QMessageBox&gt;
+#include &lt;QSqlQuery&gt;
+#include &lt;QDebug&gt;
+
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void insertButton(void);
+    void cancelButton(void);
+
+private:
+    Ui::Widget *ui;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    &#x2F;&#x2F; 加载mysql驱动
+    QSqlDatabase base&#x3D;QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);
+
+    base.setHostName(&quot;47.108.71.9&quot;);
+    base.setDatabaseName(&quot;dyl&quot;);
+    base.setUserName(&quot;DYL&quot;);
+    base.setPassword(&quot;199911&quot;);
+
+    &#x2F;&#x2F; open成功返回true，失败返回false
+    if(base.open())&#123;
+        QMessageBox::information(this,&quot;连接提示&quot;,&quot;连接成功&quot;);
+    &#125;else&#123;
+        QMessageBox::warning(this,&quot;连接提示&quot;,&quot;连接失败&quot;);
+    &#125;
+    connect(ui-&gt;pushButtonCheck,&amp;QPushButton::clicked,this,&amp;Widget::cancelButton);
+    connect(ui-&gt;pushButtonInsert,&amp;QPushButton::clicked,this,&amp;Widget::insertButton);
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+
+void Widget::insertButton()
+&#123;
+    QString id&#x3D;ui-&gt;lineEditId-&gt;text();
+    QString name&#x3D;ui-&gt;lineEditName-&gt;text();
+    QString sex&#x3D;ui-&gt;lineEditSex-&gt;text();
+    QString birth&#x3D;ui-&gt;lineEditBirthday-&gt;text();
+    QString sclass&#x3D;ui-&gt;lineEditClass-&gt;text();
+
+    QString command&#x3D;QString(&quot;insert into student values(&#39;%1&#39;,&#39;%2&#39;,&#39;%3&#39;,&#39;%4&#39;,&#39;%5&#39;);&quot;).arg(id).arg(name).arg(sex).arg(birth).arg(sclass);
+
+    &#x2F;&#x2F; 操作数据库的对象,需要头文件
+    QSqlQuery data;
+    if(data.exec(command))&#123;
+        QMessageBox::information(this,&quot;插入提示&quot;,&quot;插入成功&quot;);
+    &#125;else&#123;
+        QMessageBox::warning(this,&quot;插入提示&quot;,&quot;插入失败&quot;);
+    &#125;
+&#125;
+
+void Widget::cancelButton()
+&#123;
+    QSqlQuery data;
+    QString command(&quot;select * from student;&quot;);
+    
+    data.exec(command);
+    while(data.next())&#123;
+        qDebug()&lt;&lt;data.value(0);
+        qDebug()&lt;&lt;data.value(1);
+        qDebug()&lt;&lt;data.value(2);
+        qDebug()&lt;&lt;data.value(3);
+        qDebug()&lt;&lt;data.value(4);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：需要在工程文件.pro下加入sql，而且必须在qc的lib库中加入libmysql.dll文件，不然无法加载驱动</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210625200335598.png" alt="image-20210625200335598"></p>
+<h3 id="使用模型显示数据库表"><a href="#使用模型显示数据库表" class="headerlink" title="使用模型显示数据库表"></a>使用模型显示数据库表</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QSqlDatabase&gt;
+#include &lt;QMessageBox&gt;
+#include &lt;QSqlTableModel&gt;
+
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void checkButton(void);
+
+private:
+    Ui::Widget *ui;
+    QSqlTableModel *view;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    QSqlDatabase db&#x3D;QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);
+
+    db.setHostName(&quot;47.108.71.9&quot;);
+    db.setDatabaseName(&quot;dyl&quot;);
+    db.setUserName(&quot;DYL&quot;);
+    db.setPassword(&quot;199911&quot;);
+
+    if(db.open())&#123;
+        QMessageBox::information(this,&quot;连接提示&quot;,&quot;连接成功&quot;);
+        
+        view&#x3D;new QSqlTableModel;
+        &#x2F;&#x2F; 模型与表进行关联
+        view-&gt;setTable(&quot;student&quot;);
+        &#x2F;&#x2F; 模型与界面进行关联
+        ui-&gt;tableView-&gt;setModel(view);
+
+        connect(ui-&gt;checkButton,&amp;QPushButton::clicked,this,&amp;Widget::checkButton);
+    &#125;else&#123;
+        QMessageBox::warning(this,&quot;连接提示&quot;,&quot;连接失败&quot;);
+    &#125;
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+void Widget::checkButton()
+&#123;
+    &#x2F;&#x2F; 显示出表
+    view-&gt;select();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210625203515935.png" alt="image-20210625203515935"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210625203807823.png" alt="image-20210625203807823"></p>
 
                 
             </div>
@@ -2319,7 +2518,7 @@ int main(int argc, char *argv[])
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">27.8k</span>
+                        class="white-color">28.5k</span>
             
             
             
