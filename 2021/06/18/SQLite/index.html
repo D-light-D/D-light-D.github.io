@@ -408,14 +408,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-22
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
@@ -490,6 +490,16 @@
 <li><strong>注释：</strong>不能嵌套，以两个连续的“-”字符开头</li>
 </ul>
 <blockquote>
+<p>SQLite数据类型</p>
+</blockquote>
+<ul>
+<li>integer：带符号的整型(最多64位)</li>
+<li>real：8字节表示的浮点类型</li>
+<li>text：字符类型，支持多种编码（如UTF-8、UTF-16），大小无限制</li>
+<li>blob：任意类型的数据，大小无限制。BLOB二进制大对象，使用二进制保存数据</li>
+<li>null：表示空值</li>
+</ul>
+<blockquote>
 <p>SQLite3安装</p>
 </blockquote>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 只下载包但是不安装，其中不包含API接口
@@ -502,6 +512,12 @@ sqlite3
 sqlite3 student
 # 退出sqlite3
 .exit
+# 查看表
+.table
+# 设置查询的间隙
+.mode column
+# 设置查询的表头
+.header on
 # 创建表
 create table student (id integer,name text,age integer);
 # 如果不存在就创建表否则不创建
@@ -518,7 +534,7 @@ update student set age&#x3D;25 where id&#x3D;3;
 # 删除数据
 delete from student where id&#x3D;1;
 # 删除表
-drop table student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+drop table student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <blockquote>
@@ -1121,7 +1137,7 @@ int sqlite3_get_table(
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23.9k</span>
+                        class="white-color">26.1k</span>
             
             
             

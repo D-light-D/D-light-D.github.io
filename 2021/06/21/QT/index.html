@@ -404,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-21
+                    2021-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    29 分
                 </div>
                 
 
@@ -1214,6 +1214,635 @@ void MainWindow::mousePressEvent(QMouseEvent *m)
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpSocket&gt;
+#include &lt;QMessageBox&gt;
+#include &lt;QHostAddress&gt;
+
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void buttonCommitClicked(void);
+    void buttonCancelClicked(void);
+
+private:
+    Ui::Widget *ui;
+    QTcpSocket *socket;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    connect(ui-&gt;pushButton_Commit,&amp;QPushButton::clicked,this,&amp;Widget::buttonCommitClicked);
+    connect(ui-&gt;pushButton_Cancel,&amp;QPushButton::clicked,this,&amp;Widget::buttonCancelClicked);
+    &#x2F;&#x2F; 初始化socket
+    socket&#x3D;new QTcpSocket;
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+void Widget::buttonCommitClicked(void)
+&#123;
+    &#x2F;&#x2F; 获取ip和端口号
+    QString ip&#x3D;ui-&gt;lineEdit_Ip-&gt;text();
+    QString port&#x3D;ui-&gt;lineEdit_Port-&gt;text();
+
+    &#x2F;&#x2F; 连接服务器
+    socket-&gt;connectToHost(QHostAddress(ip),port.toShort());
+
+    &#x2F;&#x2F; 连接状态提醒
+    connect(socket,&amp;QTcpSocket::connected,[this]()&#123;
+        QMessageBox::information(this,&quot;连接提示&quot;,&quot;连接成功&quot;);
+    &#125;);
+    connect(socket,&amp;QTcpSocket::disconnected,[this]()&#123;
+        QMessageBox::warning(this,&quot;连接提示&quot;,&quot;连接失败&quot;);
+    &#125;);
+
+&#125;
+void Widget::buttonCancelClicked(void)
+&#123;
+    this-&gt;close();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：必须修改.pro工程文件，在第七行QT末尾加上network</p>
+</blockquote>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623190529323.png" alt="image-20210623190529323"></p>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623190554262.png" alt="image-20210623190554262"></p>
+<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpServer&gt;
+#include &lt;QTcpSocket&gt;
+#include &lt;QHostAddress&gt;
+#define PORT 8000
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void newConnectHander(void);
+
+
+private:
+    Ui::Widget *ui;
+    QTcpServer *server;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    server&#x3D;new QTcpServer;
+
+    &#x2F;&#x2F; 进入监听状态
+    &#x2F;&#x2F; 需要QHostAddress和QTcpServer头文件
+    server-&gt;listen(QHostAddress::AnyIPv4,PORT);
+
+    &#x2F;&#x2F; 当出现连接时运行函数
+    connect(server,&amp;QTcpServer::newConnection,this,&amp;Widget::newConnectHander);
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+
+void Widget::newConnectHander(void)
+&#123;
+    &#x2F;&#x2F; 建立TCP连接
+    &#x2F;&#x2F; 需要QTcpSocket头文件
+    QTcpSocket *s&#x3D;server-&gt;nextPendingConnection();
+
+    &#x2F;&#x2F; 获取客户端的IP地址
+    &#x2F;&#x2F; 将QHostAddress类型转换为QString类型
+    ui-&gt;lineEdit_IP-&gt;setText(s-&gt;peerAddress().toString());
+
+    &#x2F;&#x2F; 获取客户端的端口号，端口号很有可能与服务器端口号不一样
+    &#x2F;&#x2F; 将数字类型转换为QString类型
+    ui-&gt;lineEdit_PORT-&gt;setText(QString::number(s-&gt;peerPort()));
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623190836006.png" alt="image-20210623190836006"></p>
+<blockquote>
+<p>注意：必须修改.pro工程文件，在第七行QT末尾加上network</p>
+</blockquote>
+<h3 id="在TCP客户端基础实现信息传输"><a href="#在TCP客户端基础实现信息传输" class="headerlink" title="在TCP客户端基础实现信息传输"></a>在TCP客户端基础实现信息传输</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef CHAT_H
+#define CHAT_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpSocket&gt;
+
+namespace Ui &#123;
+class Chat;
+&#125;
+
+class Chat : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Chat(QTcpSocket* socket,QWidget *parent &#x3D; 0);
+    ~Chat();
+private slots:
+    void sendMessage(void);
+    void recvMessage(void);
+    void clearMessage(void);
+
+private:
+    Ui::Chat *ui;
+    QTcpSocket *socket;
+&#125;;
+
+#endif &#x2F;&#x2F; CHAT_H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;QTcpSocket&gt;
+#include &lt;QMessageBox&gt;
+#include &lt;QHostAddress&gt;
+
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void buttonCommitClicked(void);
+    void buttonCancelClicked(void);
+
+private:
+    Ui::Widget *ui;
+    QTcpSocket *socket;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;chat.h&quot;
+#include &quot;ui_chat.h&quot;
+
+Chat::Chat(QTcpSocket *socket, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Chat)
+&#123;
+    ui-&gt;setupUi(this);
+    this-&gt;socket&#x3D;socket;
+    &#x2F;&#x2F; 服务器发送数据到客户端，客户端会产生readyRead信号
+    connect(socket,&amp;QTcpSocket::readyRead,this,&amp;Chat::recvMessage);
+
+    connect(ui-&gt;pushButtonSend,&amp;QPushButton::clicked,this,&amp;Chat::sendMessage);
+    connect(ui-&gt;pushButtonClear,&amp;QPushButton::clicked,this,&amp;Chat::clearMessage);
+&#125;
+
+Chat::~Chat()
+&#123;
+    delete ui;
+&#125;
+void Chat::recvMessage()
+&#123;
+    &#x2F;&#x2F; 将QByteArray类型转换为QString
+    &#x2F;&#x2F; 读出数据
+    ui-&gt;lineEditRecv-&gt;setText(QString(socket-&gt;readAll()));
+&#125;
+void Chat::sendMessage()
+&#123;
+    QByteArray data;
+    &#x2F;&#x2F; 将QString转换为QByteArray类型
+    data.append(ui-&gt;lineEditSend-&gt;text());
+    &#x2F;&#x2F; 写数据
+    socket-&gt;write(data);
+    ui-&gt;lineEditSend-&gt;clear();
+&#125;
+void Chat::clearMessage()
+&#123;
+    ui-&gt;lineEditRecv-&gt;clear();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+#include &quot;chat.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    connect(ui-&gt;pushButton_Commit,&amp;QPushButton::clicked,this,&amp;Widget::buttonCommitClicked);
+    connect(ui-&gt;pushButton_Cancel,&amp;QPushButton::clicked,this,&amp;Widget::buttonCancelClicked);
+    &#x2F;&#x2F; 初始化socket
+    socket&#x3D;new QTcpSocket;
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+void Widget::buttonCommitClicked(void)
+&#123;
+    &#x2F;&#x2F; 获取ip和端口号
+    QString ip&#x3D;ui-&gt;lineEdit_Ip-&gt;text();
+    QString port&#x3D;ui-&gt;lineEdit_Port-&gt;text();
+
+    &#x2F;&#x2F; 连接服务器
+    socket-&gt;connectToHost(QHostAddress(ip),port.toShort());
+
+    &#x2F;&#x2F; 连接状态提醒
+    connect(socket,&amp;QTcpSocket::connected,[this]()&#123;
+        QMessageBox::information(this,&quot;连接提示&quot;,&quot;连接成功&quot;);
+        &#x2F;&#x2F; 注意这里必须使用堆空间，如果使用栈空间当函数运行完毕会被释放
+        Chat *c&#x3D;new Chat(socket);
+        &#x2F;&#x2F; 展示窗口
+        c-&gt;show();
+        &#x2F;&#x2F; 隐藏现在这个窗口
+        this-&gt;hide();
+    &#125;);
+    connect(socket,&amp;QTcpSocket::disconnected,[this]()&#123;
+        QMessageBox::warning(this,&quot;连接提示&quot;,&quot;连接失败&quot;);
+    &#125;);
+
+&#125;
+void Widget::buttonCancelClicked(void)
+&#123;
+    this-&gt;close();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623202851406.png" alt="image-20210623202851406"></p>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623202913173.png" alt="image-20210623202913173"></p>
+<h3 id="TCP服务器基础上实现信息传输"><a href="#TCP服务器基础上实现信息传输" class="headerlink" title="TCP服务器基础上实现信息传输"></a>TCP服务器基础上实现信息传输</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef CHATSERVER_H
+#define CHATSERVER_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpSocket&gt;
+
+namespace Ui &#123;
+class ChatServer;
+&#125;
+
+class ChatServer : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit ChatServer(QTcpSocket *socket, QWidget *parent &#x3D; 0);
+    ~ChatServer();
+private slots:
+    void SendMessage(void);
+    void RecvMessage(void);
+    void ClearMessage(void);
+
+private:
+    Ui::ChatServer *ui;
+    QTcpSocket *socket;
+
+&#125;;
+
+#endif &#x2F;&#x2F; CHATSERVER_H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpServer&gt;
+#include &lt;QTcpSocket&gt;
+#include &lt;QHostAddress&gt;
+#define PORT 8000
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void newConnectHander(void);
+
+
+private:
+    Ui::Widget *ui;
+    QTcpServer *server;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;chatserver.h&quot;
+#include &quot;ui_chatserver.h&quot;
+
+ChatServer::ChatServer(QTcpSocket *socket, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::ChatServer)
+&#123;
+    ui-&gt;setupUi(this);
+    this-&gt;socket&#x3D;socket;
+    connect(socket,&amp;QTcpSocket::readyRead,this,&amp;ChatServer::RecvMessage);
+    connect(ui-&gt;pushButtonSend,&amp;QPushButton::clicked,this,&amp;ChatServer::SendMessage);
+    connect(ui-&gt;pushButtonClear,&amp;QPushButton::clicked,this,&amp;ChatServer::ClearMessage);
+&#125;
+
+ChatServer::~ChatServer()
+&#123;
+    delete ui;
+&#125;
+
+void ChatServer::RecvMessage()
+&#123;
+    &#x2F;&#x2F; 获取信号的发送者
+    QTcpSocket *s&#x3D;(QTcpSocket *)sender();
+    ui-&gt;lineEditRecv-&gt;setText(QString(s-&gt;readAll()));
+&#125;
+void ChatServer::SendMessage()
+&#123;
+    QByteArray data;
+    data.append(ui-&gt;lineEditSend-&gt;text());
+    socket-&gt;write(data);
+    ui-&gt;lineEditSend-&gt;clear();
+&#125;
+void ChatServer::ClearMessage()
+&#123;
+    ui-&gt;lineEditRecv-&gt;clear();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+#include &quot;chatserver.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    server&#x3D;new QTcpServer;
+
+    &#x2F;&#x2F; 进入监听状态
+    &#x2F;&#x2F; 需要QHostAddress和QTcpServer头文件
+    server-&gt;listen(QHostAddress::AnyIPv4,PORT);
+
+    &#x2F;&#x2F; 当出现连接时运行函数
+    connect(server,&amp;QTcpServer::newConnection,this,&amp;Widget::newConnectHander);
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+
+void Widget::newConnectHander(void)
+&#123;
+    &#x2F;&#x2F; 建立TCP连接
+    &#x2F;&#x2F; 需要QTcpSocket头文件
+    QTcpSocket *s&#x3D;server-&gt;nextPendingConnection();
+
+    &#x2F;&#x2F; 获取客户端的IP地址
+    &#x2F;&#x2F; 将QHostAddress类型转换为QString类型
+    ui-&gt;lineEdit_IP-&gt;setText(s-&gt;peerAddress().toString());
+
+    &#x2F;&#x2F; 获取客户端的端口号，端口号很有可能与服务器端口号不一样
+    &#x2F;&#x2F; 将数字类型转换为QString类型
+    ui-&gt;lineEdit_PORT-&gt;setText(QString::number(s-&gt;peerPort()));
+
+    ChatServer *chat&#x3D;new ChatServer(s);
+    chat-&gt;show();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>创建新窗口的操作与在TCP客户端基础实现信息传输是一样的</p>
+</blockquote>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210623203243186.png" alt="image-20210623203243186"></p>
+<h3 id="多线程和自定义信号"><a href="#多线程和自定义信号" class="headerlink" title="多线程和自定义信号"></a>多线程和自定义信号</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef MYTHREAD_H
+#define MYTHREAD_H
+
+#include &lt;QObject&gt;
+#include &lt;QThread&gt;
+#include &lt;QTcpSocket&gt;
+
+class myThread:public QThread
+&#123;
+    Q_OBJECT
+public:
+    myThread(QTcpSocket *socket);
+    &#x2F;&#x2F; 线程运行函数
+    void run();
+private slots:
+    void handleData(void);
+
+signals:
+    &#x2F;&#x2F; 创建信号
+    void sendData(QByteArray data);
+private:
+    QTcpSocket *socket;
+&#125;;
+
+#endif &#x2F;&#x2F; MYTHREAD_H<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#ifndef WIDGET_H
+#define WIDGET_H
+
+#include &lt;QWidget&gt;
+#include &lt;QTcpServer&gt;
+#include &lt;QTcpSocket&gt;
+
+#define PORT 8000
+
+namespace Ui &#123;
+class Widget;
+&#125;
+
+class Widget : public QWidget
+&#123;
+    Q_OBJECT
+
+public:
+    explicit Widget(QWidget *parent &#x3D; 0);
+    ~Widget();
+private slots:
+    void newConnectHander(void);
+    void handData(QByteArray data);
+
+private:
+    Ui::Widget *ui;
+    QTcpServer *server;
+&#125;;
+
+#endif &#x2F;&#x2F; WIDGET_H
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;mythread.h&quot;
+
+myThread::myThread(QTcpSocket *socket)
+&#123;
+    &#x2F;&#x2F; 接收socket
+    this-&gt;socket&#x3D;socket;
+&#125;
+
+void myThread::run()
+&#123;
+    &#x2F;&#x2F; 当有可读事件时用handleData函数处理
+    connect(socket,&amp;QTcpSocket::readyRead,this,&amp;myThread::handleData);
+&#125;
+void myThread::handleData()
+&#123;
+    QByteArray data;
+    data&#x3D;socket-&gt;readAll();
+    &#x2F;&#x2F; 发送信号,不能通过传参的方式对ui进行修改，ui只能自己类可以进行修改
+    emit sendData(data);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &quot;ui_widget.h&quot;
+#include &quot;mythread.h&quot;
+
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+&#123;
+    ui-&gt;setupUi(this);
+    server&#x3D;new QTcpServer;
+    server-&gt;listen(QHostAddress::AnyIPv4,PORT);
+    connect(server,&amp;QTcpServer::newConnection,this,&amp;Widget::newConnectHander);
+&#125;
+
+Widget::~Widget()
+&#123;
+    delete ui;
+&#125;
+
+void Widget::newConnectHander(void)
+&#123;
+    QTcpSocket *s&#x3D;server-&gt;nextPendingConnection();
+    ui-&gt;lineEditIp-&gt;setText(s-&gt;peerAddress().toString());
+    ui-&gt;lineEditPort-&gt;setText(QString::number(s-&gt;peerPort()));
+
+    myThread *thread&#x3D;new myThread(s);
+    &#x2F;&#x2F; 开始线程
+    thread-&gt;start();
+
+    &#x2F;&#x2F; 处理thread发出来的sendData信号
+    connect(thread,&amp;myThread::sendData,this,&amp;Widget::handData);
+&#125;
+
+void Widget::handData(QByteArray data)
+&#123;
+    ui-&gt;lineEditShow-&gt;setText(QString(data));
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &quot;widget.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+&#123;
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>ui只能在自己类才可以进行修改</p>
+</blockquote>
 
                 
             </div>
@@ -1692,7 +2321,7 @@ void MainWindow::mousePressEvent(QMouseEvent *m)
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23.9k</span>
+                        class="white-color">26.1k</span>
             
             
             
