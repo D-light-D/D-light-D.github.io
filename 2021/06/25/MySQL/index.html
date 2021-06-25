@@ -411,14 +411,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -441,7 +441,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="连接MYSQL数据库"><a href="#连接MYSQL数据库" class="headerlink" title="连接MYSQL数据库"></a>连接MYSQL数据库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># mysql -h主机地址 -u用户名 -p密码
+                <h3 id="MYSQL安装和配置"><a href="#MYSQL安装和配置" class="headerlink" title="MYSQL安装和配置"></a>MYSQL安装和配置</h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">MYSQL免安装版本</a></p>
+<blockquote>
+<p>解压到路径不带中文的目录下</p>
+</blockquote>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210625135904756.png" alt="image-20210625135904756"></p>
+<blockquote>
+<p>设置环境变量</p>
+</blockquote>
+<p>将bin文件夹添加到环境变量中</p>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210625140311650.png" alt="image-20210625140311650"></p>
+<blockquote>
+<p>以管理员方式打开cmd或者powershell</p>
+</blockquote>
+<blockquote>
+<p>输入mysqld命令</p>
+</blockquote>
+<blockquote>
+<p>再输入mysqld –install mysql8.0，因为我的是mysql-8.0.25-winx64，所以是mysql8.0，需要根据你们情况修改</p>
+</blockquote>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210625140844190.png" alt="image-20210625140844190"></p>
+<blockquote>
+<p>再输入net start mysql8.0</p>
+</blockquote>
+<blockquote>
+<p>MYSQL初始化：mysqld –initialize –console，初始化会产生一个随机密码，需要记住</p>
+</blockquote>
+<blockquote>
+<p>登录MYSQL：mysql -u root -p，输入刚刚随机产生的密码</p>
+</blockquote>
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210625160247880.png" alt="image-20210625160247880"></p>
+<blockquote>
+<p>修改密码：alter  user  ‘root’@’localhost’  identified by ‘root’; 然后root账户的密码就是root了</p>
+</blockquote>
+<h3 id="连接MYSQL数据库"><a href="#连接MYSQL数据库" class="headerlink" title="连接MYSQL数据库"></a>连接MYSQL数据库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># mysql -h主机地址 -u用户名 -p密码
 
 mysql -u root -p # 回车输入密码
 # 刚开始安装后超级用户root没有密码，直接回车即可进入到MYSQL中
@@ -452,7 +485,9 @@ exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <hr>
 <h3 id="修改MYSQL数据库"><a href="#修改MYSQL数据库" class="headerlink" title="修改MYSQL数据库"></a>修改MYSQL数据库</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># mysqladmin -u用户名 -p旧密码 password 新密码
 mysqladmin -u root -password 123456 # 因为一开始root没有密码
-mysqladmin -u root -p 123456 password 654321<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+mysqladmin -u root -p 123456 password 654321
+# 也可以这样修改
+alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123&#39;; # 修改密码为123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
 <h3 id="增加新用户并且修改权限"><a href="#增加新用户并且修改权限" class="headerlink" title="增加新用户并且修改权限"></a>增加新用户并且修改权限</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;
@@ -998,7 +1033,7 @@ SELECT * FROM mysql.user WHERE user&#x3D;&#39;root&#39;\G
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">27.6k</span>
+                        class="white-color">27.8k</span>
             
             
             
