@@ -404,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-11
+                    2021-06-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    560
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -526,6 +526,18 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
 </ul>
 </li>
 </ul>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210626221021040.png" alt="image-20210626221021040"></p>
+<h2 id="当输入网址回车会发生什么"><a href="#当输入网址回车会发生什么" class="headerlink" title="当输入网址回车会发生什么"></a>当输入网址回车会发生什么</h2><p>输入一个网址并按回车的时候浏览器会根据输入的URL去查找对应的IP，具体过程如下：</p>
+<p>（1）首先是查找浏览器缓存，浏览器会保存一段时间内访问过的一些网址的DNS信息，不同浏览器保存的时常不等。</p>
+<p>（2）如果没有找到对应的记录，这个时候浏览器会尝试调用操作系统缓存来继续查找这个网址的对应DNS信息。</p>
+<p>（3）如果还是没找到对应的IP，那么接着会发送一个请求到路由器上，然后路由器在自己的路由器缓存上查找记录，路由器一般也存有DNS信息。</p>
+<p>（4）如果还是没有，这个请求就会被发送到ISP（注：Internet Service Provider，互联网服务提供商，就是网络运营商，中国电信中国移动等），ISP也会有相应的ISP DNS服务器，就是本地DNS服务器，请求的域名基本上都能在这里找得到。</p>
+<p>（5）如果还是没有的话， ISP的DNS服务器会将请求发向根域名服务器进行搜索。根域名服务器就是面向全球的顶级DNS服务器，共有13台逻辑上的服务器，从A到M命名，真正的实体服务器则有几百台，分布于全球各大洲。</p>
+<p>（6）如果到了这里还是找不到域名的对应信息，那只能说明一个问题：这个域名本来就不存在，它没有在网上正式注册过。或者域名过期了。</p>
+<p>浏览器终于得到了IP以后，向服务器发送TCP连接，TCP连接经过三次握手。</p>
+<p>浏览器和服务器建立连接以后，浏览器接着给这个IP地址给服务器发送一个http请求，方式为get，例如访问<a target="_blank" rel="noopener" href="http://www.baidu.com.其本质是在建立起的tcp连接中,按照http协议标准发送一个索要网页的请求./">www.baidu.com。其本质是在建立起的TCP连接中，按照HTTP协议标准发送一个索要网页的请求。</a></p>
+<p>这个get请求包含了主机（Host）、用户代理(User-Agent)，用户代理就是自己的浏览器，它是你的”代理人”，Connection（连接属性）中的keep-alive表示浏览器告诉对方服务器在传输完现在请求的内容后不要断开连接，不断开的话下次继续连接速度就很快了。可能还会有Cookies，Cookies保存了用户的登陆信息，一般保存的是用户的JSESSIONID，在每次向服务器发送请求的时候会重复发送给服务器。</p>
+<p>在建立连接发送请求时每个服务端需要和客户端保持通信，有很多客户端都会和服务器进行通信。服务器为了识别是哪个客户端与它通信，就必须用一个标识记录客户端的信息。客户端首次访问服务器，服务端返回响应时通过附带一个记录的客户端信息的标识来返回给客户端，这个标识就是JSESSIONID，JSESSIONID就放在了客户端的Cookies里。当客户端再次向服务器发送请求时上就使用上次记录的Cookies里面的JSESSIONID，这样服务器就知道是哪个浏览器了。这样他们之间就能保持通信了。</p>
 
                 
             </div>
@@ -998,7 +1010,7 @@ Content-Type:application&#x2F;x-www-form-urlencoded<span aria-hidden="true" clas
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">28.5k</span>
+                        class="white-color">29.4k</span>
             
             
             
