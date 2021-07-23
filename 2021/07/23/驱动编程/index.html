@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TCP协议, studylove">
+    <meta name="keywords" content="Linux系统命令, studylove">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TCP协议 | studylove</title>
+    <title>Linux系统命令 | studylove</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/libs/awesome/css/all.css">
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TCP协议</h1>
+                    <h1 class="description center-align post-title">Linux系统命令</h1>
                 </div>
             </div>
         </div>
@@ -381,8 +381,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/TCP/">
-                                <span class="chip bg-color">TCP</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -397,28 +397,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-07-01
+                    2021-07-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-01
+                    2021-07-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    166
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    1 分
                 </div>
                 
 
@@ -441,254 +441,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="UDP和TCP对比"><a href="#UDP和TCP对比" class="headerlink" title="UDP和TCP对比"></a>UDP和TCP对比</h2><blockquote>
-<p>UDP和TCP是TCP/IP体系结构传输层中的两个重要协议，使用频率仅次于网络层的IP协议</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161037488.png" alt="image-20210701161037488"></p>
-<blockquote>
-<p>UDP是用户数据报协议，TCP是传输控制协议，这里的连接指的是逻辑连接关系而不是物理连接，UDP是无连接的，TCP是面向连接的</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161227368.png" alt="image-20210701161227368"></p>
-<blockquote>
-<p>UDP支持单播、多播以及广播，TCP仅支持单播</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161435700.png" alt="image-20210701161435700"></p>
-<blockquote>
-<p>UDP直接给应用层报文添加一个UDP首部，UDP对应用进程交下来的报文既不合并也不拆分，保留这些报文的边界，接收方的UDP收到UDP用户数据报后去掉UDP首部后交给应用程序，UDP是面向应用报文的</p>
-</blockquote>
-<blockquote>
-<p>发送方的TCP把应用进程交付下来的数据块仅仅看作是一连串的无结构的字节流，将它们编号并存储在自己的发送缓存中，TCP根据发送策略从发送缓存中提取一定数量的字节，构建TCP报文段并发送，接收方的TCP一方面从接收到的TCP报文段中，取出数据载荷部分并存储在接收缓存中， 一方面将接收缓存中的一些字节交付给应用进程，也就是TCP是面向字节流的，这正是TCP实现可靠传输、流量控制以及拥塞控制的基础</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701162433099.png" alt="image-20210701162433099"></p>
-<blockquote>
-<p>UDP向上提供无连接不可靠传输服务</p>
-</blockquote>
-<blockquote>
-<p>TCP向上提供面向连接的可靠传输服务</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163004787.png" alt="image-20210701163004787"></p>
-<blockquote>
-<p>UDP用户数据报首部仅8字节</p>
-</blockquote>
-<blockquote>
-<p>TCP报文段首部最小20字节，最大60字节</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163228403.png" alt="image-20210701163228403"></p>
-<blockquote>
-<p>总结</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163316806.png" alt="image-20210701163316806"></p>
-<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><blockquote>
-<p>一般来说，我们总是希望数据传输得更快一些，但是如果发送方把数据发送得过快，接收方就可能来不及接收，这就会造成数据的丢失</p>
-</blockquote>
-<blockquote>
-<p>所谓流量控制就是让发送方的发送速率不要太快，要让接收方来得及接收</p>
-<p>利用滑动窗口机制可以很方便在TCP连接上实现对发送方的流量控制</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>图片</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164218140.png" alt="image-20210701164218140"></td>
-<td>ack=201表示201前的数据已经全部接收希望收到201及其后续数据，rwnd是TCP报文段首部中的窗口字段，取值300表示自己接收窗口为300</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164550174.png" alt="image-20210701164550174"></td>
-<td>主机A收到主机B对它们的累计确认，现在可将发送缓存中序号1~200的字节数据全部删除</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164835436.png" alt="image-20210701164835436"></td>
-<td>主机A的重传计时器超时了，主机A重新封装成一个TCP报文段发送出去，发送窗口内的数据已经全部发送了，不能发送新的数据，等待主机B的累计确认</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165225716.png" alt="image-20210701165225716"></td>
-<td>主机A通过主机B返回的rwnd调整自己的窗口</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165431752.png" alt="image-20210701165431752"></td>
-<td>主机A收到cwnd为0，于是自己的发送窗口调整成了0，不能再继续发送数据了</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165600989.png" alt="image-20210701165600989"></td>
-<td>为了解决这个问题，TCP为每个连接设有一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器，如果计时器超时就发送一个零窗口探测报文，仅携带一字节的数据，对方确认这个探测报文段时，给出现在的接收窗口值，如果接收窗口仍然是0，则重新启动计时器</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170043712.png" alt="image-20210701170043712"></td>
-<td>TCP规定，即使接收窗口为零，页必须接收零窗口探测报文段，确认报文段以及携带有紧急数据的报文段，如果零窗口探测报文段丢失也不会发生死锁，因为零窗口探测报文段也有重传计时器，当重传计时器超时，零窗口探测报文段会被重传</td>
-</tr>
-</tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170405402.png" alt="image-20210701170405402"></p>
-<blockquote>
-<p>总结</p>
-</blockquote>
-<ul>
-<li>TCP接收方利用自己的接收窗口的大小来限制发送方发送窗口的大小</li>
-<li>TCP发送方收到接收方的零窗口通知后，应启动持续计时器。持续计时器超时后，向接收方发送零窗口探测报文</li>
-</ul>
-<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><blockquote>
-<p>在某时间，若对网络中某一个资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏，这种情况就叫做拥塞</p>
-<p>在计算机网络中的链路容量(即带宽)、交换节点中的缓存和处理机等，都是网络的资源</p>
-<p>若出现拥塞而不进行控制，整个网络的吞吐量将随输入负荷的增大而下降</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183150773.png" alt="image-20210701183150773"></p>
-<p>输入负载：代表单位时间内输入给网络的分组数量</p>
-<p>吞吐量：代表单位时间内从网络输出的分组数量</p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183237894.png" alt="image-20210701183237894"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183352431.png" alt="image-20210701183352431"></p>
-<h3 id="慢开始"><a href="#慢开始" class="headerlink" title="慢开始"></a>慢开始</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183812184.png" alt="image-20210701183812184"></p>
-<p>传输轮次是指发送方给接收方发送数据报文段后，接收方给发送方发回相应的确认报文段</p>
-<h3 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183922153.png" alt="image-20210701183922153"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184336075.png" alt="image-20210701184336075"></p>
-<blockquote>
-<p>慢开始是指一开始向网络注入的报文段少，并不是指拥塞窗口cwnd增长速度慢</p>
-<p>拥塞避免并非完全能够避免拥塞，而是指在拥塞避免截断将拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞</p>
-</blockquote>
-<h3 id="快重传和快恢复"><a href="#快重传和快恢复" class="headerlink" title="快重传和快恢复"></a>快重传和快恢复</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184716688.png" alt="image-20210701184716688"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184820312.png" alt="image-20210701184820312"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184924738.png" alt="image-20210701184924738"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185057454.png" alt="image-20210701185057454"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185154796.png" alt="image-20210701185154796"></p>
-<blockquote>
-<p>总结</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185243960.png" alt="image-20210701185243960"></p>
-<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><blockquote>
-<p>超时重传时间的选择是TCP最复杂的问题之一</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>图片</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192115710.png" alt="image-20210701192115710"></td>
-<td>如果超时重传时间很小就会造成，不必要的重传，使网络负荷增大</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192345846.png" alt="image-20210701192345846"></td>
-<td>如果超时重传时间过大，会造成，网络的空闲时间增大，降低了传输效率</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192449037.png" alt="image-20210701192449037"></td>
-<td>超时重传时间RTO应略大于往返时间RTT</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192727082.png" alt="image-20210701192727082"></td>
-<td>RTO计算公式</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192855763.png" alt="image-20210701192855763"></td>
-<td>RTT测量的困难</td>
-</tr>
-</tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193028857.png" alt="image-20210701193028857"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193121107.png" alt="image-20210701193121107"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193250734.png" alt="image-20210701193250734"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193313889.png" alt="image-20210701193313889"></p>
-<h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><blockquote>
-<p>TCP基于以字节为单位的滑动窗口来实现可靠传输</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>图片</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193809369.png" alt="image-20210701193809369"></td>
-<td>TCP强烈前沿不推荐收缩，因为很可能发送方在收到这个通知之前就已经发送了窗口中的许多数据，现在又要收缩窗口不让发送，可能会就会产生错误</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194209559.png" alt="image-20210701194209559"></td>
-<td></td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194354648.png" alt="image-20210701194354648"></td>
-<td>接收方只能对按序收到的数据中的最高序列给出确认，因此发送的确认报文段中ack=31表示之前的数据已经收到需要接收31及其以后的数据</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194540728.png" alt="image-20210701194540728"></td>
-<td>到目前为止可以将31到33号数据交付给应用进程，并将它们从接收缓存中删除</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194639311.png" alt="image-20210701194639311"></td>
-<td></td>
-</tr>
-</tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195123419.png" alt="image-20210701195123419"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195247618.png" alt="image-20210701195247618"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195341665.png" alt="image-20210701195341665"></p>
-<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195548491.png" alt="image-20210701195548491"></p>
-<blockquote>
-<p>TCP连接建立要解决以下三个问题</p>
-</blockquote>
-<ul>
-<li>使TCP双方能够确知对方的存在；</li>
-<li>使TCP双方能够协商一些参数(如最大窗口值，是否使用窗口扩大选项和时间戳选项以及服务质量等)；</li>
-<li>使TCP双方能够对运输实体资源(如缓存大小、连接表中的项目等)进行分配</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>图片</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201318209.png" alt="image-20210701201318209"></td>
-<td>TCP服务器进程首先创建传输控制块，用来存储TCP连接中的重要信息，然后进入监听状态</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201456617.png" alt="image-20210701201456617"></td>
-<td>TCP服务器进程是被动等待来自TCP客户进程的连接请求而不是主动发起，因此称为被动打开连接</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201611483.png" alt="image-20210701201611483"></td>
-<td>TCP客户端进程也是首先创建传输控制块</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202023163.png" alt="image-20210701202023163"></td>
-<td>向TCP服务器进程发送TCP连接请求报文段，并进入同步已发送状态，SYN被设置为1，表明这是一个TCP连接请求报文段，序号字段seq被设置了一个初始值x，TCP规定SYN被设置为1的报文段不能携带数据，但要消耗掉一个序号</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202047602.png" alt="image-20210701202047602"></td>
-<td>如果同意建立连接，则向TCP客户进程发送TCP连接请求确认报文段，并进入同步已接收状态，不能携带数据，因为SYN被设置为1，但要消耗一个序号</td>
-</tr>
-<tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202359853.png" alt="image-20210701202359853"></td>
-<td>发送普通的TCP确认报文段，并进入连接已建立状态，ACK=1，表明这是一个普通的TCP确认报文段，序号字段seq被设置为x+1，TCP规定普通的TCP确认报文段可以携带数据，但如果不携带数据，则不消耗序号，在这种情况下发送的下一个数据报文段序号仍是x+1</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>TCP客户端进程最后为什么还要发送一个普通的TCP确认报文段，是否多余，换句话说是否能简化为两报文握手</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205020648.png" alt="image-20210701205020648"></p>
-<blockquote>
-<p>综上所述，采用三报文握手是为了防止已失效的连接请求报文段突然又传送到了TCP服务器，因而导致错误</p>
-</blockquote>
-<blockquote>
-<p>小结</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205435242.png" alt="image-20210701205435242"></p>
-<h2 id="TCP释放连接"><a href="#TCP释放连接" class="headerlink" title="TCP释放连接"></a>TCP释放连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210453863.png" alt="image-20210701210453863"></p>
-<blockquote>
-<p>注意：FIN=1的报文段不能携带数据</p>
-</blockquote>
-<blockquote>
-<p>如果没有2MSL会发生什么？</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210753220.png" alt="image-20210701210753220"></p>
-<blockquote>
-<p>TCP保活计时器</p>
-</blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210936970.png" alt="image-20210701210936970"></p>
+                <h2 id="Linux下查看设备信息命令"><a href="#Linux下查看设备信息命令" class="headerlink" title="Linux下查看设备信息命令"></a>Linux下查看设备信息命令</h2><h3 id="查看CPU信息"><a href="#查看CPU信息" class="headerlink" title="查看CPU信息"></a>查看CPU信息</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cat</span> /proc/cpuinfo
+<span class="token comment"># cpu cores 逻辑CPU中内核数量</span>
+<span class="token comment"># core id 内核唯一标识符</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610215245089.png" alt="image-20210610215245089"></p>
+<hr>
+<h3 id="查看内存信息"><a href="#查看内存信息" class="headerlink" title="查看内存信息"></a>查看内存信息</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">free</span> -h
+<span class="token function">cat</span> /proc/meminfo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610215534863.png" alt="image-20210610215534863"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610215725097.png" alt="image-20210610215725097"></p>
+<hr>
+<h3 id="查看磁盘分区"><a href="#查看磁盘分区" class="headerlink" title="查看磁盘分区"></a>查看磁盘分区</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">df</span> -Th<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610215927280.png" alt="image-20210610215927280"></p>
+<hr>
+<h3 id="查看磁盘io"><a href="#查看磁盘io" class="headerlink" title="查看磁盘io"></a>查看磁盘io</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">iostat -xh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220115259.png" alt="image-20210610220115259"></p>
+<hr>
+<h3 id="整体性能"><a href="#整体性能" class="headerlink" title="整体性能"></a>整体性能</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vmstat</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220244592.png" alt="image-20210610220244592"></p>
+<hr>
+<h3 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">uname</span> -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220329591.png" alt="image-20210610220329591"></p>
+<hr>
+<h3 id="查看系统负载"><a href="#查看系统负载" class="headerlink" title="查看系统负载"></a>查看系统负载</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">top</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220426573.png" alt="image-20210610220426573"></p>
+<hr>
+<h3 id="查看系统运行时长"><a href="#查看系统运行时长" class="headerlink" title="查看系统运行时长"></a>查看系统运行时长</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">uptime</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220521326.png" alt="image-20210610220521326"></p>
+<hr>
+<h3 id="设备节点"><a href="#设备节点" class="headerlink" title="设备节点"></a>设备节点</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看设备的主设备号</span>
+<span class="token function">cat</span> /proc/devices
+<span class="token comment"># 显示模块</span>
+lsmod
+<span class="token comment"># 加入模块</span>
+insmod 模块名
+<span class="token comment"># 移除模块</span>
+rmmod 模块名
+<span class="token comment"># 显示模块</span>
+<span class="token function">cat</span> /proc/modules
+<span class="token comment"># 显示信息</span>
+<span class="token function">dmesg</span>
+<span class="token comment"># 创建设备节点</span>
+<span class="token comment">#  		节点名称	  字符设备	主设备号   次设备号</span>
+<span class="token function">mknod</span> /dev/node_name    c      major    minor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220654176.png" alt="image-20210610220654176"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210610220846980.png" alt="image-20210610220846980"></p>
 
                 
             </div>
@@ -715,7 +521,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://d-light-d.github.io/2021/07/01/TCP/">https://d-light-d.github.io/2021/07/01/TCP/</a>
+                    <a href="https://d-light-d.github.io/2021/07/23/%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/">https://d-light-d.github.io/2021/07/23/%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -753,8 +559,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/TCP/">
-                                    <span class="chip bg-color">TCP</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -926,9 +732,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/07/23/%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/">
                     <div class="card-image">
@@ -946,9 +753,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -957,6 +764,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -975,24 +783,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/25/MySQL/">
+                <a href="/2021/07/01/TCP/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/3.jpg" class="responsive-img" alt="MYSQL命令行">
+                        <img src="https://cdn.jsdelivr.net/gh/D-light-D/D-light-D.github.io@main/medias/featureimages/16.jpg" class="responsive-img" alt="TCP协议">
                         
-                        <span class="card-title">MYSQL命令行</span>
+                        <span class="card-title">TCP协议</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文章记录MYSQL的基本命令行操作，对于新手较友好，本文章来自于博主在各个网站搜索汇总，具有一定的参考价值
+                            本文包含TCP与UDP的对比，TCP流量控制、拥塞控制、超时重传时间选择、可靠传输实现，以及TCP的连接与释放，该文来自于B站视频总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-01
                             </span>
                         <span class="publish-author">
                             
@@ -1005,8 +813,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/TCP/">
+                        <span class="chip bg-color">TCP</span>
                     </a>
                     
                 </div>
