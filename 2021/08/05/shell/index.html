@@ -408,21 +408,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-05
+                    2021-08-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    17 分
                 </div>
                 
 
@@ -910,6 +910,294 @@ $ <span class="token builtin class-name">echo</span> <span class="token variable
 <span class="token comment"># -是变量未定义才会赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805225145260.png" alt="image-20210805225145260"></p>
+<h3 id="条件测试"><a href="#条件测试" class="headerlink" title="条件测试"></a>条件测试</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 条件测试三种方法</span>
+<span class="token comment"># test条件表达式</span>
+<span class="token assign-left variable">back_dir</span><span class="token operator">=</span>/var/mydata
+<span class="token keyword">if</span> <span class="token operator">!</span> <span class="token builtin class-name">test</span> -d <span class="token variable">$back_dir</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token function">mkdir</span> -p <span class="token variable">$back_dir</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"开始备份..."</span>
+
+<span class="token function">bash</span> -vx test_mydataback.sh <span class="token comment"># 以调试的方式执行脚本</span>
+
+<span class="token comment"># [条件表达式]</span>
+<span class="token punctuation">[</span> -d /home <span class="token punctuation">]</span> <span class="token comment"># [ 是命令，-d 是参数，/home 是参数，]也是参数，</span>
+<span class="token comment"># 所以必须加在必须加上空格，注意]只是一个参数</span>
+<span class="token comment">#/usr/bin/bash</span>
+<span class="token assign-left variable">back_dir</span><span class="token operator">=</span>/var/mydata
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> -d <span class="token variable">$back_dir</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token function">mkdir</span> -p <span class="token variable">$back_dir</span>
+<span class="token keyword">fi</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"开始备份..."</span>
+
+<span class="token builtin class-name">type</span> -a <span class="token punctuation">[</span> <span class="token comment"># [查看类型</span>
+
+<span class="token comment">#/usr/bin/bash</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token environment constant">$USER</span> <span class="token operator">!=</span> <span class="token string">"root"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"没有权限!"</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">fi</span>
+
+yum -y <span class="token function">install</span> httpd
+<span class="token comment"># 条件测试判断是否是root用户</span>
+
+<span class="token comment"># [[条件表达式]]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="文件测试"><a href="#文件测试" class="headerlink" title="文件测试"></a>文件测试</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 条件测试[ 操作符 文件或目录 ]</span>
+<span class="token punctuation">[</span> -e <span class="token function">dir</span><span class="token operator">|</span><span class="token function">file</span> <span class="token punctuation">]</span>	<span class="token comment"># 判断是否存在	</span>
+<span class="token punctuation">[</span> -d <span class="token function">file</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -f <span class="token function">file</span> <span class="token punctuation">]</span>	<span class="token comment"># 是否是普通文件</span>
+<span class="token punctuation">[</span> -r <span class="token function">file</span> <span class="token punctuation">]</span>	<span class="token comment"># 判断当前用户是否有读权限</span>
+<span class="token punctuation">[</span> -x <span class="token function">file</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -w <span class="token function">file</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -L <span class="token function">file</span> <span class="token punctuation">]</span>	<span class="token comment"># 判断是否是符号链接</span>
+<span class="token punctuation">[</span> -b <span class="token function">file</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -c <span class="token function">file</span> <span class="token punctuation">]</span>
+
+<span class="token comment"># 实例</span>
+<span class="token punctuation">[</span> <span class="token operator">!</span> -d /ccc <span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span><span class="token function">mkdir</span> /ccc <span class="token comment"># /ccc目录不存在则创建</span>
+<span class="token punctuation">[</span> -d /ccc <span class="token punctuation">]</span><span class="token operator">||</span><span class="token function">mkdir</span> /ccc
+
+<span class="token function">grep</span> <span class="token string">'cat <span class="token variable">$1</span>'</span> * <span class="token comment"># 从当前所有文件中过滤</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 数值比较</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -ge <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 大于等于</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -gt <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 大于</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -lt <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 小于</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -ne <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 不等于</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -le <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 小于等于</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -eq <span class="token number">10</span> <span class="token punctuation">]</span> <span class="token comment"># 等于</span>
+
+<span class="token comment"># 实例</span>
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input a username: "</span> user
+
+<span class="token keyword">if</span> <span class="token function">id</span> <span class="token variable">$user</span> <span class="token operator">&amp;></span>/dev/null<span class="token punctuation">;</span> <span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"user <span class="token variable">$user</span> already exists"</span>
+<span class="token keyword">else</span>
+	<span class="token function">useradd</span> <span class="token variable">$user</span>
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$user</span> is created"</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 也可以将上述代码改成如下代码</span>
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input a username: "</span> user
+
+<span class="token function">id</span> <span class="token variable">$user</span> <span class="token operator">&amp;></span>/dev/null <span class="token comment"># 如果用户存在则会返回0，</span>
+<span class="token comment"># 但是用户不存在则会返回1</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"user <span class="token variable">$user</span> already exists"</span>
+<span class="token keyword">else</span>
+	<span class="token function">useradd</span> <span class="token variable">$user</span>
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$user</span> is created"</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># 如果输出硬盘使用百分比</span>
+
+<span class="token comment">#/usr/bin/bash</span>
+<span class="token assign-left variable">disk_use</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">df</span> -Th <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'/$'</span> <span class="token operator">|</span> <span class="token punctuation">\</span> 
+<span class="token function">awk</span> <span class="token string">'&#123;print <span class="token variable"><span class="token variable">$(</span>NF-1<span class="token variable">)</span></span>&#125;'</span> <span class="token operator">|</span> <span class="token function">awk</span> -F<span class="token string">"%"</span> <span class="token string">'&#123;print <span class="token variable">$1</span>&#125;'</span>
+<span class="token assign-left variable">mail_user</span><span class="token operator">=</span>alice
+<span class="token comment"># grep '/$' 过滤出以/结尾的那一行</span>
+<span class="token comment"># awk '&#123;print $(NF-1)&#125;' 选出最后一列</span>
+<span class="token comment"># awk -F"%" '&#123;print $1&#125;' 以%作为分割去掉%，方便后面的计算</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> $disk_use -ge <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> "<span class="token variable">`</span></span>data +%F-%H<span class="token variable"><span class="token variable">`</span> disk: $<span class="token punctuation">&#123;</span>disk_use<span class="token punctuation">&#125;</span><span class="token string">" |mail -s \
+    "</span>disk war<span class="token punctuation">..</span>." $mail_user
+    <span class="token comment"># 发送邮件给$mail_user，主题是disk war...</span>
+<span class="token keyword">fi</span>
+
+<span class="token comment"># bash -vx disk_use.sh</span>
+
+<span class="token comment"># C语言风格数值比较</span>
+<span class="token punctuation">((</span><span class="token operator"><span class="token file-descriptor important">1</span>&lt;</span><span class="token number">2</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> $?
+<span class="token punctuation">((</span><span class="token number">1</span><span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> $?
+<span class="token punctuation">((</span><span class="token operator"><span class="token file-descriptor important">1</span>></span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> $?
+<span class="token punctuation">((</span><span class="token variable">`</span></span><span class="token function">id</span> -u<span class="token variable"><span class="token variable">`</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> $?
+<span class="token punctuation">((</span><span class="token environment constant">$UID</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> $?
+
+<span class="token comment"># 内存报警</span>
+
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token assign-left variable">mem_used</span><span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">free</span> -m <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">'^Mem:'</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;print <span class="token variable">$3</span>&#125;'</span><span class="token variable"><span class="token variable">`</span>
+<span class="token assign-left variable">mem_total</span><span class="token operator">=</span><span class="token variable">`</span></span><span class="token function">free</span> -m <span class="token operator">|</span><span class="token function">grep</span> <span class="token string">'^Mem:'</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'&#123;print <span class="token variable">$2</span>&#125;'</span><span class="token variable"><span class="token variable">`</span>
+<span class="token assign-left variable">mem_percent</span><span class="token operator">=</span><span class="token punctuation">$((</span>mem_used*100/mem_total<span class="token punctuation">))</span>
+<span class="token assign-left variable">war_file</span><span class="token operator">=</span>/tmp/mem_war.txt
+<span class="token function">rm</span> -rf $war_file
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> $mem_percent -ge <span class="token number">80</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> "<span class="token variable">`</span></span><span class="token function">date</span> +%F-%H` memory:<span class="token punctuation">\</span>
+	<span class="token variable">$&#123;mem_percent&#125;</span>%<span class="token string">" > <span class="token variable">$war_file</span>
+fi
+if [ -f <span class="token variable">$war_file</span> ];then
+	mail -s "</span>mem war<span class="token punctuation">..</span>." alice <span class="token operator">&lt;</span> <span class="token variable">$war_file</span>
+	<span class="token function">rm</span> -rf <span class="token variable">$war_file</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210807215159426.png" alt="image-20210807215159426"></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 字符串比较</span>
+<span class="token comment"># 提示：字符串比较必须加上双引号</span>
+<span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$USER</span>"</span><span class="token operator">=</span><span class="token string">"root"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token punctuation">[</span> <span class="token string">"<span class="token environment constant">$USER</span>"</span><span class="token operator">==</span><span class="token string">"root"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token comment"># =和==效果差不多的</span>
+<span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$abc</span>"</span> <span class="token punctuation">]</span>	<span class="token comment"># 如果abc字符串是零则返回0否则返回1</span>
+<span class="token punctuation">[</span> -n <span class="token string">"<span class="token variable">$abc</span>"</span> <span class="token punctuation">]</span>	<span class="token comment"># 与上面的正好相反</span>
+
+
+<span class="token operator">!</span><span class="token punctuation">[</span>image-20210810220002780<span class="token punctuation">]</span><span class="token punctuation">(</span>C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210810220002780.png<span class="token punctuation">)</span>
+
+​```shell
+<span class="token builtin class-name">unset</span> var1
+<span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$var1</span>"</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -n <span class="token string">"<span class="token variable">$var1</span>"</span> <span class="token punctuation">]</span>
+<span class="token assign-left variable">var2</span><span class="token operator">=</span>
+<span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$var2</span>"</span> <span class="token punctuation">]</span>
+<span class="token punctuation">[</span> -n <span class="token string">"<span class="token variable">$var2</span>"</span> <span class="token punctuation">]</span>
+<span class="token comment"># 当变量为空或者未定义时，长度都为0</span>
+
+<span class="token punctuation">[</span> <span class="token number">1</span> -lt <span class="token number">2</span> -a <span class="token number">5</span> -gt <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token punctuation">[</span> <span class="token number">1</span> -lt <span class="token number">2</span> -o <span class="token number">5</span> -gt <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token comment"># -a表示都成立才成立</span>
+<span class="token comment"># -o表示只要一个成立就成立</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">1</span> -lt <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token number">5</span> -gt <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token number">1</span> -lt <span class="token number">2</span> <span class="token operator">||</span> <span class="token number">5</span> -gt <span class="token number">10</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token comment"># 只有[[]]中才能使用&amp;&amp;和||</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="C:/Users/%E5%9C%B0%E8%A1%A8%E6%9C%80%E8%8F%9C/AppData/Roaming/Typora/typora-user-images/image-20210810220810511.png" alt="image-20210810220810511"></p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 创建用户</span>
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input number: "</span> num
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input prefix: "</span> prefix
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> $num<span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+	<span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token variable">$prefix</span><span class="token variable">$i</span>
+	<span class="token function">useradd</span> <span class="token variable">$user</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"123"</span> <span class="token operator">|</span><span class="token function">passwd</span> --stdin <span class="token variable">$user</span>
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$user</span> is created"</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token function">bash</span> -n useradd01.sh <span class="token comment"># 检查是否存在语法错误</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 创建用户02</span>
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input number: "</span> num
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">"<span class="token variable">$num</span>"</span> <span class="token operator">=</span>~ ^<span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span>+$ <span class="token operator">||</span> <span class="token string">"<span class="token variable">$num</span>"</span> <span class="token operator">=</span>~ ^0+$<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"error number"</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">read</span> -p <span class="token string">"Please input prefix: "</span> prefix
+<span class="token keyword">if</span> <span class="token punctuation">[</span> -z <span class="token string">"<span class="token variable">$prefix</span>"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"error prefix"</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">for</span> <span class="token for-or-select variable">i</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">seq</span> $num<span class="token variable">`</span></span>
+<span class="token keyword">do</span>
+	<span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token variable">$prefix</span><span class="token variable">$i</span>
+	<span class="token function">useradd</span> <span class="token variable">$user</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"123"</span> <span class="token operator">|</span><span class="token function">passwd</span> --stdin <span class="token variable">$user</span> <span class="token operator">&amp;></span>/dev/null
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$user</span> is created"</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># 只有[[]]中才能使用正则表达式，[]中不可以使用正则表达式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="if-流程控制"><a href="#if-流程控制" class="headerlink" title="if 流程控制"></a>if 流程控制</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/usr/bin/bash</span>
+<span class="token comment">#install apace</span>
+<span class="token comment">#v1.0 by dyl 2021/8/12</span>
+<span class="token keyword">if</span> <span class="token operator">!</span> <span class="token function">ping</span> -c1 www.baidu.com <span class="token operator">&amp;></span>/dev/null<span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"connect: unreadchable"</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">fi</span>
+
+yum -y <span class="token function">install</span> httpd
+systemctl start httpd
+systemctl <span class="token builtin class-name">enable</span> httpd
+firewall-cmd --permanent --add-service<span class="token operator">=</span>http
+firewall-cmd --permanent --add-service<span class="token operator">=</span>https
+firewall-cmd --reload
+<span class="token function">sed</span> -ri <span class="token string">'/^SELINUX=/cSELINUX=disabled'</span> /etc/selinux/config
+setenforce <span class="token number">0</span>
+
+<span class="token comment"># 可以将上面改成 </span>
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token comment">#install apace</span>
+<span class="token comment">#v1.0 by dyl 2021/8/12</span>
+<span class="token function">ping</span> -c1 www.baidu.com <span class="token operator">&amp;></span>/dev/null
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"connect: unreadchable"</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">fi</span>
+
+yum -y <span class="token function">install</span> httpd
+systemctl start httpd
+systemctl <span class="token builtin class-name">enable</span> httpd
+firewall-cmd --permanent --add-service<span class="token operator">=</span>http
+firewall-cmd --permanent --add-service<span class="token operator">=</span>https
+firewall-cmd --reload
+<span class="token function">sed</span> -ri <span class="token string">'/^SELINUX=/cSELINUX=disabled'</span> /etc/selinux/config
+setenforce <span class="token number">0</span>
+
+<span class="token comment"># if可以判断任何一个返回真假的命令</span>
+
+<span class="token comment">#!/usr/bin/bash</span>
+<span class="token comment">#install apace</span>
+<span class="token comment">#v1.0 by dyl 2021/8/12</span>
+<span class="token function">ping</span> -c1 www.baidu.com <span class="token operator">&amp;></span>/dev/null
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	yum -y <span class="token function">install</span> httpd
+	systemctl start httpd
+	systemctl <span class="token builtin class-name">enable</span> httpd
+	firewall-cmd --permanent --add-service<span class="token operator">=</span>http
+	firewall-cmd --permanent --add-service<span class="token operator">=</span>https
+	firewall-cmd --reload
+	<span class="token function">sed</span> -ri <span class="token string">'/^SELINUX=/cSELINUX=disabled'</span> /etc/selinux/config
+	setenforce <span class="token number">0</span>
+	
+	<span class="token function">curl</span> http://127.0.0.1 <span class="token operator">&amp;></span>/dev/null
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">"apache ok"</span>
+	<span class="token keyword">fi</span>
+	
+<span class="token keyword">elif</span> <span class="token function">ping</span> -c1 <span class="token variable">$gateway</span> <span class="token operator">&amp;></span>/dev/null<span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"check dns..."</span>
+<span class="token keyword">else</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">"check ip address！"</span>
+<span class="token keyword">fi</span>
+
+<span class="token builtin class-name">read</span> -p <span class="token string">"确认开始安装KVM[y]:"</span> kvm_install
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token string">"<span class="token variable">$&#123;kvm_install&#125;</span>"</span><span class="token operator">=</span><span class="token string">"y"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+	<span class="token builtin class-name">echo</span> -e <span class="token string">"输入不正确"</span>
+	<span class="token builtin class-name">exit</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>
@@ -1388,7 +1676,7 @@ $ <span class="token builtin class-name">echo</span> <span class="token variable
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">35k</span>
+                        class="white-color">36.2k</span>
             
             
             
@@ -1676,9 +1964,9 @@ $(function () {
 	</script>
 
 	<!--鼠标烟花爆炸效果-->
-	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+	<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
 	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-	<script type="text/javascript" src="/js/fireworks.js"></script>
+	<script type="text/javascript" src="/js/fireworks.js"></script> -->
 
 	<!--樱花效果-->
 	<!--<script type="text/javascript">
