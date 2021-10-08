@@ -18,8 +18,6 @@
             
             <tag> shell </tag>
             
-            <tag> test </tag>
-            
         </tags>
       
     </entry>
@@ -155,9 +153,9 @@
       
         <tags>
             
-            <tag> C语言 </tag>
-            
             <tag> 数据库 </tag>
+            
+            <tag> C语言 </tag>
             
         </tags>
       
