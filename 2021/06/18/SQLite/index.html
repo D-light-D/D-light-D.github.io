@@ -506,38 +506,38 @@
 <blockquote>
 <p>SQLite3安装</p>
 </blockquote>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 只下载包但是不安装，其中不包含API接口</span>
-<span class="token function">apt-get</span> download sqlite3 
-<span class="token comment"># 下载并安装</span>
-<span class="token function">apt-get</span> <span class="token function">install</span> sqlite3
-<span class="token comment"># 进入sqlite3,这样进入写的数据是在内存中，退出后数据就会消失</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 只下载包但是不安装，其中不包含API接口
+apt-get download sqlite3 
+# 下载并安装
+apt-get install sqlite3
+# 进入sqlite3,这样进入写的数据是在内存中，退出后数据就会消失
 sqlite3
-<span class="token comment"># 进入sqlite3，并保存在哪个位置</span>
+# 进入sqlite3，并保存在哪个位置
 sqlite3 student
-<span class="token comment"># 退出sqlite3</span>
+# 退出sqlite3
 .exit
-<span class="token comment"># 查看表</span>
+# 查看表
 .table
-<span class="token comment"># 设置查询的间隙</span>
-.mode <span class="token function">column</span>
-<span class="token comment"># 设置查询的表头</span>
+# 设置查询的间隙
+.mode column
+# 设置查询的表头
 .header on
-<span class="token comment"># 创建表</span>
-create table student <span class="token punctuation">(</span>id integer,name text,age integer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment"># 如果不存在就创建表否则不创建</span>
-create table <span class="token keyword">if</span> not exists student <span class="token punctuation">(</span>id integer,name text,age integer<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment"># 查看表结构</span>
+# 创建表
+create table student (id integer,name text,age integer);
+# 如果不存在就创建表否则不创建
+create table if not exists student (id integer,name text,age integer);
+# 查看表结构
 .schema
-<span class="token comment"># 插入数据</span>
-insert into student <span class="token punctuation">(</span>id,name,age<span class="token punctuation">)</span> values<span class="token punctuation">(</span><span class="token number">1</span>,<span class="token string">"aa"</span>,11<span class="token punctuation">)</span><span class="token punctuation">;</span>
-insert into student values<span class="token punctuation">(</span><span class="token number">2</span>,<span class="token string">"bb"</span>,22<span class="token punctuation">)</span>,<span class="token punctuation">(</span><span class="token number">3</span>,<span class="token string">"cc"</span>,33<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment"># 查询数据</span>
-<span class="token keyword">select</span> * from student<span class="token punctuation">;</span>
-<span class="token comment"># 修改数据</span>
-update student <span class="token builtin class-name">set</span> <span class="token assign-left variable">age</span><span class="token operator">=</span><span class="token number">25</span> where <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-<span class="token comment"># 删除数据</span>
-delete from student where <span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token comment"># 删除表</span>
+# 插入数据
+insert into student (id,name,age) values(1,&quot;aa&quot;,11);
+insert into student values(2,&quot;bb&quot;,22),(3,&quot;cc&quot;,33);
+# 查询数据
+select * from student;
+# 修改数据
+update student set age&#x3D;25 where id&#x3D;3;
+# 删除数据
+delete from student where id&#x3D;1;
+# 删除表
 drop table student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
@@ -545,8 +545,8 @@ drop table student<span aria-hidden="true" class="line-numbers-rows"><span></spa
 <p>SQLite的API</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://sqlite.org/cintro.html">C语言API接口函数</a></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 安装头文件</span>
-<span class="token function">apt-get</span> <span class="token function">install</span> libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装头文件
+apt-get install libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; filename: 数据库的名字，如果不存在则创建
 &#x2F;&#x2F; ppDb：返回数据库句柄
