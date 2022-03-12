@@ -412,21 +412,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-23
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -449,7 +449,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><blockquote>
+                <h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><h3 id="SQLite数据库特点"><a href="#SQLite数据库特点" class="headerlink" title="SQLite数据库特点"></a>SQLite数据库特点</h3><blockquote>
 <p>SQLite是一种用ANSI-C编写的嵌入书关系数据库管理系统</p>
 <p>SQLite是基于文件的，它与其他SQL数据库不同，因为与大多数其他SQL数据库不同，SQLite没有单独的服务器进程</p>
 <p>SQLite支持SQL的很多特性，性能高，不支持存储过程，而SQL是一种查询语言，被不同的SQL数据库使用，它本身不是数据库</p>
@@ -498,15 +498,19 @@
 </blockquote>
 <ul>
 <li>integer：带符号的整型(最多64位)</li>
+<li>decimal(p,s)：p精确值和s大小的十进位整数，p是多少个数字，s表示小数有多少个</li>
+<li>float：32位实数</li>
+<li>double：64位实数</li>
+<li>char(n)：n长度的字符串，n不能超过254</li>
+<li>varchar(n)：长度不固定且最大长度为n的字符串，n不能超过4000</li>
+<li>date：包含年份、月份、日期 (2019-09-09)</li>
+<li>time：包含小时、分钟、秒</li>
 <li>real：8字节表示的浮点类型</li>
 <li>text：字符类型，支持多种编码（如UTF-8、UTF-16），大小无限制</li>
 <li>blob：任意类型的数据，大小无限制。BLOB二进制大对象，使用二进制保存数据</li>
 <li>null：表示空值</li>
 </ul>
-<blockquote>
-<p>SQLite3安装</p>
-</blockquote>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 只下载包但是不安装，其中不包含API接口
+<h3 id="SQLite3安装"><a href="#SQLite3安装" class="headerlink" title="SQLite3安装"></a>SQLite3安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 只下载包但是不安装，其中不包含API接口
 apt-get download sqlite3 
 # 下载并安装
 apt-get install sqlite3
@@ -541,10 +545,7 @@ delete from student where id&#x3D;1;
 drop table student<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <hr>
-<blockquote>
-<p>SQLite的API</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://sqlite.org/cintro.html">C语言API接口函数</a></p>
+<h3 id="SQLite的API"><a href="#SQLite的API" class="headerlink" title="SQLite的API"></a>SQLite的API</h3><p><a target="_blank" rel="noopener" href="https://sqlite.org/cintro.html">C语言API接口函数</a></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 安装头文件
 apt-get install libsqlite3-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
@@ -1141,7 +1142,7 @@ int sqlite3_get_table(
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">36.2k</span>
+                        class="white-color">36.3k</span>
             
             
             
