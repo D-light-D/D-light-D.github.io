@@ -915,7 +915,7 @@ SELECT * FROM mysql.user WHERE user&#x3D;&#39;root&#39;\G
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('30')) {
+        if (('' + selection).length < Number.parseInt('1000')) {
             return;
         }
 
