@@ -458,40 +458,40 @@
                 <h2 id="UDP和TCP对比"><a href="#UDP和TCP对比" class="headerlink" title="UDP和TCP对比"></a>UDP和TCP对比</h2><blockquote>
 <p>UDP和TCP是TCP/IP体系结构传输层中的两个重要协议，使用频率仅次于网络层的IP协议</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161037488.png" alt="image-20210701161037488"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701161037488.png" alt="image-20210701161037488"></p>
 <blockquote>
 <p>UDP是用户数据报协议，TCP是传输控制协议，这里的连接指的是逻辑连接关系而不是物理连接，UDP是无连接的，TCP是面向连接的</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161227368.png" alt="image-20210701161227368"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701161227368.png" alt="image-20210701161227368"></p>
 <blockquote>
 <p>UDP支持单播、多播以及广播，TCP仅支持单播</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161435700.png" alt="image-20210701161435700"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701161435700.png" alt="image-20210701161435700"></p>
 <blockquote>
 <p>UDP直接给应用层报文添加一个UDP首部，UDP对应用进程交下来的报文既不合并也不拆分，保留这些报文的边界，接收方的UDP收到UDP用户数据报后去掉UDP首部后交给应用程序，UDP是面向应用报文的</p>
 </blockquote>
 <blockquote>
 <p>发送方的TCP把应用进程交付下来的数据块仅仅看作是一连串的无结构的字节流，将它们编号并存储在自己的发送缓存中，TCP根据发送策略从发送缓存中提取一定数量的字节，构建TCP报文段并发送，接收方的TCP一方面从接收到的TCP报文段中，取出数据载荷部分并存储在接收缓存中， 一方面将接收缓存中的一些字节交付给应用进程，也就是TCP是面向字节流的，这正是TCP实现可靠传输、流量控制以及拥塞控制的基础</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701162433099.png" alt="image-20210701162433099"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701162433099.png" alt="image-20210701162433099"></p>
 <blockquote>
 <p>UDP向上提供无连接不可靠传输服务</p>
 </blockquote>
 <blockquote>
 <p>TCP向上提供面向连接的可靠传输服务</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163004787.png" alt="image-20210701163004787"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701163004787.png" alt="image-20210701163004787"></p>
 <blockquote>
 <p>UDP用户数据报首部仅8字节</p>
 </blockquote>
 <blockquote>
 <p>TCP报文段首部最小20字节，最大60字节</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163228403.png" alt="image-20210701163228403"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701163228403.png" alt="image-20210701163228403"></p>
 <blockquote>
 <p>总结</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163316806.png" alt="image-20210701163316806"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701163316806.png" alt="image-20210701163316806"></p>
 <h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><blockquote>
 <p>一般来说，我们总是希望数据传输得更快一些，但是如果发送方把数据发送得过快，接收方就可能来不及接收，这就会造成数据的丢失</p>
 </blockquote>
@@ -507,35 +507,35 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164218140.png" alt="image-20210701164218140"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701164218140.png" alt="image-20210701164218140"></td>
 <td>ack=201表示201前的数据已经全部接收希望收到201及其后续数据，rwnd是TCP报文段首部中的窗口字段，取值300表示自己接收窗口为300</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164550174.png" alt="image-20210701164550174"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701164550174.png" alt="image-20210701164550174"></td>
 <td>主机A收到主机B对它们的累计确认，现在可将发送缓存中序号1~200的字节数据全部删除</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164835436.png" alt="image-20210701164835436"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701164835436.png" alt="image-20210701164835436"></td>
 <td>主机A的重传计时器超时了，主机A重新封装成一个TCP报文段发送出去，发送窗口内的数据已经全部发送了，不能发送新的数据，等待主机B的累计确认</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165225716.png" alt="image-20210701165225716"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701165225716.png" alt="image-20210701165225716"></td>
 <td>主机A通过主机B返回的rwnd调整自己的窗口</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165431752.png" alt="image-20210701165431752"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701165431752.png" alt="image-20210701165431752"></td>
 <td>主机A收到cwnd为0，于是自己的发送窗口调整成了0，不能再继续发送数据了</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165600989.png" alt="image-20210701165600989"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701165600989.png" alt="image-20210701165600989"></td>
 <td>为了解决这个问题，TCP为每个连接设有一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器，如果计时器超时就发送一个零窗口探测报文，仅携带一字节的数据，对方确认这个探测报文段时，给出现在的接收窗口值，如果接收窗口仍然是0，则重新启动计时器</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170043712.png" alt="image-20210701170043712"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701170043712.png" alt="image-20210701170043712"></td>
 <td>TCP规定，即使接收窗口为零，页必须接收零窗口探测报文段，确认报文段以及携带有紧急数据的报文段，如果零窗口探测报文段丢失也不会发生死锁，因为零窗口探测报文段也有重传计时器，当重传计时器超时，零窗口探测报文段会被重传</td>
 </tr>
 </tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170405402.png" alt="image-20210701170405402"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701170405402.png" alt="image-20210701170405402"></p>
 <blockquote>
 <p>总结</p>
 </blockquote>
@@ -548,28 +548,28 @@
 <p>在计算机网络中的链路容量(即带宽)、交换节点中的缓存和处理机等，都是网络的资源</p>
 <p>若出现拥塞而不进行控制，整个网络的吞吐量将随输入负荷的增大而下降</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183150773.png" alt="image-20210701183150773"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701183150773.png" alt="image-20210701183150773"></p>
 <p>输入负载：代表单位时间内输入给网络的分组数量</p>
 <p>吞吐量：代表单位时间内从网络输出的分组数量</p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183237894.png" alt="image-20210701183237894"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183352431.png" alt="image-20210701183352431"></p>
-<h3 id="慢开始"><a href="#慢开始" class="headerlink" title="慢开始"></a>慢开始</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183812184.png" alt="image-20210701183812184"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701183237894.png" alt="image-20210701183237894"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701183352431.png" alt="image-20210701183352431"></p>
+<h3 id="慢开始"><a href="#慢开始" class="headerlink" title="慢开始"></a>慢开始</h3><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701183812184.png" alt="image-20210701183812184"></p>
 <p>传输轮次是指发送方给接收方发送数据报文段后，接收方给发送方发回相应的确认报文段</p>
-<h3 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183922153.png" alt="image-20210701183922153"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184336075.png" alt="image-20210701184336075"></p>
+<h3 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h3><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701183922153.png" alt="image-20210701183922153"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701184336075.png" alt="image-20210701184336075"></p>
 <blockquote>
 <p>慢开始是指一开始向网络注入的报文段少，并不是指拥塞窗口cwnd增长速度慢</p>
 <p>拥塞避免并非完全能够避免拥塞，而是指在拥塞避免截断将拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞</p>
 </blockquote>
-<h3 id="快重传和快恢复"><a href="#快重传和快恢复" class="headerlink" title="快重传和快恢复"></a>快重传和快恢复</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184716688.png" alt="image-20210701184716688"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184820312.png" alt="image-20210701184820312"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184924738.png" alt="image-20210701184924738"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185057454.png" alt="image-20210701185057454"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185154796.png" alt="image-20210701185154796"></p>
+<h3 id="快重传和快恢复"><a href="#快重传和快恢复" class="headerlink" title="快重传和快恢复"></a>快重传和快恢复</h3><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701184716688.png" alt="image-20210701184716688"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701184820312.png" alt="image-20210701184820312"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701184924738.png" alt="image-20210701184924738"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701185057454.png" alt="image-20210701185057454"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701185154796.png" alt="image-20210701185154796"></p>
 <blockquote>
 <p>总结</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185243960.png" alt="image-20210701185243960"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701185243960.png" alt="image-20210701185243960"></p>
 <h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><blockquote>
 <p>超时重传时间的选择是TCP最复杂的问题之一</p>
 </blockquote>
@@ -581,30 +581,30 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192115710.png" alt="image-20210701192115710"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701192115710.png" alt="image-20210701192115710"></td>
 <td>如果超时重传时间很小就会造成，不必要的重传，使网络负荷增大</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192345846.png" alt="image-20210701192345846"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701192345846.png" alt="image-20210701192345846"></td>
 <td>如果超时重传时间过大，会造成，网络的空闲时间增大，降低了传输效率</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192449037.png" alt="image-20210701192449037"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701192449037.png" alt="image-20210701192449037"></td>
 <td>超时重传时间RTO应略大于往返时间RTT</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192727082.png" alt="image-20210701192727082"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701192727082.png" alt="image-20210701192727082"></td>
 <td>RTO计算公式</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192855763.png" alt="image-20210701192855763"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701192855763.png" alt="image-20210701192855763"></td>
 <td>RTT测量的困难</td>
 </tr>
 </tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193028857.png" alt="image-20210701193028857"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193121107.png" alt="image-20210701193121107"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193250734.png" alt="image-20210701193250734"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193313889.png" alt="image-20210701193313889"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701193028857.png" alt="image-20210701193028857"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701193121107.png" alt="image-20210701193121107"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701193250734.png" alt="image-20210701193250734"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701193313889.png" alt="image-20210701193313889"></p>
 <h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><blockquote>
 <p>TCP基于以字节为单位的滑动窗口来实现可靠传输</p>
 </blockquote>
@@ -616,30 +616,30 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193809369.png" alt="image-20210701193809369"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701193809369.png" alt="image-20210701193809369"></td>
 <td>TCP强烈前沿不推荐收缩，因为很可能发送方在收到这个通知之前就已经发送了窗口中的许多数据，现在又要收缩窗口不让发送，可能会就会产生错误</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194209559.png" alt="image-20210701194209559"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701194209559.png" alt="image-20210701194209559"></td>
 <td></td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194354648.png" alt="image-20210701194354648"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701194354648.png" alt="image-20210701194354648"></td>
 <td>接收方只能对按序收到的数据中的最高序列给出确认，因此发送的确认报文段中ack=31表示之前的数据已经收到需要接收31及其以后的数据</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194540728.png" alt="image-20210701194540728"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701194540728.png" alt="image-20210701194540728"></td>
 <td>到目前为止可以将31到33号数据交付给应用进程，并将它们从接收缓存中删除</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194639311.png" alt="image-20210701194639311"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701194639311.png" alt="image-20210701194639311"></td>
 <td></td>
 </tr>
 </tbody></table>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195123419.png" alt="image-20210701195123419"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195247618.png" alt="image-20210701195247618"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195341665.png" alt="image-20210701195341665"></p>
-<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195548491.png" alt="image-20210701195548491"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701195123419.png" alt="image-20210701195123419"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701195247618.png" alt="image-20210701195247618"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701195341665.png" alt="image-20210701195341665"></p>
+<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701195548491.png" alt="image-20210701195548491"></p>
 <blockquote>
 <p>TCP连接建立要解决以下三个问题</p>
 </blockquote>
@@ -656,53 +656,53 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201318209.png" alt="image-20210701201318209"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701201318209.png" alt="image-20210701201318209"></td>
 <td>TCP服务器进程首先创建传输控制块，用来存储TCP连接中的重要信息，然后进入监听状态</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201456617.png" alt="image-20210701201456617"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701201456617.png" alt="image-20210701201456617"></td>
 <td>TCP服务器进程是被动等待来自TCP客户进程的连接请求而不是主动发起，因此称为被动打开连接</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201611483.png" alt="image-20210701201611483"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701201611483.png" alt="image-20210701201611483"></td>
 <td>TCP客户端进程也是首先创建传输控制块</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202023163.png" alt="image-20210701202023163"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701202023163.png" alt="image-20210701202023163"></td>
 <td>向TCP服务器进程发送TCP连接请求报文段，并进入同步已发送状态，SYN被设置为1，表明这是一个TCP连接请求报文段，序号字段seq被设置了一个初始值x，TCP规定SYN被设置为1的报文段不能携带数据，但要消耗掉一个序号</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202047602.png" alt="image-20210701202047602"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701202047602.png" alt="image-20210701202047602"></td>
 <td>如果同意建立连接，则向TCP客户进程发送TCP连接请求确认报文段，并进入同步已接收状态，不能携带数据，因为SYN被设置为1，但要消耗一个序号</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202359853.png" alt="image-20210701202359853"></td>
+<td><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701202359853.png" alt="image-20210701202359853"></td>
 <td>发送普通的TCP确认报文段，并进入连接已建立状态，ACK=1，表明这是一个普通的TCP确认报文段，序号字段seq被设置为x+1，TCP规定普通的TCP确认报文段可以携带数据，但如果不携带数据，则不消耗序号，在这种情况下发送的下一个数据报文段序号仍是x+1</td>
 </tr>
 </tbody></table>
 <blockquote>
 <p>TCP客户端进程最后为什么还要发送一个普通的TCP确认报文段，是否多余，换句话说是否能简化为两报文握手</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205020648.png" alt="image-20210701205020648"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701205020648.png" alt="image-20210701205020648"></p>
 <blockquote>
 <p>综上所述，采用三报文握手是为了防止已失效的连接请求报文段突然又传送到了TCP服务器，因而导致错误</p>
 </blockquote>
 <blockquote>
 <p>小结</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205435242.png" alt="image-20210701205435242"></p>
-<h2 id="TCP释放连接"><a href="#TCP释放连接" class="headerlink" title="TCP释放连接"></a>TCP释放连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210453863.png" alt="image-20210701210453863"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701205435242.png" alt="image-20210701205435242"></p>
+<h2 id="TCP释放连接"><a href="#TCP释放连接" class="headerlink" title="TCP释放连接"></a>TCP释放连接</h2><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701210453863.png" alt="image-20210701210453863"></p>
 <blockquote>
 <p>注意：FIN=1的报文段不能携带数据</p>
 </blockquote>
 <blockquote>
 <p>如果没有2MSL会发生什么？</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210753220.png" alt="image-20210701210753220"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701210753220.png" alt="image-20210701210753220"></p>
 <blockquote>
 <p>TCP保活计时器</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210936970.png" alt="image-20210701210936970"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210701210936970.png" alt="image-20210701210936970"></p>
 
                 
             </div>

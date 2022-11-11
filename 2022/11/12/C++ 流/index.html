@@ -467,7 +467,7 @@
 <blockquote>
 <p><strong>流</strong>类</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529162855302.png" alt="image-20210529162855302"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529162855302.png" alt="image-20210529162855302"></p>
 <p>ios类及其派生类：输入和输出</p>
 <table>
 <thead>
@@ -542,7 +542,7 @@ cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
 cin&gt;&gt;b;
 cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529165608991.png" alt="image-20210529165608991"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529165608991.png" alt="image-20210529165608991"></p>
 <hr>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; get方法
 &#x2F;&#x2F; get可以接受空格和制表符，只把回车符作为终止符，而&gt;&gt;将空格、制表符和回车符都作为终止符
@@ -557,7 +557,7 @@ cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
 cin.get(b,10);
 cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529171254158.png" alt="image-20210529171254158"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529171254158.png" alt="image-20210529171254158"></p>
 <blockquote>
 <p><strong>注意</strong>：get遇到回车符终止，在输入的时候输入回车符终止，该回车符依然在输入缓冲区，当第二个输入get遇到了回车符直接终止了并没有等待输入，所以b里面就只有一个’\0’</p>
 </blockquote>
@@ -568,7 +568,7 @@ cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
 cin.get(b,10).get();
 cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529171706787.png" alt="image-20210529171706787"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529171706787.png" alt="image-20210529171706787"></p>
 <blockquote>
 <p><strong>注意</strong>：get()接收了回车符，以至于第二个get(b,10)没有遇到回车符，可以正常的等待用户输入，运行正常</p>
 </blockquote>
@@ -583,7 +583,7 @@ cout&lt;&lt;&quot;a:&quot;&lt;&lt;a&lt;&lt;endl;
 cin.getline(b,10);
 cout&lt;&lt;&quot;b:&quot;&lt;&lt;b&lt;&lt;endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529185235148.png" alt="image-20210529185235148"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529185235148.png" alt="image-20210529185235148"></p>
 <blockquote>
 <p><strong>注意</strong>：cin.get(buffer,size)读取数据到buffer中，遇到’\n’结束，下一次的cin.get(buffer,size)遇到’\n’直接结束了读取，读到了空字符串；可以使用cin.get(buffer,size).get()，抛弃’\n’</p>
 <p>cin.getline()每次读取一整行并抛弃’\n’</p>
@@ -606,7 +606,7 @@ char b[10];
 cin.read(a,10);
 cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210529190607019.png" alt="image-20210529190607019"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210529190607019.png" alt="image-20210529190607019"></p>
 <h2 id="C-输入输出总结"><a href="#C-输入输出总结" class="headerlink" title="C++输入输出总结"></a>C++输入输出总结</h2><ol>
 <li>不涉及空格、tab、回车字符串的输入以及所有的数字输入用&gt;&gt;</li>
 <li>输入一个字符的时候可以用&gt;&gt;或者用get方法</li>
@@ -854,19 +854,19 @@ cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/12/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                <a href="/2022/11/12/Blog_building/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="C++ lamdba表达式">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
                         
-                        <span class="card-title">C++ lamdba表达式</span>
+                        <span class="card-title">搭建博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文讲解lamdba表达式基本语法，本文对于初学C++萌新而言十分友好，lamdba表达式在C++使用广泛，掌握lambda表达式对于灵活使用C++非常重要
+                            下载node.js，配置环境变量，安装Hexo，将Hexo部署在GitHub，该文章并不包含如何下载主题以及主题个性化配置，推荐使用matery主题
                         
                     </div>
                     <div class="publish-info">
@@ -884,8 +884,8 @@ cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/nodejs/">
+                        <span class="chip bg-color">nodejs</span>
                     </a>
                     
                 </div>
@@ -899,19 +899,19 @@ cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/12/Blog_building/">
+                <a href="/2022/11/12/C++lamdba%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="搭建博客">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="C++ lamdba表达式">
                         
-                        <span class="card-title">搭建博客</span>
+                        <span class="card-title">C++ lamdba表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            下载node.js，配置环境变量，安装Hexo，将Hexo部署在GitHub，该文章并不包含如何下载主题以及主题个性化配置，推荐使用matery主题
+                            本文讲解lamdba表达式基本语法，本文对于初学C++萌新而言十分友好，lamdba表达式在C++使用广泛，掌握lambda表达式对于灵活使用C++非常重要
                         
                     </div>
                     <div class="publish-info">
@@ -929,8 +929,8 @@ cout.write(a,10);<span aria-hidden="true" class="line-numbers-rows"><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/nodejs/">
-                        <span class="chip bg-color">nodejs</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>

@@ -464,7 +464,7 @@
 <li>可用性(Availability)</li>
 <li>分区容错性(Partition Tolerance)</li>
 </ul>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718182248204.png" alt="image-20210718182248204"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718182248204.png" alt="image-20210718182248204"></p>
 <blockquote>
 <p>一致性模型</p>
 </blockquote>
@@ -485,7 +485,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718182938659.png" alt="image-20210718182938659"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718182938659.png" alt="image-20210718182938659"></p>
 <blockquote>
 <p>明确问题</p>
 </blockquote>
@@ -501,12 +501,12 @@
 <blockquote>
 <p>问题：一个节点失败，Master阻塞，导致整个集群不可用，保证了一致性，可用性却大大降低</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718183722654.png" alt="image-20210718183722654"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718183722654.png" alt="image-20210718183722654"></p>
 <h2 id="强一致性算法-多数派"><a href="#强一致性算法-多数派" class="headerlink" title="强一致性算法-多数派"></a>强一致性算法-多数派</h2><p>基本思想：每次写都保证写入N/2个节点，每次读保证从大于N/2个节点读(多数派)</p>
 <blockquote>
 <p>问题：在并发环境下，无法保证系统正确性，顺序非常重要</p>
 </blockquote>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718184157056.png" alt="image-20210718184157056"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718184157056.png" alt="image-20210718184157056"></p>
 <h2 id="强一致性算法-Paxos"><a href="#强一致性算法-Paxos" class="headerlink" title="强一致性算法-Paxos"></a>强一致性算法-Paxos</h2><p>Lesile Lamport,Latex的发明者，为了描述Paxos算法，Lamport虚拟了一个叫Paxos的希腊城邦，这个岛按照议会民主制的政治模式指定法律，但是没有人愿意将自己的全部时间和精力放在这种事，所有无论是议员，议长或者传递纸条的服务员都不能承诺别人需要时一定会出现，也无法承诺批准决议或者传递消息的时间</p>
 <p>Paxos有三个版本：Basic Paxos、Multi Paxos、Fast Paxos</p>
 <h3 id="Basic-Paxos"><a href="#Basic-Paxos" class="headerlink" title="Basic Paxos"></a>Basic Paxos</h3><blockquote>
@@ -525,12 +525,12 @@
 <li>如果达到了多数派，proposer会发出accept请求，此请求包含提案编号N，以及提案内容</li>
 <li>如果此acceptor在此期间没有收到任何编号大于N的提案，则接受此提案，否则忽略</li>
 </ol>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718213328310.png" alt="image-20210718213328310"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718213720792.png" alt="image-20210718213720792"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718215357366.png" alt="image-20210718215357366"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718215411695.png" alt="image-20210718215411695"></p>
-<h3 id="Multi-Paxos"><a href="#Multi-Paxos" class="headerlink" title="Multi Paxos"></a>Multi Paxos</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718215530208.png" alt="image-20210718215530208"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210718215551695.png" alt="image-20210718215551695"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718213328310.png" alt="image-20210718213328310"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718213720792.png" alt="image-20210718213720792"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718215357366.png" alt="image-20210718215357366"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718215411695.png" alt="image-20210718215411695"></p>
+<h3 id="Multi-Paxos"><a href="#Multi-Paxos" class="headerlink" title="Multi Paxos"></a>Multi Paxos</h3><p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718215530208.png" alt="image-20210718215530208"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210718215551695.png" alt="image-20210718215551695"></p>
 <h2 id="强一致性算法-Raft"><a href="#强一致性算法-Raft" class="headerlink" title="强一致性算法-Raft"></a>强一致性算法-Raft</h2><ul>
 <li>Raft<ul>
 <li>划分成三个子问题<ul>

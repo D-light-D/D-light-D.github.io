@@ -508,7 +508,7 @@
 <ol>
 <li>最后一步<ul>
 <li>关键点1：我们不关心前面的k-1枚硬币是怎么拼出27-a<sub>k</sub>的，而且我们现在甚至不知道a<sub>k</sub>和k，但是我们可以确定前面的硬币拼出了27-a<sub>k</sub></li>
-<li>关键点2：因为是最优策略，所以拼出27-a<sub>k</sub>的硬币数一定要最少，否则就不是最优策略<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210516211949412.png" alt="image-20210516211949412"></li>
+<li>关键点2：因为是最优策略，所以拼出27-a<sub>k</sub>的硬币数一定要最少，否则就不是最优策略<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210516211949412.png" alt="image-20210516211949412"></li>
 </ul>
 </li>
 <li>子问题<ul>
@@ -517,7 +517,7 @@
 <li>我们将原问题转化成一个子问题，而且规模最小：27-a<sub>k</sub></li>
 <li>为了简化定义，我们设定状态f(X)=最少用多少枚硬币拼出X</li>
 <li>最后一枚硬币只可能是2，5或者7</li>
-<li>f(27)=min{f(27-2)+1,f(27-5)+1,f(27-7)+1}<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210516212817288.png" alt="image-20210516212817288"></li>
+<li>f(27)=min{f(27-2)+1,f(27-5)+1,f(27-7)+1}<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210516212817288.png" alt="image-20210516212817288"></li>
 </ul>
 </li>
 </ol>
@@ -589,7 +589,7 @@
 
 <h3 id="计数型动态规划"><a href="#计数型动态规划" class="headerlink" title="计数型动态规划"></a>计数型动态规划</h3><ol>
 <li>给定m行n列的网格，有一个机器人从左上角（0,0）出发，每一步可以向下或者向右走一步</li>
-<li>问有多少种不同的方式走到右下角<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210517152254213.png" alt="image-20210517152254213"></li>
+<li>问有多少种不同的方式走到右下角<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210517152254213.png" alt="image-20210517152254213"></li>
 </ol>
 <blockquote>
 <p>动态规划组成部分一：确定状态</p>
@@ -612,7 +612,7 @@
 <blockquote>
 <p>动态规划组成部分二：转移方程</p>
 </blockquote>
-<p>对于任意一个格子(i,j)，都有f[i][j]=f[i-1][j]+f[i][j-1]<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210517153631895.png" alt="image-20210517153631895"></p>
+<p>对于任意一个格子(i,j)，都有f[i][j]=f[i-1][j]+f[i][j-1]<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210517153631895.png" alt="image-20210517153631895"></p>
 <blockquote>
 <p>动态规划组成部分三：初始条件和边界情况</p>
 </blockquote>
@@ -676,7 +676,7 @@
 <p>动态规划组成部分二：转移方程</p>
 </blockquote>
 <ul>
-<li>设f[j]表示青蛙能不能跳到石头j<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210517184731890.png" alt="image-20210517184731890"></li>
+<li>设f[j]表示青蛙能不能跳到石头j<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210517184731890.png" alt="image-20210517184731890"></li>
 </ul>
 <blockquote>
 <p>动态规划组成部分三：初始条件和边界情况</p>
@@ -1000,51 +1000,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/11/12/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="串口通信">
-                        
-                        <span class="card-title">串口通信</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在计算机的设备与设备之间或集成电路之间常常需要进行数据传输，该文章包含各种通讯的基本概念以及USART的通讯协议，本文来自于b站视频总结
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            dyl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">
-                        <span class="chip bg-color">嵌入式通信原理</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2022/11/12/%E5%8A%A8%E6%80%81%E5%BA%93%E4%B8%8E%E9%9D%99%E6%80%81%E5%BA%93/">
                     <div class="card-image">
                         
@@ -1061,9 +1016,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1085,6 +1040,55 @@
                     
                     <a href="/tags/%E9%9D%99%E6%80%81%E5%BA%93/">
                         <span class="chip bg-color">静态库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/12/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="递归问题">
+                        
+                        <span class="card-title">递归问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            总结一些基础的递归问题，加深新手对递归的理解，递归思想在编程中至关重要，递归代码一般简便但也是最不容易理解的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            dyl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>

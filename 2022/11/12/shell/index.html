@@ -553,9 +553,9 @@ alias、unalias <span class="token function">cp</span>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 拷贝</span>
 <span class="token function">cat</span> <span class="token operator">&lt;</span>/etc/hosts <span class="token operator">></span>/etc/host1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210722222615506.png" alt="image-20210722222615506" style="zoom:67%;">
+<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210722222615506.png" alt="image-20210722222615506" style="zoom:67%;">
 
-<img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210722222640666.png" alt="image-20210722222640666" style="zoom:67%;">
+<img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210722222640666.png" alt="image-20210722222640666" style="zoom:67%;">
 
 
 
@@ -565,7 +565,7 @@ alias、unalias <span class="token function">cp</span>
 <span class="token function">ip</span> addr <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'inet'</span> <span class="token operator">|</span> <span class="token function">tee</span> -a <span class="token builtin class-name">test</span> <span class="token operator">|</span> <span class="token function">grep</span> eth0
 <span class="token comment"># |tee管道将输出加到其它地方，但是不会截流，还是会进入| grep eth0，-a 表示追加</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210722223113824.png" alt="image-20210722223113824"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210722223113824.png" alt="image-20210722223113824"></p>
 <h3 id="shell元字符"><a href="#shell元字符" class="headerlink" title="shell元字符"></a>shell元字符</h3><ul>
 <li>*    匹配任意多个字符 ls in* rm -rf * rm -rf *.pdf find / -name “*-eth0”</li>
 <li>?    匹配任意一个字符 touch lov loove live l7ve;ll l?ve</li>
@@ -596,11 +596,11 @@ $ <span class="token function">touch</span> yang<span class="token punctuation">
 
 <span class="token comment"># ()在子shell中执行不会改变当前shell的变量</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801220414869.png" alt="image-20210801220414869"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801220638956.png" alt="image-20210801220638956"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801220813531.png" alt="image-20210801220813531"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801221013857.png" alt="image-20210801221013857"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801221254822.png" alt="image-20210801221254822"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801220414869.png" alt="image-20210801220414869"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801220638956.png" alt="image-20210801220638956"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801220813531.png" alt="image-20210801220813531"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801221013857.png" alt="image-20210801221013857"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801221254822.png" alt="image-20210801221254822"></p>
 <h3 id="echo带颜色输出"><a href="#echo带颜色输出" class="headerlink" title="echo带颜色输出"></a>echo带颜色输出</h3><p>echo -e 能解释后面加的特殊符号</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">echo</span> -e <span class="token string">"a<span class="token entity" title="\t">\t</span>b"</span>
 
@@ -613,9 +613,9 @@ $ <span class="token builtin class-name">echo</span> -e <span class="token strin
 
 $ <span class="token builtin class-name">echo</span> -e <span class="token string">""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801222521675.png" alt="image-20210801222521675"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801222629396.png" alt="image-20210801222629396"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801222759494.png" alt="image-20210801222759494"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801222521675.png" alt="image-20210801222521675"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801222629396.png" alt="image-20210801222629396"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801222759494.png" alt="image-20210801222759494"></p>
 <h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><h4 id="变量的意义"><a href="#变量的意义" class="headerlink" title="变量的意义"></a>变量的意义</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 如果没有使用脚本，那么脚本的可扩展性会变得很差</span>
 <span class="token comment">#!/usr/bin/bash</span>
 <span class="token function">ping</span> -c1 <span class="token number">10.10</span>.10.10 <span class="token operator">&amp;></span>/dev/null <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">"10.10.10.10 is up"</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token string">"10.10.10.10 is down!
@@ -630,7 +630,7 @@ ping -c1 <span class="token variable">$ip</span> &amp;>/dev/null &amp;&amp; echo
 <span class="token comment"># 查看是什么类型</span>
 $ <span class="token builtin class-name">type</span> -a <span class="token keyword">if</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801231206346.png" alt="image-20210801231206346"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801231206346.png" alt="image-20210801231206346"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/usr/bin/bash</span>
 <span class="token assign-left variable">ip</span><span class="token operator">=</span><span class="token number">10.10</span>.10.10
 <span class="token keyword">if</span> <span class="token function">ping</span> -c1 <span class="token variable">$ip</span> <span class="token operator">&amp;></span>/dev/null<span class="token punctuation">;</span> <span class="token keyword">then</span>
@@ -662,7 +662,7 @@ $ <span class="token builtin class-name">type</span> -a <span class="token keywo
     <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$ip</span> is down"</span>
 <span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210801232530372.png" alt="image-20210801232530372"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210801232530372.png" alt="image-20210801232530372"></p>
 <h4 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/usr/bin/bash</span>
 <span class="token function">ping</span> -c1 <span class="token variable">$1</span> <span class="token operator">&amp;></span>/dev/null
 <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -eq <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
@@ -793,7 +793,7 @@ $ <span class="token builtin class-name">type</span> -a <span class="token keywo
 
 <span class="token comment"># basename 显示文件名，dirname 显示目录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802223940020.png" alt="image-20210802223940020"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802223940020.png" alt="image-20210802223940020"></p>
 <h4 id="变量的赋值方式"><a href="#变量的赋值方式" class="headerlink" title="变量的赋值方式"></a>变量的赋值方式</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 显示赋值</span>
 <span class="token assign-left variable">ip</span><span class="token operator">=</span><span class="token number">10.10</span>.10.10
 <span class="token assign-left variable">address</span><span class="token operator">=</span><span class="token string">"abc def"</span>
@@ -808,15 +808,15 @@ $ <span class="token builtin class-name">type</span> -a <span class="token keywo
 
 <span class="token comment"># $()和``都是命令替换，相互等价</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802230433771.png" alt="image-20210802230433771"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802230547030.png" alt="image-20210802230547030"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802230433771.png" alt="image-20210802230433771"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802230547030.png" alt="image-20210802230547030"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 变量强引用和弱引用,强引用'',弱引用""</span>
 强引用中的变量不会解析<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802230754850.png" alt="image-20210802230754850"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802231016849.png" alt="image-20210802231016849"></p>
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802231115673.png" alt="image-20210802231115673"></p>
-<p> <img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210802231353589.png" alt="image-20210802231353589"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802230754850.png" alt="image-20210802230754850"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802231016849.png" alt="image-20210802231016849"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802231115673.png" alt="image-20210802231115673"></p>
+<p> <img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210802231353589.png" alt="image-20210802231353589"></p>
 <h3 id="shell中变量的运算"><a href="#shell中变量的运算" class="headerlink" title="shell中变量的运算"></a>shell中变量的运算</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 方法一：expr</span>
 $ <span class="token function">expr</span> <span class="token number">1</span>+2
 $ <span class="token function">expr</span> <span class="token variable">$num1</span>+<span class="token variable">$num2</span>
@@ -841,7 +841,7 @@ $ <span class="token builtin class-name">let</span> i++<span class="token punctu
 
 
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210804222629184.png" alt="image-20210804222629184"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210804222629184.png" alt="image-20210804222629184"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 展示当前内存使用百分比</span>
 <span class="token comment">#!/usr/bin/bash</span>
 <span class="token assign-left variable">mem_used</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">free</span> -m <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">'^Mem:'</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'&#123;print <span class="token variable">$3</span>&#125;'</span><span class="token variable">`</span></span>
@@ -852,7 +852,7 @@ $ <span class="token builtin class-name">let</span> i++<span class="token punctu
 
 <span class="token function">bash</span> -vx text.sh <span class="token comment"># 以调试的方式运行脚本</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210804223829479.png" alt="image-20210804223829479"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210804223829479.png" alt="image-20210804223829479"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/usr/bin/bash</span>
 <span class="token assign-left variable">ip</span><span class="token operator">=</span><span class="token number">10.10</span>.10.10
 <span class="token assign-left variable">i</span><span class="token operator">=</span><span class="token number">1</span>
@@ -876,7 +876,7 @@ $ <span class="token builtin class-name">let</span> i++<span class="token punctu
 
 <span class="token comment"># bc 进入交互计算器模式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210804224815089.png" alt="image-20210804224815089"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210804224815089.png" alt="image-20210804224815089"></p>
 <h4 id="变量内容的删除和替换"><a href="#变量内容的删除和替换" class="headerlink" title="变量内容的删除和替换"></a>变量内容的删除和替换</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ <span class="token assign-left variable">url</span><span class="token operator">=</span>www.baidu.com
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;<span class="token operator">#</span>url&#125;</span>	<span class="token comment"># 输出url有多少字符</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">#</span>*.&#125;</span>	
@@ -884,31 +884,31 @@ $ <span class="token builtin class-name">echo</span> <span class="token variable
 
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">##</span>*.&#125;</span> <span class="token comment"># 从前往后，最长匹配，贪婪匹配</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805222437452.png" alt="image-20210805222437452"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805222437452.png" alt="image-20210805222437452"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">%</span>.*&#125;</span>	<span class="token comment">#从后往前，最短匹配</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">%%</span>.*&#125;</span>	<span class="token comment">#从后往前，最长匹配</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805222753716.png" alt="image-20210805222753716"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805222753716.png" alt="image-20210805222753716"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 索引以及切片</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">:</span>0<span class="token operator">:</span>5&#125;</span>	<span class="token comment"># 0是索引开始数五个</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">:</span>5<span class="token operator">:</span>5&#125;</span>	<span class="token comment"># 5是索引开始数五个</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">:</span>5&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805223537657.png" alt="image-20210805223537657"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805223537657.png" alt="image-20210805223537657"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 内容替换</span>
 $ <span class="token assign-left variable">url</span><span class="token operator">=</span>www.baidu.com
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">/</span>baidu<span class="token operator">/</span>studylove&#125;</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">/</span>w<span class="token operator">/</span>W&#125;</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;url<span class="token operator">/</span><span class="token operator">/</span>w<span class="token operator">/</span>W&#125;</span>	<span class="token comment"># 贪婪匹配</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805224054202.png" alt="image-20210805224054202"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805224054202.png" alt="image-20210805224054202"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 变量选择赋值</span>
 <span class="token comment"># 如果变量没有定义则将则进行赋值，否则不赋值</span>
 $ <span class="token builtin class-name">unset</span> var1
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;var1&#125;</span>
 $ <span class="token builtin class-name">echo</span> <span class="token variable">$&#123;var-studylove&#125;</span>	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805224625345.png" alt="image-20210805224625345"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805224625345.png" alt="image-20210805224625345"></p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 变量没有被赋值(包括空值)：使用新值赋值</span>
 <span class="token comment"># 变量有被赋值：不会被替换</span>
 
@@ -923,7 +923,7 @@ $ <span class="token builtin class-name">echo</span> <span class="token variable
 <span class="token comment"># :-是变量未赋值或者未定义则进行赋值</span>
 <span class="token comment"># -是变量未定义才会赋值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210805225145260.png" alt="image-20210805225145260"></p>
+<p><img src="https://raw.githubusercontent.com/D-light-D/picture/main/image-20210805225145260.png" alt="image-20210805225145260"></p>
 <h3 id="条件测试"><a href="#条件测试" class="headerlink" title="条件测试"></a>条件测试</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 条件测试三种方法</span>
 <span class="token comment"># test条件表达式</span>
 <span class="token assign-left variable">back_dir</span><span class="token operator">=</span>/var/mydata
@@ -1506,19 +1506,19 @@ setenforce <span class="token number">0</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/12/QT/">
+                <a href="/2022/11/12/C++%E5%A4%9A%E6%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="QT实例">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="C++多态">
                         
-                        <span class="card-title">QT实例</span>
+                        <span class="card-title">C++多态</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            该文主要是提供给博主复习，可读性较差，不介意阅读，主要讲解QT的几个典型实例，QT的基础使用，该文章来自于博主视频总结
+                            C++三大特性封装、继承、多态，该文讲解C++多态实现以及基本原理讲解，代码比较抽象，可以配合图来理解，重点是要搞懂虚函数列表的问题
                         
                     </div>
                     <div class="publish-info">
@@ -1536,8 +1536,8 @@ setenforce <span class="token number">0</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/QT/">
-                        <span class="chip bg-color">QT</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
                     </a>
                     
                 </div>
