@@ -1,0 +1,1519 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="TCP协议, studylove">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>TCP协议 | studylove</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script src="/live2d-widget/autoload.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">studylove</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">studylove</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">TCP协议</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TCP/">
+                                <span class="chip bg-color">TCP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-11-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-11-12
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="UDP和TCP对比"><a href="#UDP和TCP对比" class="headerlink" title="UDP和TCP对比"></a>UDP和TCP对比</h2><blockquote>
+<p>UDP和TCP是TCP/IP体系结构传输层中的两个重要协议，使用频率仅次于网络层的IP协议</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161037488.png" alt="image-20210701161037488"></p>
+<blockquote>
+<p>UDP是用户数据报协议，TCP是传输控制协议，这里的连接指的是逻辑连接关系而不是物理连接，UDP是无连接的，TCP是面向连接的</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161227368.png" alt="image-20210701161227368"></p>
+<blockquote>
+<p>UDP支持单播、多播以及广播，TCP仅支持单播</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701161435700.png" alt="image-20210701161435700"></p>
+<blockquote>
+<p>UDP直接给应用层报文添加一个UDP首部，UDP对应用进程交下来的报文既不合并也不拆分，保留这些报文的边界，接收方的UDP收到UDP用户数据报后去掉UDP首部后交给应用程序，UDP是面向应用报文的</p>
+</blockquote>
+<blockquote>
+<p>发送方的TCP把应用进程交付下来的数据块仅仅看作是一连串的无结构的字节流，将它们编号并存储在自己的发送缓存中，TCP根据发送策略从发送缓存中提取一定数量的字节，构建TCP报文段并发送，接收方的TCP一方面从接收到的TCP报文段中，取出数据载荷部分并存储在接收缓存中， 一方面将接收缓存中的一些字节交付给应用进程，也就是TCP是面向字节流的，这正是TCP实现可靠传输、流量控制以及拥塞控制的基础</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701162433099.png" alt="image-20210701162433099"></p>
+<blockquote>
+<p>UDP向上提供无连接不可靠传输服务</p>
+</blockquote>
+<blockquote>
+<p>TCP向上提供面向连接的可靠传输服务</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163004787.png" alt="image-20210701163004787"></p>
+<blockquote>
+<p>UDP用户数据报首部仅8字节</p>
+</blockquote>
+<blockquote>
+<p>TCP报文段首部最小20字节，最大60字节</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163228403.png" alt="image-20210701163228403"></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701163316806.png" alt="image-20210701163316806"></p>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><blockquote>
+<p>一般来说，我们总是希望数据传输得更快一些，但是如果发送方把数据发送得过快，接收方就可能来不及接收，这就会造成数据的丢失</p>
+</blockquote>
+<blockquote>
+<p>所谓流量控制就是让发送方的发送速率不要太快，要让接收方来得及接收</p>
+<p>利用滑动窗口机制可以很方便在TCP连接上实现对发送方的流量控制</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>图片</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164218140.png" alt="image-20210701164218140"></td>
+<td>ack=201表示201前的数据已经全部接收希望收到201及其后续数据，rwnd是TCP报文段首部中的窗口字段，取值300表示自己接收窗口为300</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164550174.png" alt="image-20210701164550174"></td>
+<td>主机A收到主机B对它们的累计确认，现在可将发送缓存中序号1~200的字节数据全部删除</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701164835436.png" alt="image-20210701164835436"></td>
+<td>主机A的重传计时器超时了，主机A重新封装成一个TCP报文段发送出去，发送窗口内的数据已经全部发送了，不能发送新的数据，等待主机B的累计确认</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165225716.png" alt="image-20210701165225716"></td>
+<td>主机A通过主机B返回的rwnd调整自己的窗口</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165431752.png" alt="image-20210701165431752"></td>
+<td>主机A收到cwnd为0，于是自己的发送窗口调整成了0，不能再继续发送数据了</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701165600989.png" alt="image-20210701165600989"></td>
+<td>为了解决这个问题，TCP为每个连接设有一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器，如果计时器超时就发送一个零窗口探测报文，仅携带一字节的数据，对方确认这个探测报文段时，给出现在的接收窗口值，如果接收窗口仍然是0，则重新启动计时器</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170043712.png" alt="image-20210701170043712"></td>
+<td>TCP规定，即使接收窗口为零，页必须接收零窗口探测报文段，确认报文段以及携带有紧急数据的报文段，如果零窗口探测报文段丢失也不会发生死锁，因为零窗口探测报文段也有重传计时器，当重传计时器超时，零窗口探测报文段会被重传</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701170405402.png" alt="image-20210701170405402"></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<ul>
+<li>TCP接收方利用自己的接收窗口的大小来限制发送方发送窗口的大小</li>
+<li>TCP发送方收到接收方的零窗口通知后，应启动持续计时器。持续计时器超时后，向接收方发送零窗口探测报文</li>
+</ul>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><blockquote>
+<p>在某时间，若对网络中某一个资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏，这种情况就叫做拥塞</p>
+<p>在计算机网络中的链路容量(即带宽)、交换节点中的缓存和处理机等，都是网络的资源</p>
+<p>若出现拥塞而不进行控制，整个网络的吞吐量将随输入负荷的增大而下降</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183150773.png" alt="image-20210701183150773"></p>
+<p>输入负载：代表单位时间内输入给网络的分组数量</p>
+<p>吞吐量：代表单位时间内从网络输出的分组数量</p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183237894.png" alt="image-20210701183237894"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183352431.png" alt="image-20210701183352431"></p>
+<h3 id="慢开始"><a href="#慢开始" class="headerlink" title="慢开始"></a>慢开始</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183812184.png" alt="image-20210701183812184"></p>
+<p>传输轮次是指发送方给接收方发送数据报文段后，接收方给发送方发回相应的确认报文段</p>
+<h3 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701183922153.png" alt="image-20210701183922153"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184336075.png" alt="image-20210701184336075"></p>
+<blockquote>
+<p>慢开始是指一开始向网络注入的报文段少，并不是指拥塞窗口cwnd增长速度慢</p>
+<p>拥塞避免并非完全能够避免拥塞，而是指在拥塞避免截断将拥塞窗口控制为按线性规律增长，使网络比较不容易出现拥塞</p>
+</blockquote>
+<h3 id="快重传和快恢复"><a href="#快重传和快恢复" class="headerlink" title="快重传和快恢复"></a>快重传和快恢复</h3><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184716688.png" alt="image-20210701184716688"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184820312.png" alt="image-20210701184820312"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701184924738.png" alt="image-20210701184924738"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185057454.png" alt="image-20210701185057454"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185154796.png" alt="image-20210701185154796"></p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701185243960.png" alt="image-20210701185243960"></p>
+<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><blockquote>
+<p>超时重传时间的选择是TCP最复杂的问题之一</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>图片</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192115710.png" alt="image-20210701192115710"></td>
+<td>如果超时重传时间很小就会造成，不必要的重传，使网络负荷增大</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192345846.png" alt="image-20210701192345846"></td>
+<td>如果超时重传时间过大，会造成，网络的空闲时间增大，降低了传输效率</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192449037.png" alt="image-20210701192449037"></td>
+<td>超时重传时间RTO应略大于往返时间RTT</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192727082.png" alt="image-20210701192727082"></td>
+<td>RTO计算公式</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701192855763.png" alt="image-20210701192855763"></td>
+<td>RTT测量的困难</td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193028857.png" alt="image-20210701193028857"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193121107.png" alt="image-20210701193121107"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193250734.png" alt="image-20210701193250734"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193313889.png" alt="image-20210701193313889"></p>
+<h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><blockquote>
+<p>TCP基于以字节为单位的滑动窗口来实现可靠传输</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>图片</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701193809369.png" alt="image-20210701193809369"></td>
+<td>TCP强烈前沿不推荐收缩，因为很可能发送方在收到这个通知之前就已经发送了窗口中的许多数据，现在又要收缩窗口不让发送，可能会就会产生错误</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194209559.png" alt="image-20210701194209559"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194354648.png" alt="image-20210701194354648"></td>
+<td>接收方只能对按序收到的数据中的最高序列给出确认，因此发送的确认报文段中ack=31表示之前的数据已经收到需要接收31及其以后的数据</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194540728.png" alt="image-20210701194540728"></td>
+<td>到目前为止可以将31到33号数据交付给应用进程，并将它们从接收缓存中删除</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701194639311.png" alt="image-20210701194639311"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195123419.png" alt="image-20210701195123419"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195247618.png" alt="image-20210701195247618"></p>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195341665.png" alt="image-20210701195341665"></p>
+<h2 id="TCP连接"><a href="#TCP连接" class="headerlink" title="TCP连接"></a>TCP连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701195548491.png" alt="image-20210701195548491"></p>
+<blockquote>
+<p>TCP连接建立要解决以下三个问题</p>
+</blockquote>
+<ul>
+<li>使TCP双方能够确知对方的存在；</li>
+<li>使TCP双方能够协商一些参数(如最大窗口值，是否使用窗口扩大选项和时间戳选项以及服务质量等)；</li>
+<li>使TCP双方能够对运输实体资源(如缓存大小、连接表中的项目等)进行分配</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>图片</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201318209.png" alt="image-20210701201318209"></td>
+<td>TCP服务器进程首先创建传输控制块，用来存储TCP连接中的重要信息，然后进入监听状态</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201456617.png" alt="image-20210701201456617"></td>
+<td>TCP服务器进程是被动等待来自TCP客户进程的连接请求而不是主动发起，因此称为被动打开连接</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701201611483.png" alt="image-20210701201611483"></td>
+<td>TCP客户端进程也是首先创建传输控制块</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202023163.png" alt="image-20210701202023163"></td>
+<td>向TCP服务器进程发送TCP连接请求报文段，并进入同步已发送状态，SYN被设置为1，表明这是一个TCP连接请求报文段，序号字段seq被设置了一个初始值x，TCP规定SYN被设置为1的报文段不能携带数据，但要消耗掉一个序号</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202047602.png" alt="image-20210701202047602"></td>
+<td>如果同意建立连接，则向TCP客户进程发送TCP连接请求确认报文段，并进入同步已接收状态，不能携带数据，因为SYN被设置为1，但要消耗一个序号</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701202359853.png" alt="image-20210701202359853"></td>
+<td>发送普通的TCP确认报文段，并进入连接已建立状态，ACK=1，表明这是一个普通的TCP确认报文段，序号字段seq被设置为x+1，TCP规定普通的TCP确认报文段可以携带数据，但如果不携带数据，则不消耗序号，在这种情况下发送的下一个数据报文段序号仍是x+1</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>TCP客户端进程最后为什么还要发送一个普通的TCP确认报文段，是否多余，换句话说是否能简化为两报文握手</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205020648.png" alt="image-20210701205020648"></p>
+<blockquote>
+<p>综上所述，采用三报文握手是为了防止已失效的连接请求报文段突然又传送到了TCP服务器，因而导致错误</p>
+</blockquote>
+<blockquote>
+<p>小结</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701205435242.png" alt="image-20210701205435242"></p>
+<h2 id="TCP释放连接"><a href="#TCP释放连接" class="headerlink" title="TCP释放连接"></a>TCP释放连接</h2><p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210453863.png" alt="image-20210701210453863"></p>
+<blockquote>
+<p>注意：FIN=1的报文段不能携带数据</p>
+</blockquote>
+<blockquote>
+<p>如果没有2MSL会发生什么？</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210753220.png" alt="image-20210701210753220"></p>
+<blockquote>
+<p>TCP保活计时器</p>
+</blockquote>
+<p><img src="https://gitee.com/cabbage-is-white-and-white/picture/raw/master/image-20210701210936970.png" alt="image-20210701210936970"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">dyl</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://d-light-d.github.io/2022/11/12/TCP/">https://d-light-d.github.io/2022/11/12/TCP/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">dyl</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TCP/">
+                                    <span class="chip bg-color">TCP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/11/12/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="递归问题">
+                        
+                        <span class="card-title">递归问题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            总结一些基础的递归问题，加深新手对递归的理解，递归思想在编程中至关重要，递归代码一般简便但也是最不容易理解的
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            dyl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/11/12/system-V-IPC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux进程间通信-System V IPC">
+                        
+                        <span class="card-title">Linux进程间通信-System V IPC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            System V引入了三种高级进程间的通信进制：消息队列、共享内存、信号量，IPC对象(消息队列、共享内存和信号量)存在于内核中而不是文件系统中，由用户控制释放，不像管道的释放由内核控制，IPC对象通过其标识符来引用和访问，所有IPC对象在内核空间有唯一性标志ID，在用户空间的唯一性标识符称为key
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            dyl
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
+                    <a href="/tags/Linux%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1/">
+                        <span class="chip bg-color">Linux进程通信</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('1000')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: studylove<br />'
+            + '文章作者: studylove<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">studylove</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">36.3k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2019";
+                        var startMonth = "6";
+                        var startDate = "28";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2021012238号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/D-light-D" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2931724477" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2931724477" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    
+	<!--动态线条背景-->
+	<script type="text/javascript"
+	color="122 103 238" opacity='0.7' zIndex="-2" count="100" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+	</script>
+
+	<!--鼠标烟花爆炸效果-->
+	<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+	<script type="text/javascript" src="/js/fireworks.js"></script> -->
+
+	<!--樱花效果-->
+	<!--<script type="text/javascript">
+	//只在桌面版网页启用特效
+	// var windowWidth = $(window).width();
+	// if (windowWidth > 768) {
+	//     document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+	// }
+	</script> -->
+     <!-- 动态标题 -->
+    <script type="text/javascript"> var OriginTitile = document.title, st; 
+        document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) 
+    </script>
+
+
+</body>
+
+</html>
